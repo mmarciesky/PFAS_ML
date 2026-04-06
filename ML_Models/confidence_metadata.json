@@ -1,0 +1,10 @@
+{
+  "conformal_quantile_80": 1.4575691800841781,
+  "conformal_quantile_90": 2.7130513198941344,
+  "conformal_quantile_95": 5.966063120265503,
+  "domain_threshold": 0.43807017543859644,
+  "n_calibration_samples": 701,
+  "empirical_coverage_90": 0.9001426533523538,
+  "residual_mean": 1.4417348312942666,
+  "residual_std": 2.927600414962769
+}

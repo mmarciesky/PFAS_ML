@@ -1,0 +1,4 @@
+SMILES,solvent
+O=C(O)C(F)(F)C(F)(F)C(F)(F)F,gas
+FC(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F,water
+FC(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F,gas

@@ -1,0 +1,42 @@
+{
+  "model": "XGBoost",
+  "performance": {
+    "mae": 1.4417150932282374,
+    "mae_std": 0.12225024388522411,
+    "rmse": 3.248002261371424,
+    "rmse_std": 0.31801580334528357,
+    "r2": 0.9532713968746069,
+    "r2_std": 0.007768328736400717
+  },
+  "confidence": {
+    "conformal_quantile_80": 1.4575691800841781,
+    "conformal_quantile_90": 2.7130513198941344,
+    "conformal_quantile_95": 5.966063120265503,
+    "empirical_coverage_90": 0.9001426533523538,
+    "n_calibration_samples": 701,
+    "domain_threshold": 0.43807017543859644,
+    "domain_k_neighbors": 5
+  },
+  "hyperparameters": {
+    "colsample_bytree": 0.8,
+    "gamma": 0.5,
+    "learning_rate": 0.1,
+    "max_depth": 6,
+    "min_child_weight": 3,
+    "n_estimators": 300,
+    "reg_alpha": 1,
+    "reg_lambda": 1,
+    "subsample": 0.7
+  },
+  "training_info": {
+    "n_samples": 701,
+    "n_features": 6146,
+    "feature_type": "Morgan fingerprints (2048 bits, radius=2) + 1 solvent feature",
+    "solvent_options": [
+      "gas",
+      "water"
+    ],
+    "cv_strategy": "5-fold grouped by parent PFAS"
+  },
+  "date_trained": "2026-03-26"
+}
