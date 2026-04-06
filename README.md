@@ -1,10 +1,10 @@
 # PFAS Bond Dissociation Energy Prediction
 
-Machine learning models for predicting homolytic bond dissociation energies (BDEs) in per- and polyfluoroalkyl substances (PFAS).
+Machine learning model for predicting homolytic bond dissociation energies (BDEs) in per- and polyfluoroalkyl substances (PFAS).
 
-# PFAS BDE PREDICTION - PRODUCTION NOTEBOOK
+# PFAS BDE PREDICTION 
 
-This notebook provides a simple interface for predicting Bond Dissociation 
+This notebook/script provides a simple interface for predicting Bond Dissociation 
 Energies (BDEs) of PFAS molecules using a pre-trained XGBoost model.
 
 USAGE:
