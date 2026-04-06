@@ -4,7 +4,6 @@ Machine learning models for predicting homolytic bond dissociation energies (BDE
 
 # PFAS BDE PREDICTION - PRODUCTION NOTEBOOK
 
-"""
 This notebook provides a simple interface for predicting Bond Dissociation 
 Energies (BDEs) of PFAS molecules using a pre-trained XGBoost model.
 
@@ -27,8 +26,7 @@ USAGE:
 
 ### Installation
 ##### 1. Clone the repository
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com/mmarciesky/PFAS_ML.git
 
 ##### 2. Create and activate a virtual environment
 python -m venv venv
@@ -40,18 +38,11 @@ pip install -r requirements.txt
 ##### 4. Run a test prediction
 python predict.py --input Data/Test_ML.csv --output results/test_output.csv --visualize results/figures --validate --verbose
 
-### Predict BDEs
-```python
-from src.bde_utils import predict_bde
+ or use Notebook version 
+ 
+Production_PFAS_BDE_Predictor
 
-# Predict for a molecule
-bde = predict_bde("C(C(C(F)(F)F)(F)F)(F)F", solvent="water")
-print(f"BDE: {bde:.2f} kcal/mol")
-```
-
-Or use the notebook: `notebooks/Production_PFAS_BDE_Predictor.ipynb`
-
-## 📊 Model Details
+##  Model Details
 
 - **Algorithm**: XGBoost (hyperparameter tuned)
 - **Features**: Morgan fingerprints (radius=2, 2048 bits) + solvent encoding
@@ -83,7 +74,7 @@ See `notebooks/ML_Model_Training.ipynb` for full analysis.
 ├──  predict.py # python predictor version
 ```
 
-## 🔬 Reproducibility
+##  Reproducibility
 
 **Important**: Results may vary across package versions due to numerical precision differences in underlying libraries (NumPy BLAS, XGBoost internals).
 
@@ -93,22 +84,7 @@ To reproduce exactly:
 ```bash
 pip install -r requirements.txt
 ```
-## 🚀 Usage
-
-### Command Line Interface
-
-The prediction script supports multiple modes and options:
-
-#### Complete Example (all features)
-```bash
-python scripts/predict.py \
-  --input Data/molecules.csv \
-  --output results/predictions.csv \
-  --visualize results/figures/ \
-  --validate \
-  --verbose
-```
-input (path) and output (path) is always necessarry. --visulaize (folder) will give images of predictions, --validate will give DFT references (if applicable), --verbose is for printouts. 
+## Usage
 
 ### Input File Format
 
@@ -126,9 +102,6 @@ CC(C(=O)O)C(F)(F)F,TFA,water
 **Optional columns:**
 - `solvent`: Solvent environment (`gas` or `water`). Defaults to `gas` if not provided.
 - `name`: Molecule names for reference
-
-### Output
-
 The script generates:
 
 1. **CSV file** (`--output`): Contains all bonds with predicted BDEs
@@ -138,8 +111,8 @@ The script generates:
    - One file per solvent: `molecules_bde_gas.png`, `molecules_bde_water.png`
    
 3. **Validation metrics** (`--validate`, optional): Comparison to DFT reference data if available
-
-### Command Line Options
+   
+**Command Line Options**
 ```
 usage: predict.py [-h] --input INPUT --output OUTPUT [--verbose] 
                   [--visualize VISUALIZE] [--validate]
@@ -158,20 +131,23 @@ optional arguments:
 ```
 
 
+
+
+
+
 ##  Citation
-```
-If you use this tool in your research, please cite: \n
-App: Marciesky, M. PFAS BDE Predictor (v0.1-preliminary). 2026. [GitHub](https://github.com/mmarciesky/PFAS_ML) link — DOI forthcoming \n
+
+If you use this tool in your research, please cite: 
+
+App: Marciesky, M. PFAS BDE Predictor (v0.1-preliminary). 2026. [GitHub](https://github.com/mmarciesky/PFAS_ML) link — DOI forthcoming 
+
 Database: PFAS Quantum Chemistry Database. [GitHub](https://github.com/mmarciesky/PFAS_Database) — DOI forthcoming via Zenodo
-```
+
 
 
 ## Acknowledgments
-```
-This tool was developed with the support of the Ng Lab and Keith Lab
-at University of Pittsburgh. 
-```
+This tool was developed with the support of the Ng Lab and Keith Lab at University of Pittsburgh. 
 
-## 📄 License
+## License
 
 MIT License
