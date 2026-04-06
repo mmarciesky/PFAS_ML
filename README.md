@@ -22,7 +22,7 @@ USAGE:
 - DFT level: ωB97X-V/def2-TZVPD
 
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 ##### 1. Clone the repository
@@ -64,7 +64,7 @@ Production_PFAS_BDE_Predictor
 
 See `notebooks/ML_Model_Training.ipynb` for full analysis.
 
-## 📁 Repository Structure
+##  Repository Structure
 ```
 ├── data/              # Training data and figures
 ├── App/               # for webapp
