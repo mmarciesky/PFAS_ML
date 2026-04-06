@@ -47,17 +47,25 @@ input_path = None
 run_button = False
 sns.set_style("whitegrid")
 st.caption("Model version: v0.1 (Preliminary)")
-st.title("PFAS BDE Predictor")
+col1, col2 = st.columns([3, 1])
+with col1:
+    st.title("PFAS BDE Predictor")
+    st.header("Input a SMILES string or CSV file with a SMILES column:" )
+with col2:
+    st.image("App/assets/pfas.png", use_container_width=True)
 
 ### Handle inputs for single smiles or CSV file
-st.header("Input a SMILES string or CSV file with a SMILES column:" )
+
 input_type = st.selectbox(
     "Choose input type:",
     ["Single SMILES", "Upload CSV"]
 )
 validate = st.checkbox("Include training data validation")
 if input_type == "Single SMILES":
-    smiles = st.text_input("Enter a SMILES string:")
+    smiles = st.text_input(
+    "Enter a SMILES string:",
+    value="FC(F)(F)C(F)(F)C(F)(F)C(=O)[O-]"  # example PFAS
+)
     solvent = st.selectbox(
         "Choose solvent:",
         ["gas", "water"]

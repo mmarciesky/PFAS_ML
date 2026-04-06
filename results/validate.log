@@ -1,5 +1,5 @@
-Found 8 matches with DFT data
-  MAE:  2.672 kcal/mol
-  RMSE: 6.400 kcal/mol
-  Bias: +2.195 kcal/mol
-  Max:  18.036 kcal/mol
+Found 6 matches with DFT data
+  MAE:  0.549 kcal/mol
+  RMSE: 0.649 kcal/mol
+  Bias: +0.190 kcal/mol
+  Max:  0.950 kcal/mol
