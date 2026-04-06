@@ -52,8 +52,9 @@ with col1:
     st.title("PFAS BDE Predictor")
     st.header("Input a SMILES string or CSV file with a SMILES column:" )
 with col2:
-    st.image("App/assets/pfas.png", use_container_width=True)
-
+    img_path = Path(__file__).parent / "assets" / "pfas.png"
+    st.image(img_path, use_container_width=True)
+    
 ### Handle inputs for single smiles or CSV file
 
 input_type = st.selectbox(
