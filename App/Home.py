@@ -42,7 +42,12 @@ from bde_utils import (
 from predict import ( load_model,fragment_and_prepare_bonds,check_applicability_domain,generate_predictions)
 
 warnings.filterwarnings('ignore')
-
+banner_imag=Path(__file__).parent / "assets" / "PFAS_predict.png"
+st.set_page_config(
+    page_title="PFAS-Predict",
+    page_icon=banner_image,
+    layout="wide"
+)
 input_path = None
 run_button = False
 sns.set_style("whitegrid")
