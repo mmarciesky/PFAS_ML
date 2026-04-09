@@ -45,7 +45,7 @@ warnings.filterwarnings('ignore')
 banner_imag=Path(__file__).parent / "assets" / "PFAS_predict.png"
 st.set_page_config(
     page_title="PFAS-Predict",
-    page_icon=banner_image,
+    page_icon=banner_imag,
     layout="wide"
 )
 input_path = None
