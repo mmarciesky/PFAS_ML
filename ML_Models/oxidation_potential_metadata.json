@@ -1,0 +1,37 @@
+{
+  "target": "oxidation_potential_V_vs_SHE",
+  "hyperparameters": {
+    "n_estimators": 439,
+    "max_depth": 3,
+    "learning_rate": 0.04817055221572153,
+    "subsample": 0.997248724562845,
+    "colsample_bytree": 0.8010827265165739,
+    "min_child_weight": 1,
+    "gamma": 0.00040215500420812903,
+    "reg_alpha": 0.19422951862741877,
+    "reg_lambda": 0.7496648757395366
+  },
+  "confidence": {
+    "conformal_quantile_80": 0.12917015466476536,
+    "conformal_quantile_90": 0.4415484420789405,
+    "conformal_quantile_95": 0.5455643674172795,
+    "domain_threshold": 0.377174688057041,
+    "domain_threshold_percentile": 10,
+    "domain_threshold_method": "leave-one-out mean top-5 Tanimoto similarity within training set"
+  },
+  "training_info": {
+    "n_dev_samples": 30,
+    "n_unique_groups": 30,
+    "cv_splits": 5,
+    "feature_type": "Parent Morgan fingerprint + categorical flags"
+  },
+  "date_trained": "2026-08-15",
+  "performance": {
+    "cv_mae": 0.17507688123043746,
+    "cv_mae_std": 0.18895020071180502,
+    "cv_rmse": 0.3184827360489201,
+    "cv_rmse_std": 0.37778421377290644,
+    "cv_r2": 0.6737800371131846,
+    "cv_r2_std": 0.4435637229520827
+  }
+}

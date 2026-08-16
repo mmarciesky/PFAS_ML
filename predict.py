@@ -46,7 +46,15 @@ sns.set_style("whitegrid")
 # ============================================================================
 # MODEL LOADING
 # ============================================================================
+from rdkit.Chem.Draw import rdMolDraw2D
+from PIL import Image
+import io
 
+def draw_mol_with_bond_notes(mol, size=(500, 500)):
+    drawer = rdMolDraw2D.MolDraw2DCairo(size[0], size[1])
+    rdMolDraw2D.PrepareAndDrawMolecule(drawer, mol)
+    drawer.FinishDrawing()
+    return Image.open(io.BytesIO(drawer.GetDrawingText()))
 def load_model(model_dir='ML_Models'):
     """
     Load pre-trained XGBoost model, solvent encoder, and confidence artifacts.
@@ -153,18 +161,8 @@ def fragment_and_prepare_bonds(df, verbose=False):
 # ============================================================================
 
 def check_applicability_domain(parent_smiles, frag1_smiles, frag2_smiles,
-                                solvent, training_fps, threshold,
+                                solvent, training_fps, threshold, encoder,
                                 radius=2, nBits=2048):
-    """
-    Build concatenated fingerprint (parent + frag1 + frag2 + solvent) matching
-    training feature format (6145 bits), compute mean Tanimoto similarity to
-    5 nearest neighbors in training set.
-
-    Returns
-    -------
-    mean_sim : float
-    in_domain : bool
-    """
     bits = []
     for smi in [parent_smiles, frag1_smiles, frag2_smiles]:
         mol = Chem.MolFromSmiles(smi) if smi else None
@@ -174,7 +172,8 @@ def check_applicability_domain(parent_smiles, frag1_smiles, frag2_smiles,
             fp = AllChem.GetMorganFingerprintAsBitVect(mol, radius=radius, nBits=nBits)
             bits.extend(fp.ToList())
 
-    bits.append(1 if solvent == 'water' else 0)
+    solvent_onehot = encoder.transform([[solvent]]).flatten()
+    bits.extend([int(round(b)) for b in solvent_onehot])
     query_fp = CreateFromBitString("".join(str(b) for b in bits))
 
     sims = DataStructs.BulkTanimotoSimilarity(query_fp, training_fps)
@@ -229,7 +228,7 @@ def generate_predictions(df_bonds, model, encoder, training_fps, metadata, verbo
 
             ad_score, in_dom = check_applicability_domain(
                 row['Parent_SMILES'], row['Frag1_SMILES'], row['Frag2_SMILES'],
-                row['solvent'], training_fps, domain_threshold
+                row['solvent'], training_fps, domain_threshold, encoder
             )
             in_domain_list.append(in_dom)
             ad_scores.append(ad_score)
@@ -310,7 +309,9 @@ def visualize_predictions(df_bonds, output_dir=None, mols_per_row=3, verbose=Fal
                     label += " Warning"
                 mol.GetBondWithIdx(bond_idx).SetProp('bondNote', label)
 
-        img = Draw.MolToImage(mol, size=(500, 500))
+        # was:
+        # img = Draw.MolToImage(mol, size=(500, 500))
+        img = draw_mol_with_bond_notes(mol, size=(500, 500))
 
         if solvent not in image_maps:
             image_maps[solvent] = {}

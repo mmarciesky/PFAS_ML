@@ -106,7 +106,7 @@ styled_metric(stat_cols[1], "BDE values computed",
 styled_metric(stat_cols[2], "Solvents covered",
               len(solvents_seen) if solvents_seen else "—", ACCENTS[2])
 stat_cols[2].caption(", ".join(sorted(solvents_seen)) if solvents_seen else "—")
-styled_metric(stat_cols[3], "ML models available", 1, ACCENTS[3])
+styled_metric(stat_cols[3], "Models available", 3, ACCENTS[3])
 
 # ---------------------------------------------------------------------------
 # Row 2: property-specific counts (unique molecules with each value)
@@ -136,14 +136,16 @@ for i, (col, (label, colname)) in enumerate(zip(stat_cols2, property_labels)):
 st.divider()
 st.subheader("Explore the platform")
 
-card_cols = st.columns(2)
+card_cols = st.columns(3)
 feature_card(card_cols[0], "Data Explorer",
              "Browse the curated PFAS database — properties, structures, and bond dissociation energies.",
              "pages/4_Data_Explorer.py", ACCENTS[2])
 feature_card(card_cols[1], "BDE Predictor",
              "Predict bond dissociation energies for a PFAS molecule from a SMILES string or CSV upload.",
              "pages/0_Predict_BDE.py", ACCENTS[0])
-
+feature_card(card_cols[2], "Redox Predictor",
+             "Predict the oxidation and reduction potential for a PFAS molecule from a SMILES string or CSV upload.",
+             "pages/5_Redox_Predictor.py", ACCENTS[1])
 st.caption("More predictive models are planned for this platform.")
 
 # ---------------------------------------------------------------------------
@@ -160,7 +162,7 @@ st.caption(
 
 roadmap = [
     ("BDE Model", "Preliminary", "pages/0_Predict_BDE.py"),
-    ("Redox Model", "Coming soon", None),
+    ("Redox Model", "Preliminary", "pages/0_Predict_BDE.py"),
     ("Partition Coefficient Model", "Coming soon", None),
     ("Dipole Moment Model", "Coming soon", None),
     ("HOMO-LUMO Gap Model", "Coming soon", None),
@@ -179,7 +181,36 @@ st.divider()
 with st.container(border=True):
     st.markdown("**Toxicology Model (LD50)** — *downstream, consumes the features above*")
     st.caption("Coming soon — depends on the predictor models being complete enough to generate reliable feature sets.")
+st.markdown("## Platform Expansion")
 
+st.markdown("""
+
+This model now supports gas, water, and DMSO phases. The platform has also expanded 
+beyond BDE to include a **Redox Potential Predictor** (oxidation and reduction potential).
+
+In development:
+- Dipole moment and HOMO-LUMO gap predictors  
+- A downstream toxicology (LD50) model, built on top of these predictors as features  
+- A significantly expanded PFAS quantum chemistry dataset  
+
+These improvements aim to enable broader chemical coverage and more comprehensive reactivity insights.
+""", unsafe_allow_html=True)
+
+# ── Citation ──────────────────────────────────────────────────────────────────
+st.markdown("""
+## Citation
+
+If you use this tool in your research, please cite: \n
+App: Marciesky, M. PFAS BDE Predictor (v0.1-preliminary). 2026. [GitHub](https://github.com/mmarciesky/PFAS_ML) link — DOI forthcoming \n
+Database: PFAS Quantum Chemistry Database. [GitHub](https://github.com/mmarciesky/PFAS_Database) — DOI forthcoming via Zenodo
+""")
+
+st.markdown("""
+## Acknowledgments
+This tool was developed with the support of the Ng Lab and Keith Lab
+at University of Pittsburgh. 
+""")
+st.divider()
 ##############################
 # SIDE BAR #
 #######################

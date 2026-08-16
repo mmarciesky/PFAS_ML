@@ -37,17 +37,17 @@ col1, col2 = st.columns(2)
 with col1:
     st.markdown("""
 ### Algorithm
-- **Model:** XGBoost (eXtreme Gradient Boosting)  
+- **Model:** XGBoost (eXtreme Gradient Boosting), Optuna-tuned
 """)
 
 with col2:
     st.markdown("""
 ### Performance
- MAE:  1.442 ± 0.122 kcal/mol \n
- RMSE: 3.248 ± 0.318 kcal/mol \n
- R²:   0.953 ± 0.008
+ Holdout MAE:  1.357 kcal/mol \n
+ Holdout RMSE: 3.415 kcal/mol \n
+ Holdout R²:   0.960
 
-Performance reflects agreement with reference DFT calculations within the training domain.
+Performance reflects agreement with reference DFT calculations on a held-out set of parent PFAS molecules never seen during training.
 """)
 
 st.divider()
@@ -61,37 +61,13 @@ The model is trained on PFAS and PFAS-like structures and performs best within t
 **Supported environments:**
 - Gas phase  
 - Implicit water  
+- Implicit DMSO  
 
 Predictions for structures outside the training domain should be interpreted with caution.
 """, unsafe_allow_html=True)
 
 st.divider()
-st.markdown("## Next Version (v1.0)")
 
-st.markdown("""
-
-In development — expanding the model to support:
-- Multi-solvent predictions (water, gas, DMSO)
-- Multi-property outputs (e.g., BDE, partition coefficents)
-- A significantly expanded PFAS quantum chemistry dataset   
-
-These improvements aim to enable broader chemical coverage and more comprehensive reactivity insights.
-""", unsafe_allow_html=True)
-# ── Citation ──────────────────────────────────────────────────────────────────
-st.markdown("""
-## Citation
-
-If you use this tool in your research, please cite: \n
-App: Marciesky, M. PFAS BDE Predictor (v0.1-preliminary). 2026. [GitHub](https://github.com/mmarciesky/PFAS_ML) link — DOI forthcoming \n
-Database: PFAS Quantum Chemistry Database. [GitHub](https://github.com/mmarciesky/PFAS_Database) — DOI forthcoming via Zenodo
-""")
-
-st.markdown("""
-## Acknowledgments
-This tool was developed with the support of the Ng Lab and Keith Lab
-at University of Pittsburgh. 
-""")
-st.divider()
 
 # ── Footer ────────────────────────────────────────────────────────────────────
 st.caption("Version v0.1 (Preliminary) · Last updated 2026")

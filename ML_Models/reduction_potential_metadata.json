@@ -1,0 +1,37 @@
+{
+  "target": "reduction_potential_V_vs_SHE",
+  "hyperparameters": {
+    "n_estimators": 423,
+    "max_depth": 3,
+    "learning_rate": 0.019928636737577776,
+    "subsample": 0.8064853843557321,
+    "colsample_bytree": 0.7717403077189855,
+    "min_child_weight": 3,
+    "gamma": 0.04912767900699376,
+    "reg_alpha": 0.46674622511554503,
+    "reg_lambda": 0.5146283627018824
+  },
+  "confidence": {
+    "conformal_quantile_80": 0.45871917975530785,
+    "conformal_quantile_90": 0.8233607538286603,
+    "conformal_quantile_95": 1.4015437318324349,
+    "domain_threshold": 0.37955490196078434,
+    "domain_threshold_percentile": 10,
+    "domain_threshold_method": "leave-one-out mean top-5 Tanimoto similarity within training set"
+  },
+  "training_info": {
+    "n_dev_samples": 32,
+    "n_unique_groups": 32,
+    "cv_splits": 5,
+    "feature_type": "Parent Morgan fingerprint + categorical flags"
+  },
+  "date_trained": "2026-08-15",
+  "performance": {
+    "cv_mae": 0.30294340114136464,
+    "cv_mae_std": 0.1637335737479857,
+    "cv_rmse": 0.4661246830651325,
+    "cv_rmse_std": 0.2628861461552436,
+    "cv_r2": 0.012599693596461759,
+    "cv_r2_std": 1.0422467214473308
+  }
+}
