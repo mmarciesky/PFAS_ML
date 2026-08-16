@@ -22,7 +22,8 @@ from sklearn.metrics import mean_absolute_error, root_mean_squared_error, r2_sco
 from rdkit import RDLogger
 RDLogger.DisableLog('rdApp.warning')
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+# was: BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 sys.path.insert(0, str(BASE_DIR / "src")) 
 sys.path.insert(0, str(BASE_DIR))
@@ -52,7 +53,8 @@ with col1:
     st.title("PFAS BDE Predictor")
     st.header("Input a SMILES string or CSV file with a SMILES column:" )
 with col2:
-    img_path = Path(__file__).parent / "assets" / "PFAS.png"
+    # was: img_path = Path(__file__).parent / "assets" / "PFAS.png"
+    img_path = Path(__file__).parent.parent / "assets" / "PFAS.png"
     st.image(img_path, use_container_width=True)
     
 ### Handle inputs for single smiles or CSV file

@@ -8,7 +8,7 @@ if not st.session_state.get("has_results", False):
     st.warning("No results available yet. Please run a prediction first.")
 
     if st.button("Go back to Predict"):
-        st.switch_page("Home.py")
+        st.switch_page("pages/0_Predict_BDE.py")
 
 else:
     bde_images = st.session_state.get("bde_images", [])
@@ -40,14 +40,14 @@ else:
 
     with col1:
         if st.button("Back to Predict"):
-            st.switch_page("Home.py")
+            st.switch_page("pages/0_Predict_BDE.py")
 
     with col2:
         if st.button("Clear Results"):
             st.session_state.pop("results_df", None)
             st.session_state.pop("bde_images", None)
             st.session_state["has_results"] = False
-            st.switch_page("Home.py")
+            st.switch_page("pages/0_Predict_BDE.py")
 ##############################
 # SIDE BAR #
 #######################
