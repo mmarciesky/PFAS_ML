@@ -60,7 +60,7 @@ st.markdown(f"""
         flex-shrink: 0;
     ">LOGO<br>TBD</div>
     <div>
-        <h1 style="font-size: 2.6rem; margin-bottom: 0.2rem;">PFAS-Predict</h1>
+        <h1 style="font-size: 2.6rem; margin-bottom: 0.2rem;">PFAS Foundry</h1>
         <p style="font-size: 1.15rem; color: #9a9a9a; margin-top: 0;">
             Machine learning predictions and a curated quantum chemistry database for PFAS
         </p>
