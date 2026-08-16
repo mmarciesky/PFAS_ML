@@ -369,15 +369,15 @@ def plot_boxplot_by_group(df, value_col, group_col, figsize=(5, 3.2), top_n_grou
     fig, ax = plt.subplots(figsize=figsize)
     order = sub.groupby(group_col)[value_col].median().sort_values().index
     data = [sub.loc[sub[group_col] == g, value_col] for g in order]
-    bp = ax.boxplot(data, labels=order, patch_artist=True)
+    try:
+        bp = ax.boxplot(data, tick_labels=order, patch_artist=True)
+    except TypeError:
+        bp = ax.boxplot(data, labels=order, patch_artist=True)
     for patch in bp['boxes']:
         patch.set_facecolor(QUALITATIVE_PALETTE[0])
         patch.set_alpha(0.7)
     ax.set_ylabel('BDE (kcal/mol)')
     plt.setp(ax.get_xticklabels(), rotation=45, ha='right')
-    ax.grid(False)
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
     fig.tight_layout()
     return fig
 
