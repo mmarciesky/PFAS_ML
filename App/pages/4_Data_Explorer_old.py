@@ -5,7 +5,6 @@ import sys
 
 sys.path.append(str(Path(__file__).parent.parent))
 import mol_tools as mt
-from rdkit import Chem
 
 st.set_page_config(page_title="Data Explorer", layout="wide")
 st.title("PFAS Data Explorer")
@@ -23,32 +22,6 @@ if not MAIN_TABLE_PATH.exists():
 else:
     main_df = pd.read_csv(MAIN_TABLE_PATH)
     main_df = mt.enrich_with_structural_classes(main_df)
-
-    # ------------------------------------------------------------------
-    # Formal charge, computed from the structure.
-    #
-    # The 'protonation_state' column disagrees with the actual structure on
-    # ~32% of rows -- 3,118 rows labelled 'neutral' carry a formal charge of
-    # -1 or -2, and 112 labelled 'anionic' are neutral. It records the charge
-    # the QM job was run at, not the charge of the molecule in the SMILES, so
-    # it cannot be used to filter anions out. charge_state below is derived
-    # from the SMILES and is the one to filter on.
-    # ------------------------------------------------------------------
-    @st.cache_data
-    def add_formal_charge(df):
-        df = df.copy()
-        charges = {}
-        for smi in df['canonical_smiles'].dropna().unique():
-            mol = Chem.MolFromSmiles(smi)
-            charges[smi] = Chem.GetFormalCharge(mol) if mol is not None else None
-        df['formal_charge'] = df['canonical_smiles'].map(charges)
-        df['charge_state'] = df['formal_charge'].map(
-            lambda c: 'Neutral' if c == 0 else ('Anionic' if (c is not None and c < 0)
-                                                else ('Cationic' if c is not None else 'Unknown'))
-        )
-        return df
-
-    main_df = add_formal_charge(main_df)
     bde_df = mt.load_bde_table(BDE_TABLE_PATH) if BDE_TABLE_PATH.exists() else pd.DataFrame()
     if bde_df.empty:
         st.warning(f"Couldn't find BDE table at {BDE_TABLE_PATH} — BDE sections will be skipped.")
@@ -61,13 +34,9 @@ else:
         "Solvent", options=solvent_options, default=solvent_options,
     )
 
-    charge_options = sorted(main_df['charge_state'].dropna().unique())
-    charge_filter = st.sidebar.multiselect(
-        "Charge state (from structure)", options=charge_options, default=charge_options,
-    )
-    st.sidebar.caption(
-        "Derived from the SMILES formal charge. The table's own "
-        "'protonation_state' column is unreliable and is not used for filtering."
+    protonation_options = sorted(main_df['protonation_state'].dropna().unique())
+    protonation_filter = st.sidebar.multiselect(
+        "Protonation state", options=protonation_options, default=protonation_options,
     )
     main_df['headgroup_display'] = main_df['headgroup'].fillna('Unknown')
     headgroup_options = sorted(main_df['headgroup_display'].unique())
@@ -99,23 +68,13 @@ else:
 
     filtered_df = main_df[
         main_df['Solvent'].isin(solvent_filter)
-        & main_df['charge_state'].isin(charge_filter)
+        & main_df['protonation_state'].isin(protonation_filter)
         & main_df['headgroup_display'].isin(headgroup_filter)
         & structural_mask
     ]
-
-    # ------------------------------------------------------------------
-    # Molecule-level view. logKow, logKaw, headgroup, mw, fluorination_ratio
-    # and the structural flags are properties of the molecule, not of the
-    # solvent -- main_table repeats them across every solvent row. Plotting
-    # filtered_df directly counts each molecule 3-5 times (logKow is inflated
-    # 4.3x, logKaw 3.4x). Anything molecule-level is plotted from mol_df.
-    # Solvent-specific values (dipole, HOMO-LUMO, redox) stay on filtered_df.
-    # ------------------------------------------------------------------
-    mol_df = filtered_df.drop_duplicates(subset='Inchikey')
     if not bde_df.empty:
         molecule_attrs = main_df.drop_duplicates(subset='Inchikey')[
-            ['Inchikey', 'charge_state', 'headgroup_display'] + list(structural_class_map.values())
+            ['Inchikey', 'protonation_state', 'headgroup_display'] + list(structural_class_map.values())
         ]
         bde_df_annotated = bde_df.merge(molecule_attrs, on='Inchikey', how='left')
         bde_structural_mask = (
@@ -124,7 +83,7 @@ else:
         )
         filtered_bde_df = bde_df_annotated[
             bde_df_annotated['Solvent'].isin(solvent_filter)
-            & bde_df_annotated['charge_state'].isin(charge_filter)
+            & bde_df_annotated['protonation_state'].isin(protonation_filter)
             & bde_df_annotated['headgroup_display'].isin(headgroup_filter)
             & bde_structural_mask
         ]
@@ -144,8 +103,8 @@ else:
         metrics += [
             ("Oxidation potentials", int(filtered_df.loc[filtered_df['oxidation_potential_V_vs_SHE'].notna(), 'Inchikey'].nunique())),
             ("Reduction potentials", int(filtered_df.loc[filtered_df['reduction_potential_V_vs_SHE'].notna(), 'Inchikey'].nunique())),
-            ("logKow (molecules)", int(mol_df.loc[mol_df['logKow'].notna(), 'Inchikey'].nunique())),
-            ("logKaw (molecules)", int(mol_df.loc[mol_df['logKaw'].notna(), 'Inchikey'].nunique())),
+            ("logKow", int(filtered_df.loc[filtered_df['logKow'].notna(), 'Inchikey'].nunique())),
+            ("logKaw", int(filtered_df.loc[filtered_df['logKaw'].notna(), 'Inchikey'].nunique())),
             ("Dipole moment", int(filtered_df.loc[filtered_df['dipole_moment_debye'].notna(), 'Inchikey'].nunique())),
             ("HOMO-LUMO gap", int(filtered_df.loc[filtered_df['homo_lumo_gap_eV'].notna(), 'Inchikey'].nunique())),
         ]
@@ -170,11 +129,11 @@ else:
         class_row = st.columns(2, gap="medium")
         with class_row[0]:
             st.caption(f"Structural motifs present (of {n_unique} unique molecules)")
-            fig = mt.plot_structural_class_counts(mol_df)
+            fig = mt.plot_structural_class_counts(filtered_df)
             mt.chart_with_expand(fig, key="struct_classes", base_width=440, expanded_width=900)
         with class_row[1]:
             st.caption("Carbon chain length distribution")
-            fig = mt.plot_histogram(mol_df, 'n_carbon')
+            fig = mt.plot_histogram(filtered_df.drop_duplicates(subset='Inchikey'), 'n_carbon')
             mt.chart_with_expand(fig, key="n_carbon", base_width=440, expanded_width=900)
     st.divider()
     left_col, right_col = st.columns(2, gap="medium")
@@ -184,35 +143,35 @@ else:
         with st.container(border=True):
             row_a = st.columns(2, gap="small")
             with row_a[0]:
-                st.caption("By headgroup (unique molecules)")
-                if 'headgroup' in mol_df.columns:
-                    fig = mt.plot_categorical_counts(mol_df, 'headgroup')
+                st.caption("By headgroup")
+                if 'headgroup' in filtered_df.columns:
+                    fig = mt.plot_categorical_counts(filtered_df, 'headgroup')
                     mt.chart_with_expand(fig, key="headgroup", base_width=340, expanded_width=800)
             with row_a[1]:
-                st.caption("By charge state (unique molecules)")
-                if 'charge_state' in mol_df.columns:
-                    fig = mt.plot_categorical_counts(mol_df, 'charge_state')
-                    mt.chart_with_expand(fig, key="charge_state", base_width=340, expanded_width=800)
+                st.caption("By protonation state")
+                if 'protonation_state' in filtered_df.columns:
+                    fig = mt.plot_categorical_counts(filtered_df, 'protonation_state')
+                    mt.chart_with_expand(fig, key="protonation", base_width=340, expanded_width=800)
 
             st.divider()
 
             row_b = st.columns(2, gap="small")
             with row_b[0]:
-                st.caption("Fluorination ratio (unique molecules)")
-                fig = mt.plot_histogram(mol_df, 'fluorination_ratio')
+                st.caption("Fluorination ratio")
+                fig = mt.plot_histogram(filtered_df, 'fluorination_ratio')
                 mt.chart_with_expand(fig, key="fluor_hist", base_width=340, expanded_width=800)
             with row_b[1]:
-                st.caption("Molecular weight (unique molecules)")
-                fig = mt.plot_histogram(mol_df, 'mw')
+                st.caption("Molecular weight")
+                fig = mt.plot_histogram(filtered_df, 'mw')
                 mt.chart_with_expand(fig, key="mw_hist", base_width=340, expanded_width=800)
 
             row_c = st.columns(2, gap="small")
             with row_c[0]:
-                st.caption("Dipole moment (Debye) — one point per molecule x solvent")
+                st.caption("Dipole moment (Debye)")
                 fig = mt.plot_histogram(filtered_df, 'dipole_moment_debye')
                 mt.chart_with_expand(fig, key="dipole_hist", base_width=340, expanded_width=800)
             with row_c[1]:
-                st.caption("HOMO-LUMO gap (eV) — one point per molecule x solvent")
+                st.caption("HOMO-LUMO gap (eV)")
                 fig = mt.plot_histogram(filtered_df, 'homo_lumo_gap_eV')
                 mt.chart_with_expand(fig, key="gap_hist", base_width=340, expanded_width=800)
 
@@ -225,7 +184,7 @@ else:
                 default=['dipole_moment_debye', 'homo_lumo_gap_eV', 'fluorination_ratio'],
                 key="umap_props",
             )
-            color_options = ['headgroup', 'fluorination_ratio', 'charge_state', 'Solvent']
+            color_options = ['headgroup', 'fluorination_ratio', 'protonation_state', 'Solvent']
             color_by = st.selectbox("Color by", options=color_options, key="umap_color")
 
             if len(umap_props) >= 2:
@@ -243,11 +202,6 @@ else:
                 st.info("Pick at least 2 properties to run UMAP.")
     st.divider()
     st.subheader("Redox and partition coefficients vs. fluorination")
-    st.caption(
-        "Redox potentials are solvent-specific, so those panels use every matching row. "
-        "logKow and logKaw are molecule-level and identical across solvents, so those "
-        "panels are deduplicated to one point per molecule."
-    )
     with st.container(border=True):
         dist_row1 = st.columns(2, gap="small")
         with dist_row1[0]:
@@ -261,12 +215,12 @@ else:
 
         dist_row2 = st.columns(2, gap="small")
         with dist_row2[0]:
-            fig, n = mt.plot_scatter_by_group(mol_df, 'fluorination_ratio', 'logKow')
-            st.caption(f"logKow vs. fluorination ratio — n={n} molecules")
+            fig, n = mt.plot_scatter_by_group(filtered_df, 'fluorination_ratio', 'logKow')
+            st.caption(f"logKow vs. fluorination ratio — n={n}")
             mt.chart_with_expand(fig, key="kow_fluor", base_width=440, expanded_width=900, empty_message="No overlapping data for this combination.")
         with dist_row2[1]:
-            fig, n = mt.plot_scatter_by_group(mol_df, 'fluorination_ratio', 'logKaw')
-            st.caption(f"logKaw vs. fluorination ratio — n={n} molecules")
+            fig, n = mt.plot_scatter_by_group(filtered_df, 'fluorination_ratio', 'logKaw')
+            st.caption(f"logKaw vs. fluorination ratio — n={n}")
             mt.chart_with_expand(fig, key="kaw_fluor", base_width=440, expanded_width=900, empty_message="No overlapping data for this combination.")
     st.divider()
     st.subheader("Bond dissociation energies")

@@ -106,7 +106,7 @@ styled_metric(stat_cols[1], "BDE values computed",
 styled_metric(stat_cols[2], "Solvents covered",
               len(solvents_seen) if solvents_seen else "—", ACCENTS[2])
 stat_cols[2].caption(", ".join(sorted(solvents_seen)) if solvents_seen else "—")
-styled_metric(stat_cols[3], "Models available", 5, ACCENTS[3])
+styled_metric(stat_cols[3], "Models available", 3, ACCENTS[3])
 
 # ---------------------------------------------------------------------------
 # Row 2: property-specific counts (unique molecules with each value)
@@ -136,29 +136,16 @@ for i, (col, (label, colname)) in enumerate(zip(stat_cols2, property_labels)):
 st.divider()
 st.subheader("Explore the platform")
 
-card_row1 = st.columns(3)
-feature_card(card_row1[0], "Data Explorer",
+card_cols = st.columns(3)
+feature_card(card_cols[0], "Data Explorer",
              "Browse the curated PFAS database — properties, structures, and bond dissociation energies.",
              "pages/4_Data_Explorer.py", ACCENTS[2])
-feature_card(card_row1[1], "BDE Predictor",
+feature_card(card_cols[1], "BDE Predictor",
              "Predict bond dissociation energies for a PFAS molecule from a SMILES string or CSV upload.",
              "pages/0_Predict_BDE.py", ACCENTS[0])
-feature_card(card_row1[2], "Redox Predictor",
+feature_card(card_cols[2], "Redox Predictor",
              "Predict the oxidation and reduction potential for a PFAS molecule from a SMILES string or CSV upload.",
              "pages/5_Redox_Predictor.py", ACCENTS[1])
-
-st.write("")
-card_row2 = st.columns(3)
-feature_card(card_row2[0], "Partition Predictor",
-             "Predict logKow and logKaw. Molecule-level properties — no solvent selection needed.",
-             "pages/6_Partition_Predictor.py", ACCENTS[3])
-feature_card(card_row2[1], "Dipole Predictor",
-             "Predict the dipole moment in a chosen solvent from a SMILES string or CSV upload.",
-             "pages/7_Dipole_Predictor.py", ACCENTS[0])
-feature_card(card_row2[2], "HOMO-LUMO Predictor",
-             "Predict the HOMO-LUMO gap in a chosen solvent from a SMILES string or CSV upload.",
-             "pages/8_HOMO_LUMO_Predictor.py", ACCENTS[2])
-
 st.caption("More predictive models are planned for this platform.")
 
 # ---------------------------------------------------------------------------
@@ -175,10 +162,10 @@ st.caption(
 
 roadmap = [
     ("BDE Model", "Preliminary", "pages/0_Predict_BDE.py"),
-    ("Redox Model", "Preliminary", "pages/5_Redox_Predictor.py"),
-    ("Partition Coefficient Model", "Preliminary", "pages/6_Partition_Predictor.py"),
-    ("Dipole Moment Model", "Preliminary", "pages/7_Dipole_Predictor.py"),
-    ("HOMO-LUMO Gap Model", "Preliminary", "pages/8_HOMO_LUMO_Predictor.py"),
+    ("Redox Model", "Preliminary", "pages/0_Predict_BDE.py"),
+    ("Partition Coefficient Model", "Coming soon", None),
+    ("Dipole Moment Model", "Coming soon", None),
+    ("HOMO-LUMO Gap Model", "Coming soon", None),
 ]
 
 for name, status, link in roadmap:
@@ -198,18 +185,11 @@ st.markdown("## Platform Expansion")
 
 st.markdown("""
 
-The platform now covers five predictive models:
-
-- **BDE Predictor** — bond dissociation energies, gas / water / DMSO  
-- **Redox Predictor** — oxidation and reduction potential, water  
-- **Partition Coefficient Predictor** — logKow and logKaw, neutral species  
-- **Dipole Moment Predictor** — solvent-specific  
-- **HOMO-LUMO Gap Predictor** — solvent-specific, closed-shell gaps  
-
-Every predictor reports a 90% confidence interval and an applicability-domain check, so a
-prediction on a molecule unlike the training set is flagged rather than reported silently.
+This model now supports gas, water, and DMSO phases. The platform has also expanded 
+beyond BDE to include a **Redox Potential Predictor** (oxidation and reduction potential).
 
 In development:
+- Dipole moment and HOMO-LUMO gap predictors  
 - A downstream toxicology (LD50) model, built on top of these predictors as features  
 - A significantly expanded PFAS quantum chemistry dataset  
 

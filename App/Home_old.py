@@ -10,17 +10,12 @@ about_page = st.Page("pages/2_About.py", title="About")
 explorer_page = st.Page("pages/4_Data_Explorer.py", title="Data Explorer")
 redox_page = st.Page("pages/5_Redox_Predictor.py", title="Redox Predictor")
 partition_page = st.Page("pages/6_Partition_Predictor.py", title="Partition Predictor")
-dipole_page = st.Page("pages/7_Dipole_Predictor.py", title="Dipole Predictor")
-homo_page = st.Page("pages/8_HOMO_LUMO_Predictor.py", title="HOMO-LUMO Predictor")
-
 pg = st.navigation({
     "": [home_page],
     "Database": [explorer_page],
     "BDE Predictor": [predict_page, how_to_page, about_page],
     "Redox Potential Predictor": [redox_page],
     "Partition Coefficient Predictor": [partition_page],
-    "Dipole Moment Predictor": [dipole_page],
-    "HOMO-LUMO Gap Predictor": [homo_page],
 })
 
 pg.run()
