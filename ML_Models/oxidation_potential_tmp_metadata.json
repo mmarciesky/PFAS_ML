@@ -1,0 +1,23 @@
+{
+  "target": "oxidation_potential_V_vs_SHE",
+  "n_dev_samples": 800,
+  "n_unique_groups": 597,
+  "cv_splits": 5,
+  "conformal_intervals": {
+    "q80": 0.41749605814875285,
+    "q90": 0.6774704631469325,
+    "q95": 0.9765820354922129
+  },
+  "hyperparameters": {
+    "n_estimators": 439,
+    "max_depth": 3,
+    "learning_rate": 0.04817055221572153,
+    "subsample": 0.997248724562845,
+    "colsample_bytree": 0.8010827265165739,
+    "min_child_weight": 1,
+    "gamma": 0.00040215500420812903,
+    "reg_alpha": 0.19422951862741877,
+    "reg_lambda": 0.7496648757395366
+  },
+  "date_trained": "2026-09-07"
+}

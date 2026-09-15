@@ -1,0 +1,12601 @@
+{
+  "version": "1.0",
+  "truncation": {
+    "direction": "Right",
+    "max_length": 128,
+    "strategy": "LongestFirst",
+    "stride": 0
+  },
+  "padding": {
+    "strategy": {
+      "Fixed": 128
+    },
+    "direction": "Right",
+    "pad_to_multiple_of": null,
+    "pad_id": 2,
+    "pad_type_id": 0,
+    "pad_token": "</s>"
+  },
+  "added_tokens": [
+    {
+      "id": 0,
+      "content": "<s>",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": true,
+      "special": true
+    },
+    {
+      "id": 1,
+      "content": "<pad>",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 2,
+      "content": "</s>",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": true,
+      "special": true
+    },
+    {
+      "id": 3,
+      "content": "<unk>",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": true,
+      "special": true
+    }
+  ],
+  "normalizer": null,
+  "pre_tokenizer": {
+    "type": "ByteLevel",
+    "add_prefix_space": false,
+    "trim_offsets": true,
+    "use_regex": true
+  },
+  "post_processor": {
+    "type": "TemplateProcessing",
+    "single": [
+      {
+        "Sequence": {
+          "id": "A",
+          "type_id": 0
+        }
+      }
+    ],
+    "pair": [
+      {
+        "Sequence": {
+          "id": "A",
+          "type_id": 0
+        }
+      },
+      {
+        "Sequence": {
+          "id": "B",
+          "type_id": 1
+        }
+      }
+    ],
+    "special_tokens": {}
+  },
+  "decoder": {
+    "type": "ByteLevel",
+    "add_prefix_space": true,
+    "trim_offsets": true,
+    "use_regex": true
+  },
+  "model": {
+    "type": "BPE",
+    "dropout": null,
+    "unk_token": null,
+    "continuing_subword_prefix": "",
+    "end_of_word_suffix": "",
+    "fuse_unk": false,
+    "byte_fallback": false,
+    "ignore_merges": false,
+    "vocab": {
+      "<s>": 0,
+      "<pad>": 1,
+      "</s>": 2,
+      "<unk>": 3,
+      "<mask>": 4,
+      "!": 5,
+      "\"": 6,
+      "#": 7,
+      "$": 8,
+      "%": 9,
+      "&": 10,
+      "'": 11,
+      "(": 12,
+      ")": 13,
+      "*": 14,
+      "+": 15,
+      ",": 16,
+      "-": 17,
+      ".": 18,
+      "/": 19,
+      "0": 20,
+      "1": 21,
+      "2": 22,
+      "3": 23,
+      "4": 24,
+      "5": 25,
+      "6": 26,
+      "7": 27,
+      "8": 28,
+      "9": 29,
+      ":": 30,
+      ";": 31,
+      "<": 32,
+      "=": 33,
+      ">": 34,
+      "?": 35,
+      "@": 36,
+      "A": 37,
+      "B": 38,
+      "C": 39,
+      "D": 40,
+      "E": 41,
+      "F": 42,
+      "G": 43,
+      "H": 44,
+      "I": 45,
+      "J": 46,
+      "K": 47,
+      "L": 48,
+      "M": 49,
+      "N": 50,
+      "O": 51,
+      "P": 52,
+      "Q": 53,
+      "R": 54,
+      "S": 55,
+      "T": 56,
+      "U": 57,
+      "V": 58,
+      "W": 59,
+      "X": 60,
+      "Y": 61,
+      "Z": 62,
+      "[": 63,
+      "\\": 64,
+      "]": 65,
+      "^": 66,
+      "_": 67,
+      "`": 68,
+      "a": 69,
+      "b": 70,
+      "c": 71,
+      "d": 72,
+      "e": 73,
+      "f": 74,
+      "g": 75,
+      "h": 76,
+      "i": 77,
+      "j": 78,
+      "k": 79,
+      "l": 80,
+      "m": 81,
+      "n": 82,
+      "o": 83,
+      "p": 84,
+      "q": 85,
+      "r": 86,
+      "s": 87,
+      "t": 88,
+      "u": 89,
+      "v": 90,
+      "w": 91,
+      "x": 92,
+      "y": 93,
+      "z": 94,
+      "{": 95,
+      "|": 96,
+      "}": 97,
+      "~": 98,
+      "¡": 99,
+      "¢": 100,
+      "£": 101,
+      "¤": 102,
+      "¥": 103,
+      "¦": 104,
+      "§": 105,
+      "¨": 106,
+      "©": 107,
+      "ª": 108,
+      "«": 109,
+      "¬": 110,
+      "®": 111,
+      "¯": 112,
+      "°": 113,
+      "±": 114,
+      "²": 115,
+      "³": 116,
+      "´": 117,
+      "µ": 118,
+      "¶": 119,
+      "·": 120,
+      "¸": 121,
+      "¹": 122,
+      "º": 123,
+      "»": 124,
+      "¼": 125,
+      "½": 126,
+      "¾": 127,
+      "¿": 128,
+      "À": 129,
+      "Á": 130,
+      "Â": 131,
+      "Ã": 132,
+      "Ä": 133,
+      "Å": 134,
+      "Æ": 135,
+      "Ç": 136,
+      "È": 137,
+      "É": 138,
+      "Ê": 139,
+      "Ë": 140,
+      "Ì": 141,
+      "Í": 142,
+      "Î": 143,
+      "Ï": 144,
+      "Ð": 145,
+      "Ñ": 146,
+      "Ò": 147,
+      "Ó": 148,
+      "Ô": 149,
+      "Õ": 150,
+      "Ö": 151,
+      "×": 152,
+      "Ø": 153,
+      "Ù": 154,
+      "Ú": 155,
+      "Û": 156,
+      "Ü": 157,
+      "Ý": 158,
+      "Þ": 159,
+      "ß": 160,
+      "à": 161,
+      "á": 162,
+      "â": 163,
+      "ã": 164,
+      "ä": 165,
+      "å": 166,
+      "æ": 167,
+      "ç": 168,
+      "è": 169,
+      "é": 170,
+      "ê": 171,
+      "ë": 172,
+      "ì": 173,
+      "í": 174,
+      "î": 175,
+      "ï": 176,
+      "ð": 177,
+      "ñ": 178,
+      "ò": 179,
+      "ó": 180,
+      "ô": 181,
+      "õ": 182,
+      "ö": 183,
+      "÷": 184,
+      "ø": 185,
+      "ù": 186,
+      "ú": 187,
+      "û": 188,
+      "ü": 189,
+      "ý": 190,
+      "þ": 191,
+      "ÿ": 192,
+      "Ā": 193,
+      "ā": 194,
+      "Ă": 195,
+      "ă": 196,
+      "Ą": 197,
+      "ą": 198,
+      "Ć": 199,
+      "ć": 200,
+      "Ĉ": 201,
+      "ĉ": 202,
+      "Ċ": 203,
+      "ċ": 204,
+      "Č": 205,
+      "č": 206,
+      "Ď": 207,
+      "ď": 208,
+      "Đ": 209,
+      "đ": 210,
+      "Ē": 211,
+      "ē": 212,
+      "Ĕ": 213,
+      "ĕ": 214,
+      "Ė": 215,
+      "ė": 216,
+      "Ę": 217,
+      "ę": 218,
+      "Ě": 219,
+      "ě": 220,
+      "Ĝ": 221,
+      "ĝ": 222,
+      "Ğ": 223,
+      "ğ": 224,
+      "Ġ": 225,
+      "ġ": 226,
+      "Ģ": 227,
+      "ģ": 228,
+      "Ĥ": 229,
+      "ĥ": 230,
+      "Ħ": 231,
+      "ħ": 232,
+      "Ĩ": 233,
+      "ĩ": 234,
+      "Ī": 235,
+      "ī": 236,
+      "Ĭ": 237,
+      "ĭ": 238,
+      "Į": 239,
+      "į": 240,
+      "İ": 241,
+      "ı": 242,
+      "Ĳ": 243,
+      "ĳ": 244,
+      "Ĵ": 245,
+      "ĵ": 246,
+      "Ķ": 247,
+      "ķ": 248,
+      "ĸ": 249,
+      "Ĺ": 250,
+      "ĺ": 251,
+      "Ļ": 252,
+      "ļ": 253,
+      "Ľ": 254,
+      "ľ": 255,
+      "Ŀ": 256,
+      "ŀ": 257,
+      "Ł": 258,
+      "ł": 259,
+      "Ń": 260,
+      "cc": 261,
+      "CC": 262,
+      "(=": 263,
+      "ccc": 264,
+      "@@": 265,
+      "](": 266,
+      "NC": 267,
+      "CCC": 268,
+      "nc": 269,
+      "Cc": 270,
+      ")[": 271,
+      "OC": 272,
+      "CN": 273,
+      "CCN": 274,
+      "ccccc": 275,
+      ")(": 276,
+      "CO": 277,
+      "cccc": 278,
+      "CCO": 279,
+      "CNC": 280,
+      "Cl": 281,
+      "CCCC": 282,
+      "nn": 283,
+      "Nc": 284,
+      "nnc": 285,
+      ")(=": 286,
+      "(-": 287,
+      "nH": 288,
+      "COc": 289,
+      "CCc": 290,
+      "CCCN": 291,
+      "([": 292,
+      "cn": 293,
+      ")=": 294,
+      "COC": 295,
+      "ncc": 296,
+      "CCOC": 297,
+      "CCNC": 298,
+      "Cn": 299,
+      "Br": 300,
+      "cnc": 301,
+      "NCc": 302,
+      "NCC": 303,
+      "oc": 304,
+      "21": 305,
+      "CCCCC": 306,
+      "CCOCC": 307,
+      "sc": 308,
+      "@]": 309,
+      "cnn": 310,
+      "CS": 311,
+      "Oc": 312,
+      "OCC": 313,
+      "@@]": 314,
+      "12": 315,
+      "CCn": 316,
+      "CCS": 317,
+      "CCOc": 318,
+      "no": 319,
+      "CCCO": 320,
+      "ccnc": 321,
+      "-]": 322,
+      "cccnc": 323,
+      "+]": 324,
+      "ccn": 325,
+      "+](=": 326,
+      "32": 327,
+      "-])": 328,
+      "noc": 329,
+      "CCCNC": 330,
+      "cccn": 331,
+      "cs": 332,
+      "ccccn": 333,
+      "CCCc": 334,
+      "OCc": 335,
+      "NS": 336,
+      "CCCCN": 337,
+      "@](": 338,
+      "ccncc": 339,
+      "@@](": 340,
+      "ccco": 341,
+      "COCC": 342,
+      "23": 343,
+      "csc": 344,
+      "cccs": 345,
+      "on": 346,
+      "cncc": 347,
+      "NCCN": 348,
+      "NCCC": 349,
+      "ncccc": 350,
+      "nccc": 351,
+      "ccsc": 352,
+      "CCCOC": 353,
+      "COCCN": 354,
+      ")/": 355,
+      "CCCCO": 356,
+      "NCCc": 357,
+      "ccnn": 358,
+      "CSc": 359,
+      "CNCc": 360,
+      "CNc": 361,
+      "ncn": 362,
+      "(/": 363,
+      "cncn": 364,
+      "co": 365,
+      "CCCCCC": 366,
+      "ncnc": 367,
+      "nccn": 368,
+      "OCCO": 369,
+      "CCCn": 370,
+      "SC": 371,
+      "]([": 372,
+      "ccoc": 373,
+      "COCc": 374,
+      "CNS": 375,
+      "coc": 376,
+      "CCCS": 377,
+      "CNCC": 378,
+      "ncccn": 379,
+      "NCCNC": 380,
+      "43": 381,
+      "sccc": 382,
+      "CCSC": 383,
+      "nccs": 384,
+      "CCCOc": 385,
+      "Sc": 386,
+      "CSC": 387,
+      "CCNCC": 388,
+      "cnccn": 389,
+      "nnn": 390,
+      "COCCO": 391,
+      "NCCCN": 392,
+      "OCCC": 393,
+      "nnnn": 394,
+      "cnccc": 395,
+      "OCCN": 396,
+      "cnnn": 397,
+      "nccnc": 398,
+      "ccon": 399,
+      "occc": 400,
+      "34": 401,
+      "COCCC": 402,
+      "OCO": 403,
+      "SCC": 404,
+      "cncnc": 405,
+      "ncnn": 406,
+      "CSCC": 407,
+      "CCCCNC": 408,
+      "(\\": 409,
+      "CCOCc": 410,
+      "nncn": 411,
+      "nnnc": 412,
+      "CCSCC": 413,
+      "cnnc": 414,
+      "ncoc": 415,
+      "sn": 416,
+      "cscn": 417,
+      "Fc": 418,
+      "ns": 419,
+      "CCNS": 420,
+      "NCCCNC": 421,
+      "nsc": 422,
+      "@](=": 423,
+      "CF": 424,
+      "nocc": 425,
+      "NCCCC": 426,
+      "NO": 427,
+      "CCCOCC": 428,
+      "nonc": 429,
+      "ocnc": 430,
+      "CCCF": 431,
+      "CCSc": 432,
+      "CCCCCN": 433,
+      "CCOCCN": 434,
+      "cncs": 435,
+      "CCF": 436,
+      "ncsc": 437,
+      "@@](=": 438,
+      "cnoc": 439,
+      "conc": 440,
+      "CCNc": 441,
+      "NCCOc": 442,
+      "COCCn": 443,
+      "CCNCc": 444,
+      "cnon": 445,
+      "onc": 446,
+      "SCc": 447,
+      "+]([": 448,
+      "=[": 449,
+      "NN": 450,
+      "FC": 451,
+      "scnc": 452,
+      "COCCOc": 453,
+      "OCCc": 454,
+      "NCCn": 455,
+      "CCCCn": 456,
+      "csnn": 457,
+      "ccns": 458,
+      "CCOCCC": 459,
+      "cccnn": 460,
+      "OCCCO": 461,
+      "CCCCc": 462,
+      "cnco": 463,
+      "ccncn": 464,
+      "NCCCc": 465,
+      "CSCc": 466,
+      "nncc": 467,
+      "CCCCCCC": 468,
+      "cocn": 469,
+      "ncncc": 470,
+      "CCCCS": 471,
+      "CON": 472,
+      "NCCO": 473,
+      "Clc": 474,
+      "cnns": 475,
+      "ccnnc": 476,
+      "oncc": 477,
+      "cnsn": 478,
+      "COCCCN": 479,
+      "cscc": 480,
+      "NCCS": 481,
+      "NCCOC": 482,
+      "COCCNC": 483,
+      "CNCCC": 484,
+      "CNCCN": 485,
+      "OCCNC": 486,
+      "31": 487,
+      "OCCOC": 488,
+      "CCCCOc": 489,
+      "COCCOC": 490,
+      "nnsc": 491,
+      "CNCCNC": 492,
+      "CCOCCO": 493,
+      "NCCNc": 494,
+      "scc": 495,
+      "CCOCCNC": 496,
+      "nncs": 497,
+      "NCCCO": 498,
+      "CCCSC": 499,
+      "OCCCC": 500,
+      "cocc": 501,
+      "ccsn": 502,
+      "13": 503,
+      "occ": 504,
+      "CCCCCNC": 505,
+      "NCCCn": 506,
+      "CCCCCn": 507,
+      "COCCCC": 508,
+      "COCCc": 509,
+      "NCCNCc": 510,
+      "CCCNCC": 511,
+      "NCCOCC": 512,
+      "CSCCN": 513,
+      "NNC": 514,
+      "Brc": 515,
+      "NCCCOC": 516,
+      "CCCCOC": 517,
+      "CNCCCNC": 518,
+      "OCCCN": 519,
+      "OS": 520,
+      "NCCNS": 521,
+      "CCCCCCN": 522,
+      "CSCN": 523,
+      "CCCNc": 524,
+      "CCCCCCNC": 525,
+      "CNCCc": 526,
+      "CNCCO": 527,
+      "OCCn": 528,
+      "NNc": 529,
+      "ncon": 530,
+      "NCCCCN": 531,
+      "snnc": 532,
+      "CCOCCCN": 533,
+      "CCOCCCC": 534,
+      "COCCCNC": 535,
+      "OCCCNC": 536,
+      "nscc": 537,
+      "nsnc": 538,
+      "CCCNCc": 539,
+      "NOC": 540,
+      "CCOCCn": 541,
+      "NCCF": 542,
+      "CCCSCC": 543,
+      "NCCCNCc": 544,
+      "NCCCOc": 545,
+      "/[": 546,
+      "CCOCCCn": 547,
+      "COCCCn": 548,
+      "ncco": 549,
+      "CSCCC": 550,
+      "CCCNS": 551,
+      "CCSCc": 552,
+      "snc": 553,
+      "COCCCCN": 554,
+      "CSCCS": 555,
+      "NCCCNc": 556,
+      "SCCN": 557,
+      "45": 558,
+      "CONC": 559,
+      "SCCS": 560,
+      "NCCCCC": 561,
+      "COCCCOc": 562,
+      "nnccc": 563,
+      "CCCCOCC": 564,
+      "54": 565,
+      "OCCOc": 566,
+      "COCCOCC": 567,
+      "CCCCCO": 568,
+      "NCCNCC": 569,
+      "CNCCCN": 570,
+      "CCCSc": 571,
+      "COCCCCC": 572,
+      "Nn": 573,
+      "OCCCc": 574,
+      "Si": 575,
+      "CNCCCC": 576,
+      "CCCCCc": 577,
+      "sccn": 578,
+      "SCCC": 579,
+      "SCCc": 580,
+      "CNCCCO": 581,
+      "NCCCF": 582,
+      "CCCCCF": 583,
+      "csnc": 584,
+      "](/": 585,
+      "COCOc": 586,
+      "NOCC": 587,
+      "\\[": 588,
+      "CCOCCCNC": 589,
+      "CCSCCn": 590,
+      "nnco": 591,
+      "COCCOCCN": 592,
+      "NCCCS": 593,
+      "CNCCF": 594,
+      "NCCOCCN": 595,
+      "NOCc": 596,
+      "CCNCCC": 597,
+      "COCCS": 598,
+      "OCOC": 599,
+      "CNCCn": 600,
+      "CCON": 601,
+      "COCCNS": 602,
+      "CSCCCN": 603,
+      "COCCOCc": 604,
+      "CCCOCc": 605,
+      "OCCCn": 606,
+      "CCOCCOC": 607,
+      "NCCCNCC": 608,
+      "-])[": 609,
+      "NCCSCc": 610,
+      "CCCCCCCC": 611,
+      "CNCCOC": 612,
+      "ONC": 613,
+      "][": 614,
+      "CCCCOCCN": 615,
+      "CCSCCC": 616,
+      "ccno": 617,
+      "NCCCCc": 618,
+      "CCONC": 619,
+      "CCOCCOc": 620,
+      "OCCS": 621,
+      "NCCCCCCNC": 622,
+      ")([": 623,
+      "NCCCOCC": 624,
+      "CNCCCF": 625,
+      "COCCCCCN": 626,
+      "CCCCNCc": 627,
+      "CSCCNC": 628,
+      "CCCCNc": 629,
+      "CCCCCS": 630,
+      "CCCCCCO": 631,
+      "CCCCCCCN": 632,
+      "NCCSc": 633,
+      "42": 634,
+      "CCNCCNC": 635,
+      "CCCCNCC": 636,
+      "NCCCSc": 637,
+      "CCNCCN": 638,
+      "NCCCCCC": 639,
+      "OCCF": 640,
+      "24": 641,
+      "CCCCCOC": 642,
+      "NCCCCn": 643,
+      "COCCOCN": 644,
+      "NCCOCCO": 645,
+      "CNCCOc": 646,
+      "CSCCCn": 647,
+      "SCCNC": 648,
+      "NCCOCc": 649,
+      "NCCCCOc": 650,
+      "CCOCCS": 651,
+      ")-": 652,
+      "NCCSC": 653,
+      "NCCCCCN": 654,
+      "OCCCOC": 655,
+      "CCCCCOc": 656,
+      "COCCOCCC": 657,
+      "CNCCOCC": 658,
+      "COCCCOCC": 659,
+      "CCCCCCCNC": 660,
+      "CCOCCOCC": 661,
+      "CNCCCc": 662,
+      "NCCCCCCN": 663,
+      "COCCCOC": 664,
+      "COCCCO": 665,
+      "SCCCS": 666,
+      "SCCn": 667,
+      "OCCCS": 668,
+      "CCNCCCNC": 669,
+      "COCCCS": 670,
+      "OCCCCC": 671,
+      "CNCCS": 672,
+      "CCSCCNC": 673,
+      "COCCNc": 674,
+      "ON": 675,
+      "OCCCOc": 676,
+      "COCO": 677,
+      "CCSCCCn": 678,
+      "CNCCCCCCNC": 679,
+      "COCCCCn": 680,
+      "COCn": 681,
+      "CCOCCOCc": 682,
+      "CCCCNS": 683,
+      "COCCCCNC": 684,
+      "OCCNc": 685,
+      "CSCCCNC": 686,
+      ")(/": 687,
+      "CSCCSC": 688,
+      "CCNCCc": 689,
+      "CCCOCCn": 690,
+      "NCCSCC": 691,
+      "NCCCCCF": 692,
+      "OCCOCC": 693,
+      "NCCCOCCNC": 694,
+      "COCCSc": 695,
+      "CCOCCCCn": 696,
+      "CCCCOCCNC": 697,
+      "CCCCOCCn": 698,
+      "CSCCc": 699,
+      "SCCO": 700,
+      "CSCCn": 701,
+      "CCOCCCO": 702,
+      "CCNCCCC": 703,
+      "CCCNCCNC": 704,
+      "NOCCC": 705,
+      "COCCOCCn": 706,
+      "CSCCCCn": 707,
+      "COCCOCCNC": 708,
+      "CCSCCN": 709,
+      "NCCCCCc": 710,
+      "CCSCCCO": 711,
+      "COCCCCCn": 712,
+      "CCCONC": 713,
+      "CNN": 714,
+      "NCCCNS": 715,
+      "NCCCCNC": 716,
+      "Ic": 717,
+      "CCCCCCn": 718,
+      "COCCCCCNC": 719,
+      "COCCNCC": 720,
+      "CCOCCOCCN": 721,
+      "NCCCCO": 722,
+      "NCCOCCC": 723,
+      "NCCCCCCNCc": 724,
+      "NCN": 725,
+      "OCCCCNC": 726,
+      "CNOC": 727,
+      "NCCOCCCNC": 728,
+      "+](": 729,
+      "CCCCCCOc": 730,
+      "OCCNS": 731,
+      "CCCCCCCCNC": 732,
+      "CCCCCCCCC": 733,
+      "CCCOCCc": 734,
+      "CCOCCNCC": 735,
+      "OCCCCn": 736,
+      "CCCOCCNC": 737,
+      "cnncc": 738,
+      "NCCOCCF": 739,
+      "OCCSc": 740,
+      "CCSCCCNC": 741,
+      "NCCCCS": 742,
+      "COCCCOCCC": 743,
+      "CCNCCCN": 744,
+      "cnsc": 745,
+      "CCNCCO": 746,
+      "-])=": 747,
+      "CCOCCCCCC": 748,
+      ")\\": 749,
+      "CNCCOCCO": 750,
+      "SCCCC": 751,
+      "CCCCCCOCC": 752,
+      "NCCCOCc": 753,
+      "CCCCCCOC": 754,
+      "CCOCn": 755,
+      "CCNCCn": 756,
+      "CCCCF": 757,
+      "NCCNCCC": 758,
+      "OCCOCc": 759,
+      "CCNCCF": 760,
+      "CCOCCNc": 761,
+      "CSCCCCCn": 762,
+      "NOc": 763,
+      "CCCNCCC": 764,
+      "CCOCCCCNC": 765,
+      "NCCNCCc": 766,
+      "CCCCSC": 767,
+      "OCCCCO": 768,
+      "NCCOCCS": 769,
+      "CCCNCCN": 770,
+      "CCOCCOCCNC": 771,
+      "CNCCCOC": 772,
+      "NCCCCCO": 773,
+      "SCCOc": 774,
+      "NCCCCOC": 775,
+      "CCCCSc": 776,
+      "sncc": 777,
+      "CCOCCONC": 778,
+      "NCCCCCCNCC": 779,
+      "OCCCCN": 780,
+      "COCCOCCCn": 781,
+      "NCCCCCCO": 782,
+      "NNS": 783,
+      "CNCCCCCF": 784,
+      "CNCCNS": 785,
+      "COCN": 786,
+      "CCCSCCNC": 787,
+      "COCCONC": 788,
+      "SCCOC": 789,
+      "OCCCCCC": 790,
+      "CCCCOCCCn": 791,
+      "CCCOCCOC": 792,
+      "NCCCNCCC": 793,
+      "CCNCCCO": 794,
+      "NCCCOCCc": 795,
+      "NCCCCCCC": 796,
+      "CCCCOCCCNC": 797,
+      "NCCSCCC": 798,
+      "CSCCONC": 799,
+      "COCCOCCCNC": 800,
+      "CSCCCCCNC": 801,
+      "CCOP": 802,
+      "NCCCOCCO": 803,
+      "OCCCF": 804,
+      "COCCCOCCN": 805,
+      "CCCCCCCCCC": 806,
+      "CCNCCCCCCNC": 807,
+      "CNCCCCC": 808,
+      "NCCCCCOC": 809,
+      "NCCCCNc": 810,
+      "CSCCCCCCNC": 811,
+      "CCCNCCCNC": 812,
+      "CSCCOc": 813,
+      "COCCOCCOc": 814,
+      "CSCCCCC": 815,
+      "CH": 816,
+      "COCCNCCNC": 817,
+      "CCOCCNCc": 818,
+      "NCCOCCCNc": 819,
+      "CCCCSCC": 820,
+      "CCCCCCc": 821,
+      "CCCOCCCCC": 822,
+      "OCCNCc": 823,
+      "CCNCCCF": 824,
+      "NCCCNCCc": 825,
+      "CCCNCCCC": 826,
+      "COCCOCCOCCO": 827,
+      "NCCCCCS": 828,
+      "CCCCSCCC": 829,
+      "CCOCN": 830,
+      "COCCOCCS": 831,
+      "CNCCOCCN": 832,
+      "CCOCCCOC": 833,
+      "SCCCN": 834,
+      "NCCCCCCCN": 835,
+      "NCCCCCCNc": 836,
+      "COCNC": 837,
+      "+](/": 838,
+      "CNCCCS": 839,
+      "NNCC": 840,
+      "COCCCNCC": 841,
+      "NNCc": 842,
+      "CCOCCOCCCC": 843,
+      "CCCCCNS": 844,
+      "CCOCCc": 845,
+      "OCCCNc": 846,
+      "CCCCCCCCCNC": 847,
+      "CCCSCc": 848,
+      "CCCCCOCC": 849,
+      "NCCSCCCO": 850,
+      "OCN": 851,
+      "NOCCN": 852,
+      "OP": 853,
+      "CCNCCOC": 854,
+      "NCCCSC": 855,
+      "NOCCCNC": 856,
+      "ClC": 857,
+      "nncnn": 858,
+      "NCCNCCN": 859,
+      "NCCCCCCc": 860,
+      "CCCCCCCCCN": 861,
+      "NCCCCOCCc": 862,
+      "NCCNCCOc": 863,
+      "OCCONC": 864,
+      "COCCCCc": 865,
+      "CCCCCCCCN": 866,
+      "CCCCOCc": 867,
+      "OCCCNS": 868,
+      "CSCCCCCCn": 869,
+      "COCCOCCc": 870,
+      "CNCCNc": 871,
+      "COCCCONC": 872,
+      "NCCNCCOC": 873,
+      "NCCNCCOCC": 874,
+      "OCCCCCn": 875,
+      "CCCNCCc": 876,
+      "OCCNCCNC": 877,
+      "CCCCCNCC": 878,
+      "NOCCOC": 879,
+      "CNCCCOc": 880,
+      "COCCOCCCCNC": 881,
+      "NCCCON": 882,
+      "OCCSCc": 883,
+      "CCCCCCNc": 884,
+      "CSCCO": 885,
+      "CCCCNCCC": 886,
+      "CNCCCn": 887,
+      "NOCCO": 888,
+      "OCCNCC": 889,
+      "NCCNCCO": 890,
+      "NCCCSCC": 891,
+      "NCCNCCCc": 892,
+      "CCNCCOc": 893,
+      "OCCCCCO": 894,
+      "CNCCCCN": 895,
+      "CCOCOc": 896,
+      "OCCCCOC": 897,
+      "CCCCCCCS": 898,
+      "CCNCCOCC": 899,
+      "NCCNCCn": 900,
+      "NOCCCC": 901,
+      "NCCCONC": 902,
+      "SCCCc": 903,
+      "CCSCCOC": 904,
+      "CCCCCSC": 905,
+      "NCCCNCCOCC": 906,
+      "COS": 907,
+      "NOCCOc": 908,
+      "CCNCCCc": 909,
+      "NCCNCCCC": 910,
+      "NCCOCCOC": 911,
+      "CCCCCSc": 912,
+      "CSCCOC": 913,
+      "CCNCCNCC": 914,
+      "COCOCCCNC": 915,
+      "NCCOCCOCC": 916,
+      "OB": 917,
+      "CCCNCCCN": 918,
+      "NCCCCOCc": 919,
+      "CSCCCC": 920,
+      "COCCOCCOCCN": 921,
+      "CCCON": 922,
+      "-][": 923,
+      "NCCOCCOCCO": 924,
+      "COCCCc": 925,
+      "CCNCCS": 926,
+      "NCCCNCCN": 927,
+      "CCCNCCCCCCNC": 928,
+      "cco": 929,
+      "CCCCCCCOC": 930,
+      "FCCn": 931,
+      "nccnn": 932,
+      "OCn": 933,
+      "CCCCCCCO": 934,
+      "CCSCCCN": 935,
+      "COCCNCc": 936,
+      "SCCCOc": 937,
+      "NCCNCCNC": 938,
+      "OCCCNCc": 939,
+      "COB": 940,
+      "NCCCNCCOC": 941,
+      "NCCCNCCn": 942,
+      "OCCSCC": 943,
+      "COCCOCCCCn": 944,
+      "COCCCCS": 945,
+      "OCCCCCCO": 946,
+      "CP": 947,
+      "NCCCNCCOc": 948,
+      "NCCSCCOc": 949,
+      "CCCNCCn": 950,
+      "NCCCCCn": 951,
+      "OCCSC": 952,
+      "OCCOCCO": 953,
+      "OCCNCCCNC": 954,
+      "CCCNCCO": 955,
+      "COCOC": 956,
+      "CCCCCNc": 957,
+      "NCCCCSc": 958,
+      "OCCCSc": 959,
+      "CSCCCOC": 960,
+      "CSCCCCNC": 961,
+      "CCOCCNCCNC": 962,
+      "CCCCNCCN": 963,
+      "CCCCOCCOC": 964,
+      "CCCCCCCCCCCC": 965,
+      "CCNN": 966,
+      "CCCCNCCNC": 967,
+      "CCCCCCCCS": 968,
+      "NCCCOCCOCc": 969,
+      "CCOCCNS": 970,
+      "OCCCCF": 971,
+      "CCNCCCOC": 972,
+      "CCOCCCNCC": 973,
+      "CCCOCCC": 974,
+      "ncncn": 975,
+      "CCCCCNCc": 976,
+      "CCCCCCNCC": 977,
+      "CCCCNCCCC": 978,
+      "FCC": 979,
+      "COCCOCCOCCOCCO": 980,
+      "NCCCCF": 981,
+      "CCCCCCCCOC": 982,
+      "NCCCNCCCC": 983,
+      "CCCCCCCCCCNC": 984,
+      "COCCCCNCC": 985,
+      "NOCCSC": 986,
+      "NCCOCCNC": 987,
+      "NCCNCCCO": 988,
+      "53": 989,
+      "CCCCCCCCCCC": 990,
+      "COCCCCOC": 991,
+      "OCCCOCC": 992,
+      "NCCCNCCO": 993,
+      "SCCOCC": 994,
+      "CCOCCNCCCNC": 995,
+      "OCCCCOc": 996,
+      "COP": 997,
+      "56": 998,
+      "NCCCSCCC": 999,
+      "COCOCCCN": 1000,
+      "COCCOCCOC": 1001,
+      "CNCCCCc": 1002,
+      "CNCCCOCC": 1003,
+      "CCCCCCCCc": 1004,
+      "CCCCOCCOCc": 1005,
+      "NCCCCCNC": 1006,
+      "NCOc": 1007,
+      "CCCCNCCO": 1008,
+      "CCOCCOCCO": 1009,
+      "CCCCCCCCOCC": 1010,
+      "OCCCCc": 1011,
+      "NCCCCCCOc": 1012,
+      "65": 1013,
+      "CCCCCCOCc": 1014,
+      "SCOC": 1015,
+      "CCCNCCF": 1016,
+      "NCCCP": 1017,
+      "OCCOCCC": 1018,
+      "OCCCSCC": 1019,
+      "CCNCCOCCN": 1020,
+      "NCCOCCOCCNC": 1021,
+      "COCCNCCCNC": 1022,
+      "NCCOCCCN": 1023,
+      "OCCCNCC": 1024,
+      "COCCSCCCN": 1025,
+      "NCCCNCCCc": 1026,
+      "NCCCCCCSC": 1027,
+      "NCCOP": 1028,
+      "CCCCCCNCCNC": 1029,
+      "CNCCOCc": 1030,
+      "CCCCNCCCNC": 1031,
+      "COCCOCCOCCCNC": 1032,
+      "CCOCCOCCOC": 1033,
+      "NCCOCCCO": 1034,
+      "CSCCNS": 1035,
+      "CCOCCNCCCC": 1036,
+      "CSCCCOc": 1037,
+      "OCCCCCCn": 1038,
+      "CNCCOCCNC": 1039,
+      "NCCCCCSC": 1040,
+      "CCSCCCc": 1041,
+      "SCCCCC": 1042,
+      "NCCCCCCCC": 1043,
+      "CCCCNCCc": 1044,
+      "SCCCO": 1045,
+      "CCCCOCCOCCNC": 1046,
+      "NCCCNCCCO": 1047,
+      "OCCCSCCn": 1048,
+      "SCCCCCCNC": 1049,
+      "cccccc": 1050,
+      "OCCOCCN": 1051,
+      "COCCCNc": 1052,
+      "OCCCCCF": 1053,
+      "SCCCOC": 1054,
+      "OCCCOCCn": 1055,
+      "CCCCNCCF": 1056,
+      "CCCOCCN": 1057,
+      "NNCCc": 1058,
+      "CCCCNCCCO": 1059,
+      "NCCCCCCNCCC": 1060,
+      "COCCCNS": 1061,
+      "CNCCSCc": 1062,
+      "OCCCSC": 1063,
+      "+]=[": 1064,
+      "COCCNCCCC": 1065,
+      "CCCCCCNS": 1066,
+      "CCCCCCCCCCN": 1067,
+      "COCCNCCN": 1068,
+      "NCCNCCCOc": 1069,
+      "COn": 1070,
+      "CCCCCCSC": 1071,
+      "NNCCC": 1072,
+      "CSCCNc": 1073,
+      "CCOCCOCCNc": 1074,
+      "SCCNS": 1075,
+      "CSCCOCC": 1076,
+      "OCCNCCN": 1077,
+      "CSCCCNc": 1078,
+      "CCCCCCNCCCNC": 1079,
+      "FCc": 1080,
+      "COCCCCCOC": 1081,
+      "CSCCCc": 1082,
+      "FCCN": 1083,
+      "CSCCCCCCC": 1084,
+      "CCNCCNS": 1085,
+      "NCCCNCCNC": 1086,
+      "CCCCCCCOc": 1087,
+      "CSCCCCc": 1088,
+      "COCCOCCOCCS": 1089,
+      "-])(": 1090,
+      "CNCCCCOC": 1091,
+      "OCCOCCOCCOCCO": 1092,
+      "CCNCCOCCO": 1093,
+      "OCCCCCN": 1094,
+      "CSCNC": 1095,
+      "OCCCOCc": 1096,
+      "OCCCCCCN": 1097,
+      "NCCOCCOCCOCc": 1098,
+      "OCCCSCc": 1099,
+      "CCCCCCS": 1100,
+      "CCCNCCCO": 1101,
+      "CCCCCCCCCO": 1102,
+      "CCCCNCCCF": 1103,
+      "NCCCCP": 1104,
+      "NCS": 1105,
+      "COCCCNCc": 1106,
+      "OCCCNCCNC": 1107,
+      "CCCCNCCOCC": 1108,
+      "SCCSc": 1109,
+      "CNCCCNc": 1110,
+      "CCCCCCCCCOC": 1111,
+      "CCCCCCCCCCS": 1112,
+      "CCNNCC": 1113,
+      "NCCNCCCNC": 1114,
+      "NCCNCCCN": 1115,
+      "COCCOCNC": 1116,
+      "(#": 1117,
+      "CCCCNCCn": 1118,
+      "NCCNCCF": 1119,
+      "CCCCCNCCNC": 1120,
+      "CCCCCOCc": 1121,
+      "NCCCNCCOCCO": 1122,
+      "SCCCn": 1123,
+      "CCCOCCNc": 1124,
+      "ncns": 1125,
+      "COCCOCCOCCOCCNC": 1126,
+      "NP": 1127,
+      "NCCCCCCNCCO": 1128,
+      "]/": 1129,
+      "SCN": 1130,
+      "CCCCCCCCn": 1131,
+      "NCCCNCCCF": 1132,
+      "NCCNCCCF": 1133,
+      "CCOCCSc": 1134,
+      "FCCC": 1135,
+      "CCCCNCCOC": 1136,
+      "CCCCOCCOCC": 1137,
+      "41": 1138,
+      "CSCCNCc": 1139,
+      "NCCNCCCCC": 1140,
+      "CCNCCCS": 1141,
+      "BrC": 1142,
+      "CCCCCCCCOc": 1143,
+      "CBr": 1144,
+      "NCCNCCCS": 1145,
+      "COCCNCCC": 1146,
+      "CCCCOCCc": 1147,
+      "NCCCNCCF": 1148,
+      "CCOCCOCCOCCO": 1149,
+      "NCSC": 1150,
+      "CCCNCCCF": 1151,
+      "SCCSC": 1152,
+      "NCCNCCOCCO": 1153,
+      "CCCCCCCCCCCCOCCOC": 1154,
+      "COCCOCCNCCNC": 1155,
+      "NCCCCCCNCCCO": 1156,
+      "CSCCCS": 1157,
+      "CCOCCNCCCCCCNC": 1158,
+      "CCOCCON": 1159,
+      "CCSCCCOC": 1160,
+      "CCCCOCCNCCNC": 1161,
+      "CCNCCNCCNCC": 1162,
+      "CCCCCCCc": 1163,
+      "CCOCCCNCCNC": 1164,
+      "OCCOCCNC": 1165,
+      "NCCCNCCCN": 1166,
+      "CCOCCNCCN": 1167,
+      "On": 1168,
+      "CCCCCNCCCNC": 1169,
+      "OCCCCCc": 1170,
+      "COCCCNCCCC": 1171,
+      "COCCCCCNCCNC": 1172,
+      "CCSCCNS": 1173,
+      "CCCCNCCCCCCNC": 1174,
+      "NCCNCCCCCF": 1175,
+      "35": 1176,
+      "NCOC": 1177,
+      "NCCNCCS": 1178,
+      "(=[": 1179,
+      "CCNCCCCCF": 1180,
+      "CCOCCCNCCCNC": 1181,
+      "SCn": 1182,
+      "SCCCNC": 1183,
+      "CNOCCNC": 1184,
+      "CCOCCCc": 1185,
+      "NCCCNCCCCCF": 1186,
+      "CCCCOCCNCCCNC": 1187,
+      "OCSc": 1188,
+      "OCCOCCOC": 1189,
+      "CNCCSC": 1190,
+      "CCSCCOc": 1191,
+      "NCCCCCCNCCF": 1192,
+      "COCCCCNCCNC": 1193,
+      "COCCON": 1194,
+      "OCCCCS": 1195,
+      "NCCCSCc": 1196,
+      "COCCOCCOCCOCCNc": 1197,
+      "CSCCF": 1198,
+      "COCCSCCCOC": 1199,
+      "OCCON": 1200,
+      "CCCCCCCCCCCCNC": 1201,
+      "NCCP": 1202,
+      "COCCCNCCNC": 1203,
+      "CCOCO": 1204,
+      "CCCCCCCNCCNC": 1205,
+      "CNCCCNS": 1206,
+      "CCNCCCOCCNC": 1207,
+      "COCCNCCCCCCNC": 1208,
+      "NCCCOCCOC": 1209,
+      "COCCCCNCCCNC": 1210,
+      "CCCCNCCCN": 1211,
+      "COCCOCCCN": 1212,
+      "NCCOB": 1213,
+      "OCCCNCCCNC": 1214,
+      "CNCN": 1215,
+      "CCCCCCCNS": 1216,
+      "NCCOCCOCCN": 1217,
+      "CNCCCCn": 1218,
+      "CCOCCCCOC": 1219,
+      "CCOCCCCN": 1220,
+      "NCCCCCCNCCn": 1221,
+      "CNCCCCOc": 1222,
+      "COCCCNCCCNC": 1223,
+      "OCCOCCn": 1224,
+      "SCCNc": 1225,
+      "COCCOCCNCCCNC": 1226,
+      "COCCCCCNCCCNC": 1227,
+      "NOCCCOC": 1228,
+      "CCCCCCNCc": 1229,
+      "CCCCNCCOCCO": 1230,
+      "COCCOCCNCC": 1231,
+      "NCCCCCCNCCOCC": 1232,
+      "CCOCSc": 1233,
+      "CCSCCc": 1234,
+      "NCCCNCCCOc": 1235,
+      "CCOCCCNS": 1236,
+      "CNCCCCCC": 1237,
+      "NNCCS": 1238,
+      "CCCCSCc": 1239,
+      "NCn": 1240,
+      "CNCCOCCC": 1241,
+      "CCNCCCCC": 1242,
+      "CCSCCNc": 1243,
+      "NNCCCN": 1244,
+      "NCCNCCNS": 1245,
+      "CCOCCCNc": 1246,
+      "CCCNCCS": 1247,
+      "@+]": 1248,
+      "NCCCCCOc": 1249,
+      "OCCCOCCc": 1250,
+      "Bc": 1251,
+      "CNCCSc": 1252,
+      "CCCCCCCCCCOC": 1253,
+      "CCCCOCCNCC": 1254,
+      "NCCCNCCCCC": 1255,
+      "CNCCCCCN": 1256,
+      "SCCCNc": 1257,
+      "CNCCSCC": 1258,
+      "CNCCCSc": 1259,
+      "CCOCCNCCC": 1260,
+      "COCCCON": 1261,
+      "cccoc": 1262,
+      "COCCNCCCN": 1263,
+      "NCCON": 1264,
+      "CCSCCNCc": 1265,
+      "COCCCCCNCC": 1266,
+      "OCCCON": 1267,
+      "NNCCN": 1268,
+      "CCOCCOCCn": 1269,
+      "COCCCCCC": 1270,
+      "NCCCCNS": 1271,
+      "+]=": 1272,
+      "CCCCCCCCO": 1273,
+      "CCCNN": 1274,
+      "NCCCNCCCS": 1275,
+      "CCCCCNCCCC": 1276,
+      "OCCOCCOCCOC": 1277,
+      "-]=[": 1278,
+      "CCOCCOCCOCCNC": 1279,
+      "COCCNCCc": 1280,
+      "CCNCCCCCCN": 1281,
+      "COCCSCc": 1282,
+      "NCCNCCCOC": 1283,
+      "NCCNCCOCc": 1284,
+      "CCOCCCNCc": 1285,
+      "NCCCCCCNCCc": 1286,
+      "NCCCCCCNCCCF": 1287,
+      "CSCCON": 1288,
+      "NCCNCCCCCn": 1289,
+      "CCCCOCCCN": 1290,
+      "COCCCNCCCCCCNC": 1291,
+      "COCCCCNc": 1292,
+      "NCCCCCCNCCOC": 1293,
+      "nnoc": 1294,
+      "CCCNCCCOC": 1295,
+      "CSCCCO": 1296,
+      "CCCSCCN": 1297,
+      "OCCCCCCC": 1298,
+      "cnnnc": 1299,
+      "@@+]": 1300,
+      "NNCCOCC": 1301,
+      "SCO": 1302,
+      "NCCCCSC": 1303,
+      "OCCOCCOCCOc": 1304,
+      "OCCNN": 1305,
+      "SCCNCc": 1306,
+      "COCCCCNCCCC": 1307,
+      "CNn": 1308,
+      "CCCCCNCCN": 1309,
+      "NCCOCCOCCOCCC": 1310,
+      "NCCCNCCS": 1311,
+      "OCCNCCCN": 1312,
+      "CCSS": 1313,
+      "NCCCCCCNS": 1314,
+      "CCCCCCCNCCCNC": 1315,
+      "CCCNCCOc": 1316,
+      "OCCCCNc": 1317,
+      "-])/": 1318,
+      "OCCOCCOc": 1319,
+      "CCCCCCCNCc": 1320,
+      "CCOCCCNCCCC": 1321,
+      "OCCCCNCc": 1322,
+      "FCCCN": 1323,
+      "CNCCCCCn": 1324,
+      "CCCCNN": 1325,
+      "CSCCCNS": 1326,
+      "CCOCCOCCNS": 1327,
+      "NCCCCNOCc": 1328,
+      "OCCCCNS": 1329,
+      "CCCOCCNS": 1330,
+      "NCCNCCCOCC": 1331,
+      "NCCCNCCNS": 1332,
+      "FCCCCN": 1333,
+      "NCCOCCNCCNC": 1334,
+      "NNCCCc": 1335,
+      "CCOCP": 1336,
+      "CCCCCSCc": 1337,
+      "NCCCNCCCOC": 1338,
+      "CCCCCCCn": 1339,
+      "CCCCCCCCNS": 1340,
+      "CCCNCCOCCN": 1341,
+      "NOCCOCC": 1342,
+      "NCCOCCCC": 1343,
+      "NCCCOCCOCCO": 1344,
+      "CCCCCCSc": 1345,
+      "CCSCCS": 1346,
+      "COCCCNCCN": 1347,
+      "OCP": 1348,
+      "CCCNCCOC": 1349,
+      "CCCNCCNS": 1350,
+      "COCCOCCNS": 1351,
+      "CCCCCCCNc": 1352,
+      "CNCCOCCOC": 1353,
+      "NCOCC": 1354,
+      "CCCCCCCNCC": 1355,
+      "OCCCCSc": 1356,
+      "OCCCCCOC": 1357,
+      "COCCSCC": 1358,
+      "OCCNCCCC": 1359,
+      "NNCCO": 1360,
+      "CCOCCF": 1361,
+      "CCCCNCCS": 1362,
+      "NOCCNC": 1363,
+      "FCCCCCN": 1364,
+      "CCOCCCSc": 1365,
+      "CCCCNCCCCCF": 1366,
+      "NCCCNCCOCc": 1367,
+      "NCCOCCOCCNc": 1368,
+      "OCCCCCCCN": 1369,
+      "COCCOCCCCN": 1370,
+      "CNCCCCNC": 1371,
+      "CCCCCSCC": 1372,
+      "CSCCCCCCN": 1373,
+      "CCCSCCNS": 1374,
+      "CCCCCCNCCCC": 1375,
+      "CCNCCCOc": 1376,
+      "CCCNCCCc": 1377,
+      "CCCCOCCNS": 1378,
+      "NNCCCOc": 1379,
+      "CSCCCSc": 1380,
+      "NCCNCCCCc": 1381,
+      "COCCCCNS": 1382,
+      "NCCOCCOCCOCCO": 1383,
+      "CCCCNCCCOC": 1384,
+      "NCCCNCCCCN": 1385,
+      "NOCCCCCCCCCCCC": 1386,
+      "Sn": 1387,
+      "CCSCCSc": 1388,
+      "COCCOCCNCc": 1389,
+      "COCCCCNCc": 1390,
+      "CCCCCCCCCCCCCCCC": 1391,
+      "NNCCOC": 1392,
+      "COCCSCCOC": 1393,
+      "SCCCOCC": 1394,
+      "CNCCCCCOC": 1395,
+      "NCOCCOC": 1396,
+      "CCOCCCOc": 1397,
+      "CCCOCCOCC": 1398,
+      "CCCl": 1399,
+      "COCSc": 1400,
+      "COCCCCCNS": 1401,
+      "CCCCOCCCNS": 1402,
+      "COCCOCCCNS": 1403,
+      "CNCCCOCc": 1404,
+      "CCCCCCCCCCCCS": 1405,
+      "CCOCCSCc": 1406,
+      "FCCCCc": 1407,
+      "OCCCCCOc": 1408,
+      "SCOCC": 1409,
+      "scnn": 1410,
+      "OCCSCCC": 1411,
+      "NCCOCCNCCCNC": 1412,
+      "CONc": 1413,
+      "CCOCCCS": 1414,
+      "CCCCCCCCCCCON": 1415,
+      "CCCCOCCNCCCC": 1416,
+      "SCSC": 1417,
+      "SCCCF": 1418,
+      "SCCCCc": 1419,
+      "CSCCCNCc": 1420,
+      "CCOCCNCCCN": 1421,
+      "CNCCCCO": 1422,
+      "NCCCNCCCCCn": 1423,
+      "NOCCc": 1424,
+      "SCCOCCN": 1425,
+      "-])([": 1426,
+      "CSCCCCCN": 1427,
+      "NCCCCCCNCCOCCO": 1428,
+      "CCSCCCNS": 1429,
+      "NCCNCCCCOc": 1430,
+      "OCCOCCOCCOCCOCCO": 1431,
+      "NCCOCCOc": 1432,
+      "COCCCNCCCN": 1433,
+      "OCCCCCCc": 1434,
+      "NCCCCCCS": 1435,
+      "NOCCCN": 1436,
+      "NCCONc": 1437,
+      "NCCOCCOCCC": 1438,
+      "COCCCCCS": 1439,
+      "@]([": 1440,
+      "NCCCNCCCNC": 1441,
+      "CSCCCCCNS": 1442,
+      "CCCCSCCc": 1443,
+      "FCCOc": 1444,
+      "SCCOCc": 1445,
+      "OCS": 1446,
+      "COCCCSc": 1447,
+      "CCSCCSCC": 1448,
+      "OCCOCCOCCC": 1449,
+      "14": 1450,
+      "ncs": 1451,
+      "OCCP": 1452,
+      "CCSCCO": 1453,
+      "COCCOCCOCCCN": 1454,
+      "NNN": 1455,
+      "COCCCCCNCc": 1456,
+      "SCCCCCn": 1457,
+      "ss": 1458,
+      "CCSCCCNc": 1459,
+      "NCCCCCCNCCN": 1460,
+      "COCCCCNCCCCCCNC": 1461,
+      "])(": 1462,
+      "CCOCCCCNS": 1463,
+      "CCOCCCNCCCCCCNC": 1464,
+      "SCCCCOC": 1465,
+      "CNCCCCCc": 1466,
+      "NCCCCOCC": 1467,
+      "OCCCCOCc": 1468,
+      "CCCSCCn": 1469,
+      "COCCOCCNc": 1470,
+      "ncno": 1471,
+      "CCNCCCNS": 1472,
+      "COCCCOCc": 1473,
+      "CSCCCSC": 1474,
+      "NCCNCCCOCc": 1475,
+      "CCCCCNCCCCCCNC": 1476,
+      "NCCCOCOC": 1477,
+      "COCCOCCCCNS": 1478,
+      "NCCOCCOCCOCCOC": 1479,
+      "CSCCCSCC": 1480,
+      "CCCSCCOC": 1481,
+      "COCCCNCCC": 1482,
+      "CCCCCCCCCCCCCC": 1483,
+      "NCCOCCOCCOCCOCc": 1484,
+      "CNCCCCCOc": 1485,
+      "coccc": 1486,
+      "SCCCCF": 1487,
+      "-](": 1488,
+      "CCCCCCCCCS": 1489,
+      "NCCNCCOCCC": 1490,
+      "OCCCNCCN": 1491,
+      "CCOCCCSCc": 1492,
+      "COCCNCCNS": 1493,
+      "OCCCCP": 1494,
+      "CCCCOCCS": 1495,
+      "SCCCCN": 1496,
+      "COCOCCCNS": 1497,
+      "+]#": 1498,
+      "COCCOCCCNc": 1499,
+      "NOCCCOc": 1500,
+      "COCCOCCSc": 1501,
+      "CNCCCCCO": 1502,
+      "COCCOCCCNCc": 1503,
+      "SCCF": 1504,
+      "CCOCCOCCOCCN": 1505,
+      "COCCOCCNCCCC": 1506,
+      "CCCCCCCCCCO": 1507,
+      "NCCCCCCNCCCC": 1508,
+      "NCCOCCOCCOCCOCCN": 1509,
+      "SCCCSCC": 1510,
+      "SCCCCCO": 1511,
+      "CCOCCCCNc": 1512,
+      "COCCSCCCn": 1513,
+      "NOCCCNCc": 1514,
+      "CCNCCCCc": 1515,
+      "CCCCCCCSc": 1516,
+      "CSCCCF": 1517,
+      "COCCOCCCOC": 1518,
+      "OCCNCCC": 1519,
+      "COCCCNN": 1520,
+      "SCSc": 1521,
+      "SCCOCCC": 1522,
+      "CNCCCCS": 1523,
+      "CCCCNCCCS": 1524,
+      "CCCSCCNCc": 1525,
+      "CCOCCCNCCN": 1526,
+      "SCCSCc": 1527,
+      "COCCOCCCO": 1528,
+      "OCCNCCCCCCNC": 1529,
+      "CNCCCOCCO": 1530,
+      "OCCCSCCN": 1531,
+      "CSCCCCCCNS": 1532,
+      "SCCSCC": 1533,
+      "CCCCOCCNCc": 1534,
+      "OCCCCCCOc": 1535,
+      "CCCCCCNCCN": 1536,
+      "SCCOCCO": 1537,
+      "ssc": 1538,
+      "OCOCc": 1539,
+      "CCSCCCNCc": 1540,
+      "CCCCNCCCc": 1541,
+      "COCCCCO": 1542,
+      "CCCOCSc": 1543,
+      "CCCCOCCCNc": 1544,
+      "COCCOCCCOc": 1545,
+      "NCCCNCCCCc": 1546,
+      "CNCCCONC": 1547,
+      "COCCCOCCc": 1548,
+      "COCCCOCCOC": 1549,
+      "COCCCCOc": 1550,
+      "CCCOCOC": 1551,
+      "NCCCNCCCOCC": 1552,
+      "NCCCCCCCCO": 1553,
+      "CCCCCCCCCCCN": 1554,
+      "SCCCSC": 1555,
+      "OCF": 1556,
+      "CSCCCOCC": 1557,
+      "CSCCOCCN": 1558,
+      "CSCCCCCF": 1559,
+      "CSCCCSCc": 1560,
+      "OCCOCCOCCNC": 1561,
+      "NCCCCCCCO": 1562,
+      "NOCCCO": 1563,
+      "CCCCCCNCCCCCCNC": 1564,
+      "COCCCCCNCCCC": 1565,
+      "NCCOCCOCCOCCOCCOCCO": 1566,
+      "CNCCCCNc": 1567,
+      "CSCCCCN": 1568,
+      "CCCCNCCOc": 1569,
+      "CCCSCCOc": 1570,
+      "NCCCNCCCOCc": 1571,
+      "CCOCCNCCO": 1572,
+      "OCCOCn": 1573,
+      "CCOCCOCCCc": 1574,
+      "NCCCOCCOCCOC": 1575,
+      "OCCCCCCCCCO": 1576,
+      "COCCCCCNc": 1577,
+      "NCCOCCOCCOCCOCCOCCN": 1578,
+      "SCOc": 1579,
+      "NSC": 1580,
+      "NCCNCCOCCOC": 1581,
+      "NCCNCCOCCOc": 1582,
+      "CCCSCCC": 1583,
+      "NCCCCNCc": 1584,
+      "NCCOCCOCCOCCNC": 1585,
+      "CNCCCNCc": 1586,
+      "OCCCCCCCC": 1587,
+      "CNCCOCCF": 1588,
+      "SCCCCO": 1589,
+      "SCCCCCF": 1590,
+      "CCSCCCC": 1591,
+      "CCSCCOCC": 1592,
+      "NCCNCCCOCCc": 1593,
+      "NCCCCCCCCCCO": 1594,
+      "NNCCCOCc": 1595,
+      "OCCCNCCO": 1596,
+      "OCCCNCCF": 1597,
+      "COCCCCCSc": 1598,
+      "CSCCCCCNCc": 1599,
+      "occcc": 1600,
+      "CNCCNCc": 1601,
+      "CNCCCCCS": 1602,
+      "NCCCCOCCOC": 1603,
+      "CCSCCSCc": 1604,
+      "COCCOCCOCCNC": 1605,
+      "CNCCCCCCO": 1606,
+      "CCCCOCCNCCCCCCNC": 1607,
+      "NCCOCCOCCOCCOCCNC": 1608,
+      "NCCCOCCOCCOCCCNC": 1609,
+      "OCCCCCNC": 1610,
+      "SCCCCCCO": 1611,
+      "CCCCCCCCCc": 1612,
+      "CCOCCSCC": 1613,
+      "CSCCSc": 1614,
+      "NCCCCCCCCNC": 1615,
+      "OCCCCCCNC": 1616,
+      "OCCCCCNc": 1617,
+      "NCSCCC": 1618,
+      "NCCSCCN": 1619,
+      "COCCCCSc": 1620,
+      "CNCCCON": 1621,
+      "NCCCCCCNCCCOC": 1622,
+      "NCCCCCCNCCCCCF": 1623,
+      "OCOc": 1624,
+      "CCNCCCOCC": 1625,
+      "COCOCCO": 1626,
+      "COCCOCCO": 1627,
+      "NCCCNCCOCCC": 1628,
+      "NCCCCCCCCN": 1629,
+      "NCCOCCCNCC": 1630,
+      "CCOCCOCCNCc": 1631,
+      "OCCCCCCNc": 1632,
+      "CCCCCCCCCCCCCCCCCC": 1633,
+      "NCCCOCCOCCOCCCN": 1634,
+      "CCNCCOCc": 1635,
+      "CSCSc": 1636,
+      "CCCOCCNCc": 1637,
+      "CCCOCCCCc": 1638,
+      "SCCCCOc": 1639,
+      "NCCCCCCNCCS": 1640,
+      "OCCCCCOCc": 1641,
+      "CNCCSCCCO": 1642,
+      "COCCSC": 1643,
+      "CSCCCCCOC": 1644,
+      "CCCCOCCOCCN": 1645,
+      "OCCOCCCN": 1646,
+      "NCCCCCCNCCNC": 1647,
+      "NOCCCNS": 1648,
+      "COCCOCO": 1649,
+      "CCOCCCCNCc": 1650,
+      "COCCCCNCCN": 1651,
+      "CCCCOCCSc": 1652,
+      "COCCOCCCCNc": 1653,
+      "SCCCCCCN": 1654,
+      "SCCCOCc": 1655,
+      "CCCNCCNCc": 1656,
+      "CSCCCCF": 1657,
+      "CCSCCCOc": 1658,
+      "CCCCOCCNc": 1659,
+      "CCCCOCCCNCc": 1660,
+      "CCCCOCCOCCn": 1661,
+      "OCCOCCOCCOCCNC": 1662,
+      "NCCCNCCOCCOC": 1663,
+      "OCCCCCCOC": 1664,
+      "COCCCCCOc": 1665,
+      "CNCCCOCCc": 1666,
+      "COCCOCCNCCCCCCNC": 1667,
+      "COCCSCCCSc": 1668,
+      "FCCCCn": 1669,
+      "CNCCOCCS": 1670,
+      ")=[": 1671,
+      "NCCCCCNS": 1672,
+      "CSCCCCOC": 1673,
+      "NCCNCCCCCOC": 1674,
+      "COCCOCCOCCNS": 1675,
+      "NCCCNCCCCOC": 1676,
+      "COCCSCCCOc": 1677,
+      "CCOCCOCCSc": 1678,
+      "COCCCSCc": 1679,
+      "NCCCCCCCCCCCCO": 1680,
+      "FCCCc": 1681,
+      "CNCCSCCC": 1682,
+      "CCOCCCSCC": 1683,
+      "CCCCCCCCCn": 1684,
+      "CSCn": 1685,
+      "OCCSCCc": 1686,
+      "CCCOCCCNC": 1687,
+      "CCCCNCCNS": 1688,
+      "OCCOCCOCCO": 1689,
+      "OCCCNCCCC": 1690,
+      "OCCCCCCF": 1691,
+      "CNNc": 1692,
+      "CCCOCCCN": 1693,
+      "NCCCNCCCCCOC": 1694,
+      "CCCCCNCCC": 1695,
+      "CCCCCNCCCN": 1696,
+      "NCCCOCCOCCCN": 1697,
+      "OCCCNCCC": 1698,
+      "COCCOCCSCc": 1699,
+      "CCOCCNCCF": 1700,
+      "FCCOCCN": 1701,
+      "])": 1702,
+      "CONCCC": 1703,
+      "CCCNCCOCC": 1704,
+      "CCSCCCSc": 1705,
+      "CCCOCn": 1706,
+      "COCCNCCNCc": 1707,
+      "NOCCCc": 1708,
+      "NOCCCS": 1709,
+      "COCCCCSCc": 1710,
+      "CNCCOCCCC": 1711,
+      "ccs": 1712,
+      "NCCCCCCCc": 1713,
+      "OCCCCCCCNC": 1714,
+      "NCCCCNCCCNc": 1715,
+      "CCCCCCCCCCCCN": 1716,
+      "NCCCCCCNCCOc": 1717,
+      "#[": 1718,
+      "CNCCCCCCC": 1719,
+      "CSCOC": 1720,
+      "CCCOCCOCCOC": 1721,
+      "COCCOCCOCCOCCN": 1722,
+      "OCCCCCCCc": 1723,
+      "CCCCCCCCCCOc": 1724,
+      "CCCCCCCCCCCCCCCCN": 1725,
+      "SCCCCCCCO": 1726,
+      "CSCCCCCCNCc": 1727,
+      "SCCCCS": 1728,
+      "SCCCSc": 1729,
+      "COCCCSCC": 1730,
+      "CCOCCOCCS": 1731,
+      "CCCCNCCCCOC": 1732,
+      "CCCCOCCOc": 1733,
+      "CCCCCCCCCNS": 1734,
+      "NCCCNCCOCCNC": 1735,
+      "NCCCNCCCOCCc": 1736,
+      "CSCCCCCNc": 1737,
+      "SN": 1738,
+      "SCCCNCc": 1739,
+      "CNCCCCCCN": 1740,
+      "CCOS": 1741,
+      "CSCCOCc": 1742,
+      "CSCCCCCCNc": 1743,
+      "NCCCSCCc": 1744,
+      "CCCCOCCC": 1745,
+      "OCCOCCCNCc": 1746,
+      "CCCSCCNc": 1747,
+      "COCCOCCOCCCC": 1748,
+      "NCCCCCCn": 1749,
+      "NCCCCCCCNC": 1750,
+      "NNCCCO": 1751,
+      "CCCCCCCCNCc": 1752,
+      "CCCCCCCCCCCCC": 1753,
+      "OCCSCCOc": 1754,
+      "OCCCSCCNCc": 1755,
+      "FCCOCCNCc": 1756,
+      "CCNCCNc": 1757,
+      "CCCOCCOCc": 1758,
+      "OCCOCCCNc": 1759,
+      "CCCCCCCCCCCCOC": 1760,
+      "CCCCCCCNCCCC": 1761,
+      "SCCCON": 1762,
+      "CCCCCCCCOCc": 1763,
+      "CCCOCCCC": 1764,
+      "NCCNCCOCCNC": 1765,
+      "CCCCOCCOCCNS": 1766,
+      "OCCOCCNCc": 1767,
+      "NCCCNCCCCOc": 1768,
+      "CCOCCOCCOCC": 1769,
+      "COCCCCCSCC": 1770,
+      "COCCOCCOCCOCCNS": 1771,
+      "FCCOCCn": 1772,
+      "(-[": 1773,
+      "CCCNCCCS": 1774,
+      "CCCOCCOc": 1775,
+      "CCCSCCc": 1776,
+      "NCCCCCCCCCCCO": 1777,
+      "CNCCCSC": 1778,
+      "CCOCCOCCOCCOCCN": 1779,
+      "COCCCCSCC": 1780,
+      "COCCOCCSCC": 1781,
+      "CNCCCOCCNC": 1782,
+      "OCCSCCOC": 1783,
+      "COCCCCCNCCCCCCNC": 1784,
+      "CCl": 1785,
+      "OCNC": 1786,
+      "OCOCC": 1787,
+      "OCSC": 1788,
+      "CCNCCCCOC": 1789,
+      "CCSCSc": 1790,
+      "COCCNN": 1791,
+      "CCCSCCCNC": 1792,
+      "CNCCOCCCO": 1793,
+      "COCCCCCSCc": 1794,
+      "OCCCSCCNc": 1795,
+      "NCCOCCOCCOCCOCCC": 1796,
+      "SCOCCC": 1797,
+      "SCCCOCCc": 1798,
+      "NCSCCc": 1799,
+      "CCNCCCn": 1800,
+      "CCOn": 1801,
+      "CCCCCCSCC": 1802,
+      "OCCSCCN": 1803,
+      "CCSCNC": 1804,
+      "NCCNCCCNS": 1805,
+      "NCCOCCNCC": 1806,
+      "OCCCCCCOCc": 1807,
+      "OCCCCSCc": 1808,
+      "CCCCCCCCCCCCCCC": 1809,
+      "CCCCCCCCCCCCCCOC": 1810,
+      "+](-": 1811,
+      "FCCNCc": 1812,
+      "CCOCCOCCC": 1813,
+      "CCCCCCSCc": 1814,
+      "CCCNCCCCC": 1815,
+      "(/[": 1816,
+      "COCCOCCOCc": 1817,
+      "COCCOCCOCCOC": 1818,
+      "COCCOCCOCCCNS": 1819,
+      "NOCCCCC": 1820,
+      "OCCCONC": 1821,
+      "NCCOCCOCc": 1822,
+      "NCCOCCNS": 1823,
+      "NCCOCCOCCOC": 1824,
+      "NCCCOCCNS": 1825,
+      "OCCCCCCNCc": 1826,
+      "CNCCCCCCCN": 1827,
+      "OCCCSCCC": 1828,
+      "OCCCCCNCc": 1829,
+      "CCOCCOCCOCCOCCOCCOCCOCCO": 1830,
+      "64": 1831,
+      "SCSCc": 1832,
+      "nco": 1833,
+      "CCNCCSCc": 1834,
+      "CCSCn": 1835,
+      "NCCNCCCCCCNC": 1836,
+      "COCCOCCOCC": 1837,
+      "COCCOCCOCCn": 1838,
+      "OCCCOCCOC": 1839,
+      "OCCCCCCCCCCCO": 1840,
+      "OCCCNCCCF": 1841,
+      "NCCCCNCCCNS": 1842,
+      "CCOCCCNCCC": 1843,
+      "CCCCCCCCCCCc": 1844,
+      "NCCCCCCNCCCc": 1845,
+      "NOCCCNc": 1846,
+      "NCCOCCOCCOCCOCCOCCOCCN": 1847,
+      "FCCCn": 1848,
+      "FCCCCNc": 1849,
+      "SCCCCn": 1850,
+      "CNCCCCOCCc": 1851,
+      "CCNCCNCc": 1852,
+      "COCOCCCNc": 1853,
+      "NCCNCCCCOC": 1854,
+      "OCCOn": 1855,
+      "OCCONc": 1856,
+      "OCCOCCNc": 1857,
+      "CCCSCCOCC": 1858,
+      "COCCOCCCCNCc": 1859,
+      "NCCCNCCCNS": 1860,
+      "OCOCCOC": 1861,
+      "NCCCCCCCCCCCN": 1862,
+      "OCCOCOC": 1863,
+      "CCOCCOCCOc": 1864,
+      "OCCCNN": 1865,
+      "COCCSCCCSCc": 1866,
+      "COCCOCCOCCOCCOCCOCCNC": 1867,
+      "NCCOCCOCCOCCOCCOCCNC": 1868,
+      "312": 1869,
+      "46": 1870,
+      "FCCCCSc": 1871,
+      "SCCNCC": 1872,
+      "CCCCCl": 1873,
+      "CCSCOc": 1874,
+      "COCCNCCCOC": 1875,
+      "CCCCONC": 1876,
+      "OCCOCCCc": 1877,
+      "NCCCCCCCn": 1878,
+      "OCCCCCCCO": 1879,
+      "COCCCCNCCC": 1880,
+      "CCCCCCCCCCn": 1881,
+      "NCCOCCCNCc": 1882,
+      "COCCOCCOCCOCCOCCOCCN": 1883,
+      "NCCOCCOCCOCCNS": 1884,
+      "FCCCCCSc": 1885,
+      "@@+](": 1886,
+      "CONCCc": 1887,
+      "CCOCCCCCc": 1888,
+      "CCOCCSC": 1889,
+      "CSCCCCNS": 1890,
+      "CSCCCON": 1891,
+      "CCSCCSC": 1892,
+      "CCCOCCCNS": 1893,
+      "CCCOCOc": 1894,
+      "COCCOCCCC": 1895,
+      "NCCCNCCOCCOc": 1896,
+      "NCCCCCCSc": 1897,
+      "CCOCCOCCOCCOCCNC": 1898,
+      "OCCCNCCCCCCNC": 1899,
+      "SCCCSCc": 1900,
+      "FCCc": 1901,
+      "CNCCCCOCc": 1902,
+      "CSCOc": 1903,
+      "CSCCCCNc": 1904,
+      "CCCCNCCOCCOC": 1905,
+      "CCCOCCSc": 1906,
+      "CCCCCCCCCCCONC": 1907,
+      "OCCSCCCc": 1908,
+      "+](\\[": 1909,
+      "COCCOCCOCCOCCOC": 1910,
+      "NCCOCCOCCOCCOCCNS": 1911,
+      "FCCSc": 1912,
+      "SCCCNS": 1913,
+      "CCNCCOCCOC": 1914,
+      "CSCCCOCc": 1915,
+      "CCSCCCS": 1916,
+      "CCCCNCCCCC": 1917,
+      "CCCOCN": 1918,
+      "CCCCON": 1919,
+      "CCCCOP": 1920,
+      "COCCOCCOCCCNCc": 1921,
+      "NCCCCCCCCC": 1922,
+      "OCCCOCCNc": 1923,
+      "CCOCCOCCOCCNS": 1924,
+      "COCCCCCCCC": 1925,
+      "OCCCNCCCO": 1926,
+      "CNCCOCCOCC": 1927,
+      "CNCCOCCCNC": 1928,
+      "CNCCCCCCc": 1929,
+      "NCCOCCNCCCC": 1930,
+      "CCCCCCCCCCCCCCCCC": 1931,
+      "CCCCCCCNCCCCCCNC": 1932,
+      "NCCOCCOCCNS": 1933,
+      "OCCOCCSc": 1934,
+      "NCCCOCCOCCOCCCNS": 1935,
+      "51": 1936,
+      "FCCNC": 1937,
+      "SCCOCCOC": 1938,
+      "CCCB": 1939,
+      "OCNc": 1940,
+      "CNOCC": 1941,
+      "CCNCCOCCC": 1942,
+      "CCCCCCCCNc": 1943,
+      "OCCOCCOCC": 1944,
+      "OCCOCCCNC": 1945,
+      "OCCOCCOCCOCc": 1946,
+      "NCCCCCCCCNS": 1947,
+      "OCCCOCCN": 1948,
+      "NCCONC": 1949,
+      "NCCOCCc": 1950,
+      "NCCCOCCNCc": 1951,
+      "CNCCCCCCCC": 1952,
+      "CCCCCCCCCCCOC": 1953,
+      "OCCCSCCOC": 1954,
+      "OCCCCCSc": 1955,
+      "CNCCSCCOc": 1956,
+      "CNCCCCCSC": 1957,
+      "CCOCCOCCOCCOCCOCC": 1958,
+      ")\\[": 1959,
+      "FCCCSc": 1960,
+      "FCCOCCNc": 1961,
+      "FCCCSCc": 1962,
+      "OCCCCCS": 1963,
+      "SCCCCCC": 1964,
+      "CNOCCC": 1965,
+      "CCNOC": 1966,
+      "CCCCCCCCCOc": 1967,
+      "COCOCCc": 1968,
+      "CCCCOCCOCCNc": 1969,
+      "OCCOCCOCCOCCOC": 1970,
+      "CCOCCOCCOCc": 1971,
+      "CCOCCOCCOCCOCC": 1972,
+      "NCCCOCCCC": 1973,
+      "OCCCCSCC": 1974,
+      "OCCCCCCCCCCCOc": 1975,
+      "CCCCCCNCCC": 1976,
+      "CNCCOCCNS": 1977,
+      "NCCCCNCCCN": 1978,
+      "NCCCCNCCCNC": 1979,
+      "CCCCCONC": 1980,
+      "NCCOCCOCCOCCN": 1981,
+      "COCCOCCOCCOCCOCCOCCOCCN": 1982,
+      "CCCCCCCCCCCCCCCCCCNC": 1983,
+      "FCCCNC": 1984,
+      "FCCCNCc": 1985,
+      "NOCCn": 1986,
+      "](=": 1987,
+      "cH": 1988,
+      "CCP": 1989,
+      "OCSCc": 1990,
+      "CNCCCSCC": 1991,
+      "CCNCCCCCn": 1992,
+      "CCCCl": 1993,
+      "CCCNCCNc": 1994,
+      "COCOCCOC": 1995,
+      "CSCSC": 1996,
+      "CSCCCCS": 1997,
+      "CCSCCCCC": 1998,
+      "CCCSCCCc": 1999,
+      "COCCOCCOCCCNc": 2000,
+      "NCCCCCCCOc": 2001,
+      "CCOCCOCCOCCC": 2002,
+      "OCCCCCCCCc": 2003,
+      "CCOCCOCCSCc": 2004,
+      "CSCCCCSCc": 2005,
+      "CCNCCCCCOc": 2006,
+      "CCCNCCOCCO": 2007,
+      "CCOCS": 2008,
+      "CSCCOCCO": 2009,
+      "CSCCCOCCc": 2010,
+      "OCCSCCS": 2011,
+      "CCCCNCCOCc": 2012,
+      "CCCCNCCCOCC": 2013,
+      "CCCCNCCCCCn": 2014,
+      "OCCOCCOCCN": 2015,
+      "NCCCCCCSCC": 2016,
+      "CCOCCOCCOCCOCCO": 2017,
+      "OCCCCCCCSc": 2018,
+      "NOCCF": 2019,
+      "NCCCSCCOC": 2020,
+      "CCCCCCCCCCCO": 2021,
+      "CCCCCCCCCCCCc": 2022,
+      "NCCOCCOCCc": 2023,
+      "NCCOCCOCCOCCn": 2024,
+      "CCOCCCONC": 2025,
+      "SCCCCSc": 2026,
+      "NCCOCCOCCOCCOCCOCCOCCOCCN": 2027,
+      "BB": 2028,
+      "Fn": 2029,
+      "FCCO": 2030,
+      "FCCNc": 2031,
+      "SCS": 2032,
+      "CCCP": 2033,
+      "CNOCc": 2034,
+      "CCNCCCCN": 2035,
+      "COCCCCCCC": 2036,
+      "CCCNCCCCc": 2037,
+      "NCCCCCSc": 2038,
+      "CSCCSCC": 2039,
+      "CSCCSCc": 2040,
+      "CSCCCCNCc": 2041,
+      "CCSCN": 2042,
+      "CCSCCOCCN": 2043,
+      "CCSCCCCc": 2044,
+      "CCCOS": 2045,
+      "-]/[": 2046,
+      "CCCCNCCCOc": 2047,
+      "NCCNCCOCCCC": 2048,
+      "CNCCP": 2049,
+      "COCCCSC": 2050,
+      "NCCCCCCCCc": 2051,
+      "CCOCCCSC": 2052,
+      "CCCCSCCCNC": 2053,
+      "CCOCCOCCOCCOC": 2054,
+      "NCCCOCCN": 2055,
+      "OCCCCCCCCCC": 2056,
+      "OCCCCCCSc": 2057,
+      "CNCCCCSc": 2058,
+      "COCCSCCC": 2059,
+      "CCCCCCCCCCCCn": 2060,
+      "OCCSCCCC": 2061,
+      "OCCSCCn": 2062,
+      "OCCSCCCOc": 2063,
+      "NCCCCCCNCCCN": 2064,
+      "NCCCCCCNCCCCC": 2065,
+      "NCCCCCCNCCCCOC": 2066,
+      "SCCCSCCOC": 2067,
+      "OCCCSCCc": 2068,
+      "CNCCOCCOCCOCCOCc": 2069,
+      "CCCCCCCCCCCCOc": 2070,
+      "COCCOCCOCCOCCOCCOCCNS": 2071,
+      "CCOCCOCCOCCOCCOCCn": 2072,
+      "OCCOCCOCCOCCOCCOCCNC": 2073,
+      "FCOc": 2074,
+      "FCCCCO": 2075,
+      "FCCCCCn": 2076,
+      "NNCCCn": 2077,
+      "NOCCOCc": 2078,
+      "SCCCCCOC": 2079,
+      "ccocc": 2080,
+      "CNNC": 2081,
+      "CCNCCCCCOC": 2082,
+      "Brn": 2083,
+      "NCCCCCNc": 2084,
+      "CCCCCSCCC": 2085,
+      "CSCCNCC": 2086,
+      "CCSCCOCc": 2087,
+      "CCCCNCCOCCC": 2088,
+      "OCCOCCOCCn": 2089,
+      "CCCSCCCN": 2090,
+      "CCNCCCCOc": 2091,
+      "OCCCP": 2092,
+      "OCCNCCS": 2093,
+      "NCCCCCCOC": 2094,
+      "NCCCCCCCOC": 2095,
+      "NCCCCCCSCc": 2096,
+      "OCCCOCCNCc": 2097,
+      "NCCCOCCNc": 2098,
+      "OCCCCCCCOc": 2099,
+      "OCCCCCCCCNC": 2100,
+      "NCCOCCn": 2101,
+      "CCCCCON": 2102,
+      "CNCCCCCCS": 2103,
+      "CNCCCCCCOc": 2104,
+      "NOCCSc": 2105,
+      "CCCCCCCCSc": 2106,
+      "OCCSCCOCC": 2107,
+      "NCCCCCCNCCCS": 2108,
+      "NCCCCCCNCCNS": 2109,
+      "NCCCCCCNCCCCCOC": 2110,
+      "CNCCOCCOCCNC": 2111,
+      "NCCOCCOCCOCCOCCOCCOC": 2112,
+      "OCCOCCOCCOCCn": 2113,
+      "CCOCCOCCOCCOCCC": 2114,
+      "52": 2115,
+      "67": 2116,
+      "76": 2117,
+      "FCCCO": 2118,
+      "FCCCCOc": 2119,
+      "ONc": 2120,
+      "PH": 2121,
+      "SCCCCCNC": 2122,
+      "SCCOCCOc": 2123,
+      "SCCCCCS": 2124,
+      "CNCS": 2125,
+      "CNCOc": 2126,
+      "CSCCCONC": 2127,
+      "CCCOn": 2128,
+      "-]#[": 2129,
+      "CCCCNCCCCc": 2130,
+      "@](/": 2131,
+      "NCCNCCCCCS": 2132,
+      "OCCOCCOCCOCCN": 2133,
+      "CCCSCCCCC": 2134,
+      "NCCCNCCCCn": 2135,
+      "CSCCCCOc": 2136,
+      "NCCCCCCCCCCc": 2137,
+      "NON": 2138,
+      "NOCCCCCCCCCCCc": 2139,
+      "314": 2140,
+      "CCOCCOCCOCCn": 2141,
+      "CCOCCOCCOCCCO": 2142,
+      "OCCCCCCCCCc": 2143,
+      "OCCCCCCCCCOC": 2144,
+      "OCCCNCCc": 2145,
+      "COCCCCNCCCN": 2146,
+      "CNCCCCF": 2147,
+      "CNCCCCCCCCCCO": 2148,
+      "CCCCCCCCCCc": 2149,
+      "OCCSCCO": 2150,
+      "OCCCSCCOc": 2151,
+      "OCCCCCSC": 2152,
+      "+](/[": 2153,
+      "COCCOCCOCCOCCOCCOCCOCCNC": 2154,
+      "NCCCCCSCc": 2155,
+      "NCCOCCOCCOCCOCCn": 2156,
+      "NCCOCCOCCOCCOCCOCCn": 2157,
+      "CCCCCCCCCCCCCCCCCCn": 2158,
+      "CCOCCCSCCC": 2159,
+      "25": 2160,
+      "@+](": 2161,
+      "FCCOCCNC": 2162,
+      "FCCCCCOc": 2163,
+      "FCCCCCNc": 2164,
+      "FCCCCSCc": 2165,
+      "SCCONC": 2166,
+      "])=": 2167,
+      "OCSCC": 2168,
+      "CNCCCCCNC": 2169,
+      "CCNCCSC": 2170,
+      "CCNCCSc": 2171,
+      "CCNCCCNc": 2172,
+      "CCNCCCCCO": 2173,
+      "CONS": 2174,
+      "CCCCCCCSCc": 2175,
+      "CCOCCSCCC": 2176,
+      "CCSCCNCC": 2177,
+      "CCSCCNCCC": 2178,
+      "CCCOCCOCCOCCn": 2179,
+      "+][": 2180,
+      "NSc": 2181,
+      "CCCCNCCCCOc": 2182,
+      "NCCNCCCCCC": 2183,
+      "NCCNCCCCCCC": 2184,
+      "CCCOCS": 2185,
+      "CCCCOCCCCOC": 2186,
+      "CCCSCCCOc": 2187,
+      "CCNCCCCCN": 2188,
+      "NCCCNCCOCCCC": 2189,
+      "OCCNCCc": 2190,
+      "NCCCCCCCCCCCC": 2191,
+      "NOCCCCCF": 2192,
+      "CCCCCNCCc": 2193,
+      "CCOCCNCCc": 2194,
+      "OCCCOCCCN": 2195,
+      "CCCCCCCSC": 2196,
+      "CCCCSCCCOc": 2197,
+      "COCCOCOC": 2198,
+      "CCOCCOCCNCC": 2199,
+      "OCCCCCCCCC": 2200,
+      "OCCCNCCS": 2201,
+      "CNCCOCCOc": 2202,
+      "SCCNCCC": 2203,
+      "SCCSCCO": 2204,
+      "CNCCCCP": 2205,
+      "NCCCSCCOc": 2206,
+      "COCCSCCc": 2207,
+      "COCCSCCCS": 2208,
+      "CCCCCCCCCCCNC": 2209,
+      "CCCCCCCCSCc": 2210,
+      "CCCCCCCCCCCCCCCCNC": 2211,
+      "CCCCCCCCCCCCCCCCOc": 2212,
+      "CCCCCCCCCCCCCCCCCCOC": 2213,
+      "OCCSCCNC": 2214,
+      "OCCSCCNS": 2215,
+      "CCOCCSCCOc": 2216,
+      "NCCCCCCNCCOCCC": 2217,
+      "NOCCCOCC": 2218,
+      "NOCCOCCO": 2219,
+      "SCCOCCSc": 2220,
+      "CCOCCOCCOCCOCCOCCO": 2221,
+      "OCCOCCOCCOCCOCCn": 2222,
+      "OCCOCCS": 2223,
+      "SCCON": 2224,
+      "SCCCCCCCNC": 2225,
+      "CNNS": 2226,
+      "CCNCCCCO": 2227,
+      "CCNCCCCn": 2228,
+      "CCNCCOCCNC": 2229,
+      "CCNCCCSc": 2230,
+      "COCCCCCO": 2231,
+      "CCOB": 2232,
+      "CCCCCCOCCOC": 2233,
+      "CCCCCCSCCC": 2234,
+      "CCCNCCSCc": 2235,
+      "CCCNCCCCCF": 2236,
+      "CCCCCSCCN": 2237,
+      "CCCCCSCCc": 2238,
+      "CSCO": 2239,
+      "CSCS": 2240,
+      "CSCCCCO": 2241,
+      "CCSCCCF": 2242,
+      "CCSCCCCOC": 2243,
+      "CCSCCCCF": 2244,
+      "CCCOP": 2245,
+      "-])-": 2246,
+      "CCCCNCCOCCNC": 2247,
+      "@@](/": 2248,
+      "COCCNCCOc": 2249,
+      "COCCNCCNc": 2250,
+      "CCCCOn": 2251,
+      "CCCSCCCS": 2252,
+      "COCCOCCON": 2253,
+      "COCCOCCOCCOc": 2254,
+      "NCCCNCCCCCC": 2255,
+      "(\\[": 2256,
+      "NCCCCCCCCCCCCN": 2257,
+      "CCCOCCS": 2258,
+      "OCCCOCCNC": 2259,
+      "OCCCCSC": 2260,
+      "OCCCCCCCCCCC": 2261,
+      "OCCCCCCCCCCN": 2262,
+      "OCCCCCCCCCCCC": 2263,
+      "COCCCCSC": 2264,
+      "CSCCSCCO": 2265,
+      "CNCCCOCCOCc": 2266,
+      "CNCCCOCCOCCO": 2267,
+      "NOCCSCc": 2268,
+      "COCCSCCN": 2269,
+      "COCCSCCCNC": 2270,
+      "CCCCCCCCCCNS": 2271,
+      "CCCCCCCCCCSc": 2272,
+      "CCCCCCCCCCNCc": 2273,
+      "OCCSCCCS": 2274,
+      "CCCCCCCNCCc": 2275,
+      "OCCCSCCNC": 2276,
+      "OCCCSCCOCC": 2277,
+      "CCCCCCCCCSc": 2278,
+      "-])=[": 2279,
+      "CNCCOCCOCCO": 2280,
+      "CCCCCCCCCCCCCCCCCCN": 2281,
+      "CCCCCCSCCc": 2282,
+      "-[": 2283,
+      "15": 2284,
+      "513": 2285,
+      "FCCOC": 2286,
+      "FCCCCCSCc": 2287,
+      "SCCCCCCC": 2288,
+      "SCCCCNCc": 2289,
+      "SCCCCCSc": 2290,
+      "NCO": 2291,
+      "CCNOCC": 2292,
+      "CCNCCCCCC": 2293,
+      "CCNCCCCS": 2294,
+      "COCCCCCONC": 2295,
+      "CCCNCCCCN": 2296,
+      "CCCNCCCn": 2297,
+      "COCS": 2298,
+      "COCOCc": 2299,
+      "CCOCOC": 2300,
+      "CSCCOCCC": 2301,
+      "CSCCCCSC": 2302,
+      "OCCCCON": 2303,
+      "123": 2304,
+      "CCSCOC": 2305,
+      "CCSCCCCCCN": 2306,
+      "CCSCCCCCF": 2307,
+      "CCSCCON": 2308,
+      "CCSCCSCCc": 2309,
+      "CCCOCCO": 2310,
+      "CCCCNCCOCCCC": 2311,
+      "CCCCNCCCCCOC": 2312,
+      "@@]([": 2313,
+      "COCCCCOCc": 2314,
+      "COCCCCON": 2315,
+      "CCCSCCS": 2316,
+      "CCCSCCCNc": 2317,
+      "COCCOCCOCCOCCn": 2318,
+      "OCCNCCNc": 2319,
+      "NOCCCOCc": 2320,
+      "NOCCCCF": 2321,
+      "OCCCOn": 2322,
+      "OCCCOCCOCCOCCn": 2323,
+      "NCCOCCOCCn": 2324,
+      "OCCCCCCCCCCCCNC": 2325,
+      "COCCCCCCO": 2326,
+      "COCCCCCCCCCO": 2327,
+      "CSCCNCCC": 2328,
+      "NNCn": 2329,
+      "CNCCOB": 2330,
+      "CNCCOP": 2331,
+      "CNCCOCCNCc": 2332,
+      "CCOCCCNCCCN": 2333,
+      "SCCNCCc": 2334,
+      "SCCSCCCCC": 2335,
+      "COCCCCCOCc": 2336,
+      "CNCCCCCCCCCCCCO": 2337,
+      "CNCCCOCCOC": 2338,
+      "CNCCCOCCOCCOC": 2339,
+      "NCCOCCNCCCCCCNC": 2340,
+      "COCCSCCS": 2341,
+      "CCCCCCCCSC": 2342,
+      "CCCCCCCCCCNc": 2343,
+      "CCCCCCCCCCCCCCO": 2344,
+      "OCCSCCCN": 2345,
+      "OCCSCCCOC": 2346,
+      "OCCSCCNCc": 2347,
+      "OCCSCCSCc": 2348,
+      "NCCCCCCNCCOCCOC": 2349,
+      "OCCCSCCCC": 2350,
+      "OCCCSCCS": 2351,
+      "COCCCSCCC": 2352,
+      "CCCCCCCCCNCc": 2353,
+      "CNCCOCCOCCOCCO": 2354,
+      "CNCCOCCOCCOCCOCCOCCO": 2355,
+      "NCCOCCOCCOCCOCCOCCOCCO": 2356,
+      "NCCOCCOCCOCCOCCOCCNS": 2357,
+      "NCCOCCOCCOCCOCCOCCOCCOC": 2358,
+      "CCCCCCCCCCCCCCCCOC": 2359,
+      "CCOCCOCCOCCOCCOCCC": 2360,
+      "CCCCCCCCCCCCCCCCCCCCCCC": 2361,
+      "CCOCCCSCCOc": 2362,
+      "OCCOCCOCCOCCOCCOCCN": 2363,
+      "CCOCCOCCOCCOCCOCCOCCOCCOCCOCCC": 2364,
+      "516": 2365,
+      "BBBB": 2366,
+      "CNCCCOCCOCCOCCCN": 2367,
+      "16": 2368,
+      "78": 2369,
+      "87": 2370,
+      "FCCCS": 2371,
+      "FCCCOc": 2372,
+      "FCCCCNC": 2373,
+      "FCCOCCNCC": 2374,
+      "SH": 2375,
+      "SCSCC": 2376,
+      "SCCCCCCCC": 2377,
+      "SCCOCCOCC": 2378,
+      "ssnc": 2379,
+      "CCB": 2380,
+      "CCI": 2381,
+      "NCl": 2382,
+      "CNCCNCC": 2383,
+      "CCNP": 2384,
+      "CCNCCOCCCC": 2385,
+      "CCCCCCONC": 2386,
+      "CCCCCCCCOCCCNC": 2387,
+      "nnncc": 2388,
+      "COCOCC": 2389,
+      "CCOCSC": 2390,
+      "CCNCN": 2391,
+      "CCOCCSCCN": 2392,
+      "CSCOCC": 2393,
+      "CSCCOCCOC": 2394,
+      "CSCCOCCOc": 2395,
+      "CSCCCCSCC": 2396,
+      "CSCCCCCCc": 2397,
+      "OCCCCCNCC": 2398,
+      "OCCCCNCCN": 2399,
+      "OCCCCCNCCO": 2400,
+      "CCSCCCCN": 2401,
+      "CCSCCCOCC": 2402,
+      "CCSCCCNCC": 2403,
+      "CCSCCSCCC": 2404,
+      "CCCOCCNCC": 2405,
+      "CCCOCCNCCS": 2406,
+      "CCCCNCCOCCOc": 2407,
+      "231": 2408,
+      ")/[": 2409,
+      "CCCCOCCOCCOC": 2410,
+      "OCCOS": 2411,
+      "CCCSCCCC": 2412,
+      "CCCSCCCn": 2413,
+      "CCCSCCNCCC": 2414,
+      "COCCOCCOCCC": 2415,
+      "COCCOCCCOCc": 2416,
+      "COCCOCCONC": 2417,
+      "NCCCNCCCCCS": 2418,
+      "OCCNCCCc": 2419,
+      "OCCNCCNCc": 2420,
+      "341": 2421,
+      "NCCCCCCCCCNC": 2422,
+      "NCCCCCCCNc": 2423,
+      "NCCCCCCCCCCNC": 2424,
+      "NCCCCCCCSc": 2425,
+      "NOCCCn": 2426,
+      "NOCCCCOC": 2427,
+      "CCCCSCCN": 2428,
+      "CCCCSCCOC": 2429,
+      "CCCCSCCn": 2430,
+      "CCCCSCCOc": 2431,
+      "CCCCSCCCc": 2432,
+      "NCCOCCOCCCC": 2433,
+      "COCCCNCCCOc": 2434,
+      "NCCSCCNC": 2435,
+      "CNCCCP": 2436,
+      "CNCCNCCO": 2437,
+      "NCCCOCCOCCCNC": 2438,
+      "OCCCCCCCCN": 2439,
+      "OCCCCCCCCCCNC": 2440,
+      "OCCCCCCCCCCCCCC": 2441,
+      "OCCCCCCCCCCCCN": 2442,
+      "COCCCCF": 2443,
+      "COCCCCP": 2444,
+      "COCCCCCCOc": 2445,
+      "OCCCNCCn": 2446,
+      "CNCCON": 2447,
+      "CCCCOCCSC": 2448,
+      "COCCCCCSCCC": 2449,
+      "CNCCCCCCSC": 2450,
+      "CNCCCCCCCCCCC": 2451,
+      "COCCOCCNCCCN": 2452,
+      "COCCSCCOCC": 2453,
+      "COCCSCCCON": 2454,
+      "CSCCCNCCC": 2455,
+      "CCCCCCCCCCOCCO": 2456,
+      "CCCCCCCCCCCCCCN": 2457,
+      "CCCCCCCCCCCCSC": 2458,
+      "CCCCCCCCCCCCCCc": 2459,
+      "OCCSCCSC": 2460,
+      "OCCSCCCNc": 2461,
+      "CCCCCSCCOc": 2462,
+      "CCCCCCCNCCC": 2463,
+      "CCCCCCCNCCN": 2464,
+      "CCOCCSCCOC": 2465,
+      "NCCCCCCNCCCOCC": 2466,
+      "NCCCCCCNCCCCCn": 2467,
+      "CCCCCCCCCNc": 2468,
+      "CNCCOCCOCCOC": 2469,
+      "CNCCOCCOCCOCCOCCNC": 2470,
+      "SCCCCCCS": 2471,
+      "COCCOCCOCCOCCOCC": 2472,
+      "NCCOCCOCCOCCOCCOCCOCCNC": 2473,
+      "NCCOCCOCCOCCOCCOCCOCCOCCNC": 2474,
+      "COCCCCSCCOc": 2475,
+      "CCCCCCCCCCCCCCCc": 2476,
+      "CCCCCCCCCCCCCCCCO": 2477,
+      "NCCCCCCCCCCCc": 2478,
+      "CCOCCOCCOCCOCCNS": 2479,
+      "CCOCCOCCOCCOCCOCCN": 2480,
+      "CSCCCSCCc": 2481,
+      "CSCCCSCCCCC": 2482,
+      "CCCCCCCCOP": 2483,
+      "CCCCCCCCCCCCCCCCCCc": 2484,
+      "132": 2485,
+      "143": 2486,
+      "61": 2487,
+      "62": 2488,
+      "@-]": 2489,
+      "CB": 2490,
+      "CI": 2491,
+      "FCCCOC": 2492,
+      "FCCCCCSC": 2493,
+      "FCCCCCSCC": 2494,
+      "FCCCSCCOc": 2495,
+      "NB": 2496,
+      "NNCCCC": 2497,
+      "NNCCCOC": 2498,
+      "SCCCCNC": 2499,
+      "SCCOCCS": 2500,
+      "SCCCCCCCCCCCC": 2501,
+      "SCCOCCOCCOCCOCCOCCOCCOCCO": 2502,
+      "onnc": 2503,
+      "CCBr": 2504,
+      "NCNC": 2505,
+      "NCNc": 2506,
+      "NCOCc": 2507,
+      "OCSCCN": 2508,
+      "CCNCCSCC": 2509,
+      "CCNCCCNCc": 2510,
+      "CCNCCCOCc": 2511,
+      "CCNCCOCCS": 2512,
+      "CCNCCSCCCO": 2513,
+      "ClB": 2514,
+      "ClCc": 2515,
+      "CCCCCCOCCO": 2516,
+      "CCCCCCON": 2517,
+      "CCCCCCCCOCCNC": 2518,
+      "CCCNNC": 2519,
+      "CCCNCCCOCC": 2520,
+      "CCCNCCCCn": 2521,
+      "CCCNCCCCOc": 2522,
+      "CCCNCCCCCCN": 2523,
+      "CCCNCCCNc": 2524,
+      "CCCNCCOCCOC": 2525,
+      "CCCNCCCCCOc": 2526,
+      "CCCNCCCOCCNC": 2527,
+      "COCSC": 2528,
+      "CCOCOCC": 2529,
+      "NCCCCNCC": 2530,
+      "213": 2531,
+      "214": 2532,
+      "CCOCCCCO": 2533,
+      "CCOCCSCCc": 2534,
+      "CSN": 2535,
+      "CSCCCCCC": 2536,
+      "CSCSCC": 2537,
+      "CSCCCNCC": 2538,
+      "CSCCCCCO": 2539,
+      "CSCCCCCS": 2540,
+      "OCCCCOCC": 2541,
+      "OCCCCNCCC": 2542,
+      "OCCCCONC": 2543,
+      "OCCCCNCCO": 2544,
+      "CCSCS": 2545,
+      "CCSCSC": 2546,
+      "CCSCCCCS": 2547,
+      "CCSCCCSC": 2548,
+      "CCSCCCCCCNC": 2549,
+      "CCSCCSCCn": 2550,
+      "CCSCCONC": 2551,
+      "CCSCCSCCN": 2552,
+      "CCSCCCNCCC": 2553,
+      "CCCOCCCO": 2554,
+      "CCCOCCNCCC": 2555,
+      "CCCOCCOCCOCCOC": 2556,
+      "NSN": 2557,
+      "CCCCNCCCn": 2558,
+      "CCCCNCCNc": 2559,
+      "COCCP": 2560,
+      "COCCCCONC": 2561,
+      "NCCCSCCN": 2562,
+      "COCCNCCS": 2563,
+      "COCCNCCCc": 2564,
+      "CCCCOCCOCCOCCOC": 2565,
+      "CCCCOCCOCCOCCS": 2566,
+      "OCCOCCc": 2567,
+      "OCCOCCCOC": 2568,
+      "OCCOCCNCCN": 2569,
+      "OCCOCCOCCOCC": 2570,
+      "OCCOCCNCCO": 2571,
+      "CCCSCCO": 2572,
+      "CCCSCOC": 2573,
+      "CCCSCCCCCF": 2574,
+      "COCCONCCC": 2575,
+      "COCCOCCCNCC": 2576,
+      "COCCOCCOCCCn": 2577,
+      "COCCOCCOCCOCc": 2578,
+      "COCCOCCOCCSc": 2579,
+      "OCCNCCOc": 2580,
+      "CSCCCCCNCCC": 2581,
+      "CCSCCCCOc": 2582,
+      "NCCCCl": 2583,
+      "NCCCCCCCCCC": 2584,
+      "NCCCCCCSCCn": 2585,
+      "NCCCCCCCCCCCNC": 2586,
+      "NOS": 2587,
+      "NOCCCCc": 2588,
+      "NOCCCCS": 2589,
+      "NOCCCNCC": 2590,
+      "NOCCCOCCc": 2591,
+      "NOCCCON": 2592,
+      "CCOCCNCCS": 2593,
+      "NCCOCCCCCCCC": 2594,
+      "NCCSCCc": 2595,
+      "NCCSCCOCC": 2596,
+      "NCCSCCCc": 2597,
+      "NCCSCCCOc": 2598,
+      "CNCCNCCC": 2599,
+      "CNCCNCCN": 2600,
+      "CCOCCOCCc": 2601,
+      "CCOCCOCCCCCCCC": 2602,
+      "CCOCCOCCOCCOCCOC": 2603,
+      "NCCCOCCC": 2604,
+      "OCCCCCCS": 2605,
+      "OCCCCCCCCOC": 2606,
+      "OCCCCCCNCCO": 2607,
+      "NCCOCCSc": 2608,
+      "CSCCNCCc": 2609,
+      "CCCCOCN": 2610,
+      "CCCCCCNCCCN": 2611,
+      "NCCCCNCCC": 2612,
+      "SCCNCCN": 2613,
+      "SCCSCCC": 2614,
+      "SCCSCCc": 2615,
+      "COCCOCCSCCC": 2616,
+      "COCCOCCSCCOc": 2617,
+      "COCCCCCSC": 2618,
+      "COCCCCCSCCn": 2619,
+      "COCCCCCSCCOc": 2620,
+      "CNCCCCSC": 2621,
+      "NCCCSCCOCC": 2622,
+      "NCCCSCCCOc": 2623,
+      "NCCOCCNc": 2624,
+      "COCCSCCOc": 2625,
+      "COCCSCCCO": 2626,
+      "COCCSCCCc": 2627,
+      "COCCSCCCONC": 2628,
+      "CSCCCNCCc": 2629,
+      "CCCCCCCCCCCCO": 2630,
+      "CCCCCCCCCCCCCc": 2631,
+      "CCCCCCCCCCCCNc": 2632,
+      "CCCCCCCCCCCCCOC": 2633,
+      "CCCCCCCCCCCCSc": 2634,
+      "CCCCCCCCCCCCCCCOC": 2635,
+      "CCCCCCCCCCCCOP": 2636,
+      "OCCSCCCCC": 2637,
+      "OCCSCCCO": 2638,
+      "OCCSCCCCN": 2639,
+      "OCCSCCOCc": 2640,
+      "OCCSCCSc": 2641,
+      "OCCSCCNc": 2642,
+      "OCCSCCCCc": 2643,
+      "COCCCCCNCCN": 2644,
+      "CCCCCSCCOC": 2645,
+      "CCCCCSCCCCC": 2646,
+      "CCCCCSCCCOc": 2647,
+      "CCCCCCCNCCO": 2648,
+      "CCCCCCCNCCCc": 2649,
+      "CCNCCNCCc": 2650,
+      "CCOCCSCCOCC": 2651,
+      "CCOCCOCCSC": 2652,
+      "CCOCCOCCSCCC": 2653,
+      "NCCCCCCNCCCCCC": 2654,
+      "NCCCCCCNCCOCc": 2655,
+      "OCCCSCCO": 2656,
+      "OCCCSCCCc": 2657,
+      "OCCCSCCCS": 2658,
+      "COCCCSCCc": 2659,
+      "COCCCSCCCc": 2660,
+      "COCCCSCCCOc": 2661,
+      "CCOCCCON": 2662,
+      "CCSCCNCCS": 2663,
+      "CCSCCNCCCc": 2664,
+      "+](\\": 2665,
+      "CCCCCCCCCOCC": 2666,
+      "CNCCOCCOCCOCc": 2667,
+      "CNCCOCCOCCOCCN": 2668,
+      "CNCCOCCOCCOCCOCCN": 2669,
+      "CNCCOCCOCCOCCOCCOCCN": 2670,
+      "CNCCOCCOCCOCCOCCC": 2671,
+      "SCCCCCCCCCCC": 2672,
+      "CCCCCCCCCCP": 2673,
+      "COCCOCCOCCOCCOCCOCCOCCO": 2674,
+      "COCCOCCOCCOCCOCCOCCOCCOCCOCCOCCOCCO": 2675,
+      "COCCOCCOCCOCCOCCOCCOCCNS": 2676,
+      "CNCCCSCc": 2677,
+      "CSCCONCCC": 2678,
+      "NOCCOCCOC": 2679,
+      "CCNCCOCCF": 2680,
+      "CSCCCCCCCO": 2681,
+      "NCCOCCOCCOCCOCCOCCOCCOCCOCCOCCOCCOCCOCCC": 2682,
+      "COCCCCSCCCS": 2683,
+      "COCCCCSCCCOc": 2684,
+      "CCCCCCCCCCCCCCCCn": 2685,
+      "CCCCCCCCCCCCCCCCc": 2686,
+      "CCCCCCCCCCCCCCCCS": 2687,
+      "CCCCCCCCCCCCCCCCCO": 2688,
+      "CCCCCCCCCCCNc": 2689,
+      "CCOCCOCCOCCOCCn": 2690,
+      "CCOCCOCCOCCOCCS": 2691,
+      "CSCCCSCCOC": 2692,
+      "CSCCCSCCOc": 2693,
+      "CCCCCCCCONC": 2694,
+      "CCSCCSCCO": 2695,
+      "CCCCCCCCCCCCCCCCCCCCC": 2696,
+      "CCCCCCCCCCCCCCCCSC": 2697,
+      "CCCCCCCCCCCCCCCCSc": 2698,
+      "CCCCCCCCCCCCCCCCCCNS": 2699,
+      "CCCCCCCCCCCCCCCCCCNc": 2700,
+      "CCCCCCCCCCCCCCCCCCCCCCCC": 2701,
+      "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC": 2702,
+      "CCOCCCSCCCn": 2703,
+      "OCCOCCOCCOCCOc": 2704,
+      "OCCOCCOCCOCCCCCC": 2705,
+      "CCOCCOCCOCCOCCOCCOCCOCCOCCOCCOCCOCCO": 2706
+    },
+    "merges": [
+      [
+        "c",
+        "c"
+      ],
+      [
+        "C",
+        "C"
+      ],
+      [
+        "(",
+        "="
+      ],
+      [
+        "cc",
+        "c"
+      ],
+      [
+        "@",
+        "@"
+      ],
+      [
+        "]",
+        "("
+      ],
+      [
+        "N",
+        "C"
+      ],
+      [
+        "CC",
+        "C"
+      ],
+      [
+        "n",
+        "c"
+      ],
+      [
+        "C",
+        "c"
+      ],
+      [
+        ")",
+        "["
+      ],
+      [
+        "O",
+        "C"
+      ],
+      [
+        "C",
+        "N"
+      ],
+      [
+        "CC",
+        "N"
+      ],
+      [
+        "cc",
+        "ccc"
+      ],
+      [
+        ")",
+        "("
+      ],
+      [
+        "C",
+        "O"
+      ],
+      [
+        "cc",
+        "cc"
+      ],
+      [
+        "CC",
+        "O"
+      ],
+      [
+        "C",
+        "NC"
+      ],
+      [
+        "C",
+        "l"
+      ],
+      [
+        "CC",
+        "CC"
+      ],
+      [
+        "n",
+        "n"
+      ],
+      [
+        "N",
+        "c"
+      ],
+      [
+        "n",
+        "nc"
+      ],
+      [
+        ")",
+        "(="
+      ],
+      [
+        "(",
+        "-"
+      ],
+      [
+        "n",
+        "H"
+      ],
+      [
+        "CO",
+        "c"
+      ],
+      [
+        "CC",
+        "c"
+      ],
+      [
+        "CCC",
+        "N"
+      ],
+      [
+        "(",
+        "["
+      ],
+      [
+        "c",
+        "n"
+      ],
+      [
+        ")",
+        "="
+      ],
+      [
+        "C",
+        "OC"
+      ],
+      [
+        "n",
+        "cc"
+      ],
+      [
+        "CC",
+        "OC"
+      ],
+      [
+        "CC",
+        "NC"
+      ],
+      [
+        "C",
+        "n"
+      ],
+      [
+        "B",
+        "r"
+      ],
+      [
+        "c",
+        "nc"
+      ],
+      [
+        "NC",
+        "c"
+      ],
+      [
+        "N",
+        "CC"
+      ],
+      [
+        "o",
+        "c"
+      ],
+      [
+        "2",
+        "1"
+      ],
+      [
+        "CC",
+        "CCC"
+      ],
+      [
+        "CCO",
+        "CC"
+      ],
+      [
+        "s",
+        "c"
+      ],
+      [
+        "@",
+        "]"
+      ],
+      [
+        "c",
+        "nn"
+      ],
+      [
+        "C",
+        "S"
+      ],
+      [
+        "O",
+        "c"
+      ],
+      [
+        "O",
+        "CC"
+      ],
+      [
+        "@@",
+        "]"
+      ],
+      [
+        "1",
+        "2"
+      ],
+      [
+        "CC",
+        "n"
+      ],
+      [
+        "CC",
+        "S"
+      ],
+      [
+        "CCO",
+        "c"
+      ],
+      [
+        "n",
+        "o"
+      ],
+      [
+        "CCC",
+        "O"
+      ],
+      [
+        "cc",
+        "nc"
+      ],
+      [
+        "-",
+        "]"
+      ],
+      [
+        "ccc",
+        "nc"
+      ],
+      [
+        "+",
+        "]"
+      ],
+      [
+        "cc",
+        "n"
+      ],
+      [
+        "+]",
+        "(="
+      ],
+      [
+        "3",
+        "2"
+      ],
+      [
+        "-]",
+        ")"
+      ],
+      [
+        "n",
+        "oc"
+      ],
+      [
+        "CCC",
+        "NC"
+      ],
+      [
+        "ccc",
+        "n"
+      ],
+      [
+        "c",
+        "s"
+      ],
+      [
+        "cccc",
+        "n"
+      ],
+      [
+        "CCC",
+        "c"
+      ],
+      [
+        "O",
+        "Cc"
+      ],
+      [
+        "N",
+        "S"
+      ],
+      [
+        "CC",
+        "CCN"
+      ],
+      [
+        "@",
+        "]("
+      ],
+      [
+        "cc",
+        "ncc"
+      ],
+      [
+        "@@",
+        "]("
+      ],
+      [
+        "ccc",
+        "o"
+      ],
+      [
+        "CO",
+        "CC"
+      ],
+      [
+        "2",
+        "3"
+      ],
+      [
+        "c",
+        "sc"
+      ],
+      [
+        "ccc",
+        "s"
+      ],
+      [
+        "o",
+        "n"
+      ],
+      [
+        "cn",
+        "cc"
+      ],
+      [
+        "N",
+        "CCN"
+      ],
+      [
+        "N",
+        "CCC"
+      ],
+      [
+        "n",
+        "cccc"
+      ],
+      [
+        "n",
+        "ccc"
+      ],
+      [
+        "cc",
+        "sc"
+      ],
+      [
+        "CCC",
+        "OC"
+      ],
+      [
+        "CO",
+        "CCN"
+      ],
+      [
+        ")",
+        "/"
+      ],
+      [
+        "CC",
+        "CCO"
+      ],
+      [
+        "N",
+        "CCc"
+      ],
+      [
+        "cc",
+        "nn"
+      ],
+      [
+        "CS",
+        "c"
+      ],
+      [
+        "CNC",
+        "c"
+      ],
+      [
+        "CN",
+        "c"
+      ],
+      [
+        "nc",
+        "n"
+      ],
+      [
+        "(",
+        "/"
+      ],
+      [
+        "cnc",
+        "n"
+      ],
+      [
+        "c",
+        "o"
+      ],
+      [
+        "CCCC",
+        "CC"
+      ],
+      [
+        "nc",
+        "nc"
+      ],
+      [
+        "ncc",
+        "n"
+      ],
+      [
+        "O",
+        "CCO"
+      ],
+      [
+        "CCC",
+        "n"
+      ],
+      [
+        "S",
+        "C"
+      ],
+      [
+        "](",
+        "["
+      ],
+      [
+        "cc",
+        "oc"
+      ],
+      [
+        "CO",
+        "Cc"
+      ],
+      [
+        "CN",
+        "S"
+      ],
+      [
+        "c",
+        "oc"
+      ],
+      [
+        "CCC",
+        "S"
+      ],
+      [
+        "CN",
+        "CC"
+      ],
+      [
+        "n",
+        "cccn"
+      ],
+      [
+        "N",
+        "CCNC"
+      ],
+      [
+        "4",
+        "3"
+      ],
+      [
+        "s",
+        "ccc"
+      ],
+      [
+        "CCS",
+        "C"
+      ],
+      [
+        "ncc",
+        "s"
+      ],
+      [
+        "CCC",
+        "Oc"
+      ],
+      [
+        "S",
+        "c"
+      ],
+      [
+        "CS",
+        "C"
+      ],
+      [
+        "CCN",
+        "CC"
+      ],
+      [
+        "cn",
+        "ccn"
+      ],
+      [
+        "nn",
+        "n"
+      ],
+      [
+        "CO",
+        "CCO"
+      ],
+      [
+        "N",
+        "CCCN"
+      ],
+      [
+        "O",
+        "CCC"
+      ],
+      [
+        "nn",
+        "nn"
+      ],
+      [
+        "cn",
+        "ccc"
+      ],
+      [
+        "O",
+        "CCN"
+      ],
+      [
+        "cnn",
+        "n"
+      ],
+      [
+        "ncc",
+        "nc"
+      ],
+      [
+        "cc",
+        "on"
+      ],
+      [
+        "o",
+        "ccc"
+      ],
+      [
+        "3",
+        "4"
+      ],
+      [
+        "CO",
+        "CCC"
+      ],
+      [
+        "OC",
+        "O"
+      ],
+      [
+        "S",
+        "CC"
+      ],
+      [
+        "cnc",
+        "nc"
+      ],
+      [
+        "nc",
+        "nn"
+      ],
+      [
+        "CS",
+        "CC"
+      ],
+      [
+        "CCCC",
+        "NC"
+      ],
+      [
+        "(",
+        "\\"
+      ],
+      [
+        "CCO",
+        "Cc"
+      ],
+      [
+        "nnc",
+        "n"
+      ],
+      [
+        "nn",
+        "nc"
+      ],
+      [
+        "CCS",
+        "CC"
+      ],
+      [
+        "c",
+        "nnc"
+      ],
+      [
+        "nc",
+        "oc"
+      ],
+      [
+        "s",
+        "n"
+      ],
+      [
+        "cs",
+        "cn"
+      ],
+      [
+        "F",
+        "c"
+      ],
+      [
+        "n",
+        "s"
+      ],
+      [
+        "CCN",
+        "S"
+      ],
+      [
+        "N",
+        "CCCNC"
+      ],
+      [
+        "n",
+        "sc"
+      ],
+      [
+        "@]",
+        "(="
+      ],
+      [
+        "C",
+        "F"
+      ],
+      [
+        "no",
+        "cc"
+      ],
+      [
+        "N",
+        "CCCC"
+      ],
+      [
+        "N",
+        "O"
+      ],
+      [
+        "CCC",
+        "OCC"
+      ],
+      [
+        "no",
+        "nc"
+      ],
+      [
+        "o",
+        "cnc"
+      ],
+      [
+        "CCC",
+        "F"
+      ],
+      [
+        "CCS",
+        "c"
+      ],
+      [
+        "CC",
+        "CCCN"
+      ],
+      [
+        "CCO",
+        "CCN"
+      ],
+      [
+        "cnc",
+        "s"
+      ],
+      [
+        "CC",
+        "F"
+      ],
+      [
+        "nc",
+        "sc"
+      ],
+      [
+        "@@]",
+        "(="
+      ],
+      [
+        "cn",
+        "oc"
+      ],
+      [
+        "co",
+        "nc"
+      ],
+      [
+        "CCN",
+        "c"
+      ],
+      [
+        "N",
+        "CCOc"
+      ],
+      [
+        "CO",
+        "CCn"
+      ],
+      [
+        "CCNC",
+        "c"
+      ],
+      [
+        "cn",
+        "on"
+      ],
+      [
+        "o",
+        "nc"
+      ],
+      [
+        "S",
+        "Cc"
+      ],
+      [
+        "+",
+        "](["
+      ],
+      [
+        "=",
+        "["
+      ],
+      [
+        "N",
+        "N"
+      ],
+      [
+        "F",
+        "C"
+      ],
+      [
+        "s",
+        "cnc"
+      ],
+      [
+        "CO",
+        "CCOc"
+      ],
+      [
+        "O",
+        "CCc"
+      ],
+      [
+        "NCC",
+        "n"
+      ],
+      [
+        "CCCC",
+        "n"
+      ],
+      [
+        "cs",
+        "nn"
+      ],
+      [
+        "ccn",
+        "s"
+      ],
+      [
+        "CCO",
+        "CCC"
+      ],
+      [
+        "ccc",
+        "nn"
+      ],
+      [
+        "O",
+        "CCCO"
+      ],
+      [
+        "CCCC",
+        "c"
+      ],
+      [
+        "cnc",
+        "o"
+      ],
+      [
+        "ccnc",
+        "n"
+      ],
+      [
+        "N",
+        "CCCc"
+      ],
+      [
+        "CS",
+        "Cc"
+      ],
+      [
+        "nn",
+        "cc"
+      ],
+      [
+        "CCCC",
+        "CCC"
+      ],
+      [
+        "co",
+        "cn"
+      ],
+      [
+        "nc",
+        "ncc"
+      ],
+      [
+        "CCCC",
+        "S"
+      ],
+      [
+        "CO",
+        "N"
+      ],
+      [
+        "N",
+        "CCO"
+      ],
+      [
+        "Cl",
+        "c"
+      ],
+      [
+        "cnn",
+        "s"
+      ],
+      [
+        "cc",
+        "nnc"
+      ],
+      [
+        "o",
+        "ncc"
+      ],
+      [
+        "cn",
+        "sn"
+      ],
+      [
+        "CO",
+        "CCCN"
+      ],
+      [
+        "cs",
+        "cc"
+      ],
+      [
+        "NCC",
+        "S"
+      ],
+      [
+        "N",
+        "CCOC"
+      ],
+      [
+        "CO",
+        "CCNC"
+      ],
+      [
+        "CN",
+        "CCC"
+      ],
+      [
+        "CN",
+        "CCN"
+      ],
+      [
+        "O",
+        "CCNC"
+      ],
+      [
+        "3",
+        "1"
+      ],
+      [
+        "O",
+        "CCOC"
+      ],
+      [
+        "CC",
+        "CCOc"
+      ],
+      [
+        "CO",
+        "CCOC"
+      ],
+      [
+        "nn",
+        "sc"
+      ],
+      [
+        "CN",
+        "CCNC"
+      ],
+      [
+        "CCO",
+        "CCO"
+      ],
+      [
+        "NCCN",
+        "c"
+      ],
+      [
+        "s",
+        "cc"
+      ],
+      [
+        "CCO",
+        "CCNC"
+      ],
+      [
+        "nnc",
+        "s"
+      ],
+      [
+        "N",
+        "CCCO"
+      ],
+      [
+        "CCC",
+        "SC"
+      ],
+      [
+        "O",
+        "CCCC"
+      ],
+      [
+        "co",
+        "cc"
+      ],
+      [
+        "cc",
+        "sn"
+      ],
+      [
+        "1",
+        "3"
+      ],
+      [
+        "o",
+        "cc"
+      ],
+      [
+        "CCCCC",
+        "NC"
+      ],
+      [
+        "NCCC",
+        "n"
+      ],
+      [
+        "CCCCC",
+        "n"
+      ],
+      [
+        "CO",
+        "CCCC"
+      ],
+      [
+        "CO",
+        "CCc"
+      ],
+      [
+        "NCCNC",
+        "c"
+      ],
+      [
+        "CCCN",
+        "CC"
+      ],
+      [
+        "N",
+        "CCOCC"
+      ],
+      [
+        "CS",
+        "CCN"
+      ],
+      [
+        "N",
+        "NC"
+      ],
+      [
+        "Br",
+        "c"
+      ],
+      [
+        "NCCC",
+        "OC"
+      ],
+      [
+        "CCCC",
+        "OC"
+      ],
+      [
+        "CN",
+        "CCCNC"
+      ],
+      [
+        "O",
+        "CCCN"
+      ],
+      [
+        "O",
+        "S"
+      ],
+      [
+        "NCCN",
+        "S"
+      ],
+      [
+        "CCCC",
+        "CCN"
+      ],
+      [
+        "CS",
+        "CN"
+      ],
+      [
+        "CCC",
+        "Nc"
+      ],
+      [
+        "CCCC",
+        "CCNC"
+      ],
+      [
+        "CN",
+        "CCc"
+      ],
+      [
+        "CN",
+        "CCO"
+      ],
+      [
+        "OCC",
+        "n"
+      ],
+      [
+        "N",
+        "Nc"
+      ],
+      [
+        "nc",
+        "on"
+      ],
+      [
+        "NCC",
+        "CCN"
+      ],
+      [
+        "s",
+        "nnc"
+      ],
+      [
+        "CCO",
+        "CCCN"
+      ],
+      [
+        "CCO",
+        "CCCC"
+      ],
+      [
+        "CO",
+        "CCCNC"
+      ],
+      [
+        "O",
+        "CCCNC"
+      ],
+      [
+        "ns",
+        "cc"
+      ],
+      [
+        "ns",
+        "nc"
+      ],
+      [
+        "CCC",
+        "NCc"
+      ],
+      [
+        "N",
+        "OC"
+      ],
+      [
+        "CCOCC",
+        "n"
+      ],
+      [
+        "NCC",
+        "F"
+      ],
+      [
+        "CCCS",
+        "CC"
+      ],
+      [
+        "NCCC",
+        "NCc"
+      ],
+      [
+        "NCCC",
+        "Oc"
+      ],
+      [
+        "/",
+        "["
+      ],
+      [
+        "CCO",
+        "CCCn"
+      ],
+      [
+        "CO",
+        "CCCn"
+      ],
+      [
+        "ncc",
+        "o"
+      ],
+      [
+        "CS",
+        "CCC"
+      ],
+      [
+        "CCCN",
+        "S"
+      ],
+      [
+        "CCS",
+        "Cc"
+      ],
+      [
+        "s",
+        "nc"
+      ],
+      [
+        "CO",
+        "CCCCN"
+      ],
+      [
+        "CS",
+        "CCS"
+      ],
+      [
+        "NCCC",
+        "Nc"
+      ],
+      [
+        "S",
+        "CCN"
+      ],
+      [
+        "4",
+        "5"
+      ],
+      [
+        "CO",
+        "NC"
+      ],
+      [
+        "S",
+        "CCS"
+      ],
+      [
+        "NCC",
+        "CCC"
+      ],
+      [
+        "CO",
+        "CCCOc"
+      ],
+      [
+        "nn",
+        "ccc"
+      ],
+      [
+        "CC",
+        "CCOCC"
+      ],
+      [
+        "5",
+        "4"
+      ],
+      [
+        "O",
+        "CCOc"
+      ],
+      [
+        "CO",
+        "CCOCC"
+      ],
+      [
+        "CCCCC",
+        "O"
+      ],
+      [
+        "NCCN",
+        "CC"
+      ],
+      [
+        "CN",
+        "CCCN"
+      ],
+      [
+        "CCCS",
+        "c"
+      ],
+      [
+        "CO",
+        "CCCCC"
+      ],
+      [
+        "N",
+        "n"
+      ],
+      [
+        "O",
+        "CCCc"
+      ],
+      [
+        "S",
+        "i"
+      ],
+      [
+        "CN",
+        "CCCC"
+      ],
+      [
+        "CCCCC",
+        "c"
+      ],
+      [
+        "s",
+        "ccn"
+      ],
+      [
+        "S",
+        "CCC"
+      ],
+      [
+        "S",
+        "CCc"
+      ],
+      [
+        "CN",
+        "CCCO"
+      ],
+      [
+        "NCCC",
+        "F"
+      ],
+      [
+        "CCCCC",
+        "F"
+      ],
+      [
+        "cs",
+        "nc"
+      ],
+      [
+        "](",
+        "/"
+      ],
+      [
+        "COC",
+        "Oc"
+      ],
+      [
+        "N",
+        "OCC"
+      ],
+      [
+        "\\",
+        "["
+      ],
+      [
+        "CCO",
+        "CCCNC"
+      ],
+      [
+        "CCS",
+        "CCn"
+      ],
+      [
+        "nnc",
+        "o"
+      ],
+      [
+        "COCCO",
+        "CCN"
+      ],
+      [
+        "NCCC",
+        "S"
+      ],
+      [
+        "CNCC",
+        "F"
+      ],
+      [
+        "N",
+        "CCOCCN"
+      ],
+      [
+        "N",
+        "OCc"
+      ],
+      [
+        "CCN",
+        "CCC"
+      ],
+      [
+        "CO",
+        "CCS"
+      ],
+      [
+        "OC",
+        "OC"
+      ],
+      [
+        "CN",
+        "CCn"
+      ],
+      [
+        "CCO",
+        "N"
+      ],
+      [
+        "COCCN",
+        "S"
+      ],
+      [
+        "CS",
+        "CCCN"
+      ],
+      [
+        "COCCO",
+        "Cc"
+      ],
+      [
+        "CCCO",
+        "Cc"
+      ],
+      [
+        "O",
+        "CCCn"
+      ],
+      [
+        "CCO",
+        "CCOC"
+      ],
+      [
+        "NCCCN",
+        "CC"
+      ],
+      [
+        "-]",
+        ")["
+      ],
+      [
+        "NCC",
+        "SCc"
+      ],
+      [
+        "CCCC",
+        "CCCC"
+      ],
+      [
+        "CN",
+        "CCOC"
+      ],
+      [
+        "O",
+        "NC"
+      ],
+      [
+        "]",
+        "["
+      ],
+      [
+        "CCCCO",
+        "CCN"
+      ],
+      [
+        "CCS",
+        "CCC"
+      ],
+      [
+        "cc",
+        "no"
+      ],
+      [
+        "NCCCC",
+        "c"
+      ],
+      [
+        "CCO",
+        "NC"
+      ],
+      [
+        "CCO",
+        "CCOc"
+      ],
+      [
+        "OCC",
+        "S"
+      ],
+      [
+        "NCCCC",
+        "CCNC"
+      ],
+      [
+        ")(",
+        "["
+      ],
+      [
+        "NCCC",
+        "OCC"
+      ],
+      [
+        "CN",
+        "CCCF"
+      ],
+      [
+        "COCC",
+        "CCCN"
+      ],
+      [
+        "CCCC",
+        "NCc"
+      ],
+      [
+        "CS",
+        "CCNC"
+      ],
+      [
+        "CCCCN",
+        "c"
+      ],
+      [
+        "CCCCC",
+        "S"
+      ],
+      [
+        "CCCC",
+        "CCO"
+      ],
+      [
+        "CCCC",
+        "CCCN"
+      ],
+      [
+        "NCC",
+        "Sc"
+      ],
+      [
+        "4",
+        "2"
+      ],
+      [
+        "CCN",
+        "CCNC"
+      ],
+      [
+        "CCCCN",
+        "CC"
+      ],
+      [
+        "NCCC",
+        "Sc"
+      ],
+      [
+        "CCN",
+        "CCN"
+      ],
+      [
+        "N",
+        "CCCCCC"
+      ],
+      [
+        "OCC",
+        "F"
+      ],
+      [
+        "2",
+        "4"
+      ],
+      [
+        "CCCCC",
+        "OC"
+      ],
+      [
+        "NCCCC",
+        "n"
+      ],
+      [
+        "COCCOC",
+        "N"
+      ],
+      [
+        "NCCO",
+        "CCO"
+      ],
+      [
+        "CN",
+        "CCOc"
+      ],
+      [
+        "CS",
+        "CCCn"
+      ],
+      [
+        "S",
+        "CCNC"
+      ],
+      [
+        "N",
+        "CCOCc"
+      ],
+      [
+        "NCC",
+        "CCOc"
+      ],
+      [
+        "CCOCC",
+        "S"
+      ],
+      [
+        ")",
+        "-"
+      ],
+      [
+        "NCC",
+        "SC"
+      ],
+      [
+        "NCC",
+        "CCCN"
+      ],
+      [
+        "O",
+        "CCCOC"
+      ],
+      [
+        "CCCCC",
+        "Oc"
+      ],
+      [
+        "COCCO",
+        "CCC"
+      ],
+      [
+        "CN",
+        "CCOCC"
+      ],
+      [
+        "COCCC",
+        "OCC"
+      ],
+      [
+        "CCCC",
+        "CCCNC"
+      ],
+      [
+        "CCO",
+        "CCOCC"
+      ],
+      [
+        "CN",
+        "CCCc"
+      ],
+      [
+        "NCCCC",
+        "CCN"
+      ],
+      [
+        "CO",
+        "CCCOC"
+      ],
+      [
+        "CO",
+        "CCCO"
+      ],
+      [
+        "S",
+        "CCCS"
+      ],
+      [
+        "S",
+        "CCn"
+      ],
+      [
+        "O",
+        "CCCS"
+      ],
+      [
+        "CCN",
+        "CCCNC"
+      ],
+      [
+        "CO",
+        "CCCS"
+      ],
+      [
+        "O",
+        "CCCCC"
+      ],
+      [
+        "CN",
+        "CCS"
+      ],
+      [
+        "CCS",
+        "CCNC"
+      ],
+      [
+        "COCCN",
+        "c"
+      ],
+      [
+        "O",
+        "N"
+      ],
+      [
+        "O",
+        "CCCOc"
+      ],
+      [
+        "COC",
+        "O"
+      ],
+      [
+        "CCS",
+        "CCCn"
+      ],
+      [
+        "CN",
+        "CCCCCCNC"
+      ],
+      [
+        "CO",
+        "CCCCn"
+      ],
+      [
+        "COC",
+        "n"
+      ],
+      [
+        "CCO",
+        "CCOCc"
+      ],
+      [
+        "CCCCN",
+        "S"
+      ],
+      [
+        "CO",
+        "CCCCNC"
+      ],
+      [
+        "OCCN",
+        "c"
+      ],
+      [
+        "CS",
+        "CCCNC"
+      ],
+      [
+        ")(",
+        "/"
+      ],
+      [
+        "CS",
+        "CCSC"
+      ],
+      [
+        "CCN",
+        "CCc"
+      ],
+      [
+        "CCCOCC",
+        "n"
+      ],
+      [
+        "NCC",
+        "SCC"
+      ],
+      [
+        "NCC",
+        "CCCF"
+      ],
+      [
+        "O",
+        "CCOCC"
+      ],
+      [
+        "NCCCO",
+        "CCNC"
+      ],
+      [
+        "CO",
+        "CCSc"
+      ],
+      [
+        "CCO",
+        "CCCCn"
+      ],
+      [
+        "CCCCO",
+        "CCNC"
+      ],
+      [
+        "CC",
+        "CCOCCn"
+      ],
+      [
+        "CS",
+        "CCc"
+      ],
+      [
+        "S",
+        "CCO"
+      ],
+      [
+        "CS",
+        "CCn"
+      ],
+      [
+        "CCO",
+        "CCCO"
+      ],
+      [
+        "CCN",
+        "CCCC"
+      ],
+      [
+        "CCCN",
+        "CCNC"
+      ],
+      [
+        "N",
+        "OCCC"
+      ],
+      [
+        "CO",
+        "CCOCCn"
+      ],
+      [
+        "CS",
+        "CCCCn"
+      ],
+      [
+        "COCCO",
+        "CCNC"
+      ],
+      [
+        "CCS",
+        "CCN"
+      ],
+      [
+        "NCC",
+        "CCCc"
+      ],
+      [
+        "CCS",
+        "CCCO"
+      ],
+      [
+        "CO",
+        "CCCCCn"
+      ],
+      [
+        "CCCO",
+        "NC"
+      ],
+      [
+        "CN",
+        "N"
+      ],
+      [
+        "NCCCN",
+        "S"
+      ],
+      [
+        "N",
+        "CCCCNC"
+      ],
+      [
+        "I",
+        "c"
+      ],
+      [
+        "CCCC",
+        "CCn"
+      ],
+      [
+        "CO",
+        "CCCCCNC"
+      ],
+      [
+        "COCCN",
+        "CC"
+      ],
+      [
+        "CCO",
+        "CCOCCN"
+      ],
+      [
+        "NCC",
+        "CCO"
+      ],
+      [
+        "N",
+        "CCOCCC"
+      ],
+      [
+        "NCCCC",
+        "CCNCc"
+      ],
+      [
+        "NC",
+        "N"
+      ],
+      [
+        "O",
+        "CCCCNC"
+      ],
+      [
+        "CN",
+        "OC"
+      ],
+      [
+        "NCCO",
+        "CCCNC"
+      ],
+      [
+        "+",
+        "]("
+      ],
+      [
+        "CCCC",
+        "CCOc"
+      ],
+      [
+        "OCCN",
+        "S"
+      ],
+      [
+        "CCCC",
+        "CCCCNC"
+      ],
+      [
+        "CCCC",
+        "CCCCC"
+      ],
+      [
+        "CCCO",
+        "CCc"
+      ],
+      [
+        "CCO",
+        "CCNCC"
+      ],
+      [
+        "O",
+        "CCCCn"
+      ],
+      [
+        "CCCO",
+        "CCNC"
+      ],
+      [
+        "cnn",
+        "cc"
+      ],
+      [
+        "NCCOCC",
+        "F"
+      ],
+      [
+        "OCC",
+        "Sc"
+      ],
+      [
+        "CCS",
+        "CCCNC"
+      ],
+      [
+        "NCCCC",
+        "S"
+      ],
+      [
+        "COCCCO",
+        "CCC"
+      ],
+      [
+        "CCN",
+        "CCCN"
+      ],
+      [
+        "cn",
+        "sc"
+      ],
+      [
+        "CCN",
+        "CCO"
+      ],
+      [
+        "-]",
+        ")="
+      ],
+      [
+        "CCO",
+        "CCCCCC"
+      ],
+      [
+        ")",
+        "\\"
+      ],
+      [
+        "CN",
+        "CCOCCO"
+      ],
+      [
+        "S",
+        "CCCC"
+      ],
+      [
+        "CCCC",
+        "CCOCC"
+      ],
+      [
+        "NCCCO",
+        "Cc"
+      ],
+      [
+        "CCCC",
+        "CCOC"
+      ],
+      [
+        "CCOC",
+        "n"
+      ],
+      [
+        "CCN",
+        "CCn"
+      ],
+      [
+        "CCCC",
+        "F"
+      ],
+      [
+        "NCCN",
+        "CCC"
+      ],
+      [
+        "OCCO",
+        "Cc"
+      ],
+      [
+        "CCNCC",
+        "F"
+      ],
+      [
+        "CCOCCN",
+        "c"
+      ],
+      [
+        "CS",
+        "CCCCCn"
+      ],
+      [
+        "N",
+        "Oc"
+      ],
+      [
+        "CCCN",
+        "CCC"
+      ],
+      [
+        "CCO",
+        "CCCCNC"
+      ],
+      [
+        "NCCN",
+        "CCc"
+      ],
+      [
+        "CCCC",
+        "SC"
+      ],
+      [
+        "OCC",
+        "CCO"
+      ],
+      [
+        "NCCOCC",
+        "S"
+      ],
+      [
+        "CCCN",
+        "CCN"
+      ],
+      [
+        "CCOCCO",
+        "CCNC"
+      ],
+      [
+        "CN",
+        "CCCOC"
+      ],
+      [
+        "NCC",
+        "CCCO"
+      ],
+      [
+        "S",
+        "CCOc"
+      ],
+      [
+        "NCCCC",
+        "OC"
+      ],
+      [
+        "CCCC",
+        "Sc"
+      ],
+      [
+        "s",
+        "ncc"
+      ],
+      [
+        "CCOCCO",
+        "NC"
+      ],
+      [
+        "NCCCC",
+        "CCNCC"
+      ],
+      [
+        "OCC",
+        "CCN"
+      ],
+      [
+        "COCCO",
+        "CCCn"
+      ],
+      [
+        "NCCCC",
+        "CCO"
+      ],
+      [
+        "N",
+        "NS"
+      ],
+      [
+        "CN",
+        "CCCCCF"
+      ],
+      [
+        "CN",
+        "CCNS"
+      ],
+      [
+        "COC",
+        "N"
+      ],
+      [
+        "CCCS",
+        "CCNC"
+      ],
+      [
+        "COCCO",
+        "NC"
+      ],
+      [
+        "S",
+        "CCOC"
+      ],
+      [
+        "O",
+        "CCCCCC"
+      ],
+      [
+        "CCCCO",
+        "CCCn"
+      ],
+      [
+        "CCCO",
+        "CCOC"
+      ],
+      [
+        "NCCCN",
+        "CCC"
+      ],
+      [
+        "CCN",
+        "CCCO"
+      ],
+      [
+        "NCCCO",
+        "CCc"
+      ],
+      [
+        "NCCCC",
+        "CCC"
+      ],
+      [
+        "CCCCO",
+        "CCCNC"
+      ],
+      [
+        "NCCS",
+        "CCC"
+      ],
+      [
+        "CS",
+        "CCONC"
+      ],
+      [
+        "COCCO",
+        "CCCNC"
+      ],
+      [
+        "CS",
+        "CCCCCNC"
+      ],
+      [
+        "CCO",
+        "P"
+      ],
+      [
+        "NCCCO",
+        "CCO"
+      ],
+      [
+        "OCCC",
+        "F"
+      ],
+      [
+        "COCCCO",
+        "CCN"
+      ],
+      [
+        "CCCC",
+        "CCCCCC"
+      ],
+      [
+        "CCN",
+        "CCCCCCNC"
+      ],
+      [
+        "CN",
+        "CCCCC"
+      ],
+      [
+        "NCC",
+        "CCCOC"
+      ],
+      [
+        "NCC",
+        "CCNc"
+      ],
+      [
+        "CS",
+        "CCCCCCNC"
+      ],
+      [
+        "CCCN",
+        "CCCNC"
+      ],
+      [
+        "CS",
+        "CCOc"
+      ],
+      [
+        "COCCO",
+        "CCOc"
+      ],
+      [
+        "CS",
+        "CCCCC"
+      ],
+      [
+        "C",
+        "H"
+      ],
+      [
+        "COCCN",
+        "CCNC"
+      ],
+      [
+        "CCO",
+        "CCNCc"
+      ],
+      [
+        "NCCOCCC",
+        "Nc"
+      ],
+      [
+        "CCCC",
+        "SCC"
+      ],
+      [
+        "CCCC",
+        "CCc"
+      ],
+      [
+        "CCCO",
+        "CCCCC"
+      ],
+      [
+        "O",
+        "CCNCc"
+      ],
+      [
+        "CCN",
+        "CCCF"
+      ],
+      [
+        "NCCCN",
+        "CCc"
+      ],
+      [
+        "CCCN",
+        "CCCC"
+      ],
+      [
+        "COCCO",
+        "CCOCCO"
+      ],
+      [
+        "NCC",
+        "CCCS"
+      ],
+      [
+        "CCCCS",
+        "CCC"
+      ],
+      [
+        "CCOC",
+        "N"
+      ],
+      [
+        "COCCOCC",
+        "S"
+      ],
+      [
+        "CN",
+        "CCOCCN"
+      ],
+      [
+        "CCO",
+        "CCCOC"
+      ],
+      [
+        "S",
+        "CCCN"
+      ],
+      [
+        "NCCCC",
+        "CCCN"
+      ],
+      [
+        "NCCCC",
+        "CCNc"
+      ],
+      [
+        "COC",
+        "NC"
+      ],
+      [
+        "+",
+        "](/"
+      ],
+      [
+        "CN",
+        "CCCS"
+      ],
+      [
+        "N",
+        "NCC"
+      ],
+      [
+        "COCCCN",
+        "CC"
+      ],
+      [
+        "N",
+        "NCc"
+      ],
+      [
+        "CCOCCO",
+        "CCCC"
+      ],
+      [
+        "CCCCCN",
+        "S"
+      ],
+      [
+        "CCO",
+        "CCc"
+      ],
+      [
+        "OCCC",
+        "Nc"
+      ],
+      [
+        "CCCC",
+        "CCCCCNC"
+      ],
+      [
+        "CCCS",
+        "Cc"
+      ],
+      [
+        "CCCCC",
+        "OCC"
+      ],
+      [
+        "NCCS",
+        "CCCO"
+      ],
+      [
+        "OC",
+        "N"
+      ],
+      [
+        "N",
+        "OCCN"
+      ],
+      [
+        "O",
+        "P"
+      ],
+      [
+        "CCN",
+        "CCOC"
+      ],
+      [
+        "NCCC",
+        "SC"
+      ],
+      [
+        "NO",
+        "CCCNC"
+      ],
+      [
+        "Cl",
+        "C"
+      ],
+      [
+        "nnc",
+        "nn"
+      ],
+      [
+        "NCCN",
+        "CCN"
+      ],
+      [
+        "NCCCC",
+        "CCc"
+      ],
+      [
+        "CCCCCC",
+        "CCCN"
+      ],
+      [
+        "NCCCCO",
+        "CCc"
+      ],
+      [
+        "NCCN",
+        "CCOc"
+      ],
+      [
+        "OCCO",
+        "NC"
+      ],
+      [
+        "CO",
+        "CCCCc"
+      ],
+      [
+        "CCCC",
+        "CCCCN"
+      ],
+      [
+        "CCCCO",
+        "Cc"
+      ],
+      [
+        "OCCCN",
+        "S"
+      ],
+      [
+        "CS",
+        "CCCCCCn"
+      ],
+      [
+        "COCCO",
+        "CCc"
+      ],
+      [
+        "CN",
+        "CCNc"
+      ],
+      [
+        "COCCCO",
+        "NC"
+      ],
+      [
+        "NCCN",
+        "CCOC"
+      ],
+      [
+        "NCCN",
+        "CCOCC"
+      ],
+      [
+        "O",
+        "CCCCCn"
+      ],
+      [
+        "CCCN",
+        "CCc"
+      ],
+      [
+        "OCCN",
+        "CCNC"
+      ],
+      [
+        "CCCCCN",
+        "CC"
+      ],
+      [
+        "NO",
+        "CCOC"
+      ],
+      [
+        "CN",
+        "CCCOc"
+      ],
+      [
+        "COCCO",
+        "CCCCNC"
+      ],
+      [
+        "NCCCO",
+        "N"
+      ],
+      [
+        "OCC",
+        "SCc"
+      ],
+      [
+        "CCCC",
+        "CCNc"
+      ],
+      [
+        "CS",
+        "CCO"
+      ],
+      [
+        "CCCCN",
+        "CCC"
+      ],
+      [
+        "CN",
+        "CCCn"
+      ],
+      [
+        "N",
+        "OCCO"
+      ],
+      [
+        "O",
+        "CCNCC"
+      ],
+      [
+        "NCCN",
+        "CCO"
+      ],
+      [
+        "NCCC",
+        "SCC"
+      ],
+      [
+        "NCCN",
+        "CCCc"
+      ],
+      [
+        "CCN",
+        "CCOc"
+      ],
+      [
+        "O",
+        "CCCCCO"
+      ],
+      [
+        "CN",
+        "CCCCN"
+      ],
+      [
+        "CCOC",
+        "Oc"
+      ],
+      [
+        "OCCCC",
+        "OC"
+      ],
+      [
+        "CCCC",
+        "CCCS"
+      ],
+      [
+        "CCN",
+        "CCOCC"
+      ],
+      [
+        "NCCN",
+        "CCn"
+      ],
+      [
+        "NO",
+        "CCCC"
+      ],
+      [
+        "NCCCO",
+        "NC"
+      ],
+      [
+        "S",
+        "CCCc"
+      ],
+      [
+        "CCS",
+        "CCOC"
+      ],
+      [
+        "CCCCC",
+        "SC"
+      ],
+      [
+        "NCCCN",
+        "CCOCC"
+      ],
+      [
+        "CO",
+        "S"
+      ],
+      [
+        "NO",
+        "CCOc"
+      ],
+      [
+        "CCN",
+        "CCCc"
+      ],
+      [
+        "NCCN",
+        "CCCC"
+      ],
+      [
+        "NCCO",
+        "CCOC"
+      ],
+      [
+        "CCCCC",
+        "Sc"
+      ],
+      [
+        "CS",
+        "CCOC"
+      ],
+      [
+        "CCN",
+        "CCNCC"
+      ],
+      [
+        "COC",
+        "OCCCNC"
+      ],
+      [
+        "NCCO",
+        "CCOCC"
+      ],
+      [
+        "O",
+        "B"
+      ],
+      [
+        "CCCN",
+        "CCCN"
+      ],
+      [
+        "NCC",
+        "CCOCc"
+      ],
+      [
+        "CS",
+        "CCCC"
+      ],
+      [
+        "COCCO",
+        "CCOCCN"
+      ],
+      [
+        "CCCO",
+        "N"
+      ],
+      [
+        "-]",
+        "["
+      ],
+      [
+        "NCCO",
+        "CCOCCO"
+      ],
+      [
+        "CO",
+        "CCCc"
+      ],
+      [
+        "CCN",
+        "CCS"
+      ],
+      [
+        "NCCCN",
+        "CCN"
+      ],
+      [
+        "CCCN",
+        "CCCCCCNC"
+      ],
+      [
+        "cc",
+        "o"
+      ],
+      [
+        "CCCC",
+        "CCCOC"
+      ],
+      [
+        "F",
+        "CCn"
+      ],
+      [
+        "ncc",
+        "nn"
+      ],
+      [
+        "OC",
+        "n"
+      ],
+      [
+        "CCCC",
+        "CCCO"
+      ],
+      [
+        "CCS",
+        "CCCN"
+      ],
+      [
+        "CO",
+        "CCNCc"
+      ],
+      [
+        "S",
+        "CCCOc"
+      ],
+      [
+        "NCCN",
+        "CCNC"
+      ],
+      [
+        "OCCC",
+        "NCc"
+      ],
+      [
+        "CO",
+        "B"
+      ],
+      [
+        "NCCCN",
+        "CCOC"
+      ],
+      [
+        "NCCCN",
+        "CCn"
+      ],
+      [
+        "OCC",
+        "SCC"
+      ],
+      [
+        "COCCO",
+        "CCCCn"
+      ],
+      [
+        "CO",
+        "CCCCS"
+      ],
+      [
+        "OCCCC",
+        "CCO"
+      ],
+      [
+        "C",
+        "P"
+      ],
+      [
+        "NCCCN",
+        "CCOc"
+      ],
+      [
+        "NCCS",
+        "CCOc"
+      ],
+      [
+        "CCCN",
+        "CCn"
+      ],
+      [
+        "NCC",
+        "CCCn"
+      ],
+      [
+        "OCC",
+        "SC"
+      ],
+      [
+        "OCCO",
+        "CCO"
+      ],
+      [
+        "OCCN",
+        "CCCNC"
+      ],
+      [
+        "CCCN",
+        "CCO"
+      ],
+      [
+        "COC",
+        "OC"
+      ],
+      [
+        "CCCCC",
+        "Nc"
+      ],
+      [
+        "NCCCC",
+        "Sc"
+      ],
+      [
+        "O",
+        "CCCSc"
+      ],
+      [
+        "CS",
+        "CCCOC"
+      ],
+      [
+        "CS",
+        "CCCCNC"
+      ],
+      [
+        "CCOCCN",
+        "CCNC"
+      ],
+      [
+        "CCCCN",
+        "CCN"
+      ],
+      [
+        "CCCCO",
+        "CCOC"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCC"
+      ],
+      [
+        "CCN",
+        "N"
+      ],
+      [
+        "CCCCN",
+        "CCNC"
+      ],
+      [
+        "CCCC",
+        "CCCCS"
+      ],
+      [
+        "NCCCO",
+        "CCOCc"
+      ],
+      [
+        "CCO",
+        "CCNS"
+      ],
+      [
+        "OCCCC",
+        "F"
+      ],
+      [
+        "CCN",
+        "CCCOC"
+      ],
+      [
+        "CCO",
+        "CCCNCC"
+      ],
+      [
+        "CCCO",
+        "CCC"
+      ],
+      [
+        "nc",
+        "ncn"
+      ],
+      [
+        "CCCCC",
+        "NCc"
+      ],
+      [
+        "CCCC",
+        "CCNCC"
+      ],
+      [
+        "CCCCN",
+        "CCCC"
+      ],
+      [
+        "F",
+        "CC"
+      ],
+      [
+        "COCCOCCOCCO",
+        "CCO"
+      ],
+      [
+        "NCCCC",
+        "F"
+      ],
+      [
+        "CCCC",
+        "CCCCOC"
+      ],
+      [
+        "NCCCN",
+        "CCCC"
+      ],
+      [
+        "CCCC",
+        "CCCCCCNC"
+      ],
+      [
+        "COCCCCN",
+        "CC"
+      ],
+      [
+        "NOCC",
+        "SC"
+      ],
+      [
+        "NCCO",
+        "CCNC"
+      ],
+      [
+        "NCCN",
+        "CCCO"
+      ],
+      [
+        "5",
+        "3"
+      ],
+      [
+        "CCCC",
+        "CCCCCCC"
+      ],
+      [
+        "COCCCC",
+        "OC"
+      ],
+      [
+        "OCCC",
+        "OCC"
+      ],
+      [
+        "NCCCN",
+        "CCO"
+      ],
+      [
+        "S",
+        "CCOCC"
+      ],
+      [
+        "CCOCCN",
+        "CCCNC"
+      ],
+      [
+        "OCC",
+        "CCOc"
+      ],
+      [
+        "CO",
+        "P"
+      ],
+      [
+        "5",
+        "6"
+      ],
+      [
+        "NCCC",
+        "SCCC"
+      ],
+      [
+        "COC",
+        "OCCCN"
+      ],
+      [
+        "COCCO",
+        "CCOC"
+      ],
+      [
+        "CN",
+        "CCCCc"
+      ],
+      [
+        "CN",
+        "CCCOCC"
+      ],
+      [
+        "CCCC",
+        "CCCCc"
+      ],
+      [
+        "CCCCO",
+        "CCOCc"
+      ],
+      [
+        "NCC",
+        "CCCNC"
+      ],
+      [
+        "NC",
+        "Oc"
+      ],
+      [
+        "CCCCN",
+        "CCO"
+      ],
+      [
+        "CCOCCO",
+        "CCO"
+      ],
+      [
+        "CCCCCC",
+        "CCOCC"
+      ],
+      [
+        "O",
+        "CCCCc"
+      ],
+      [
+        "NCCCC",
+        "CCOc"
+      ],
+      [
+        "6",
+        "5"
+      ],
+      [
+        "CCCC",
+        "CCOCc"
+      ],
+      [
+        "S",
+        "COC"
+      ],
+      [
+        "CCCN",
+        "CCF"
+      ],
+      [
+        "NCCC",
+        "P"
+      ],
+      [
+        "OCCO",
+        "CCC"
+      ],
+      [
+        "O",
+        "CCCSCC"
+      ],
+      [
+        "CCN",
+        "CCOCCN"
+      ],
+      [
+        "NCCO",
+        "CCOCCNC"
+      ],
+      [
+        "COCCN",
+        "CCCNC"
+      ],
+      [
+        "NCCO",
+        "CCCN"
+      ],
+      [
+        "O",
+        "CCCNCC"
+      ],
+      [
+        "COCCS",
+        "CCCN"
+      ],
+      [
+        "NCCCN",
+        "CCCc"
+      ],
+      [
+        "NCCCC",
+        "CCSC"
+      ],
+      [
+        "NCCO",
+        "P"
+      ],
+      [
+        "CCCCCCN",
+        "CCNC"
+      ],
+      [
+        "CN",
+        "CCOCc"
+      ],
+      [
+        "CCCCN",
+        "CCCNC"
+      ],
+      [
+        "COCCO",
+        "CCOCCCNC"
+      ],
+      [
+        "CCOCCO",
+        "CCOC"
+      ],
+      [
+        "NCCO",
+        "CCCO"
+      ],
+      [
+        "CS",
+        "CCNS"
+      ],
+      [
+        "CCOCCN",
+        "CCCC"
+      ],
+      [
+        "CS",
+        "CCCOc"
+      ],
+      [
+        "OCCCC",
+        "CCn"
+      ],
+      [
+        "CN",
+        "CCOCCNC"
+      ],
+      [
+        "NCC",
+        "CCCSC"
+      ],
+      [
+        "CCS",
+        "CCCc"
+      ],
+      [
+        "S",
+        "CCCCC"
+      ],
+      [
+        "NCCCC",
+        "CCCC"
+      ],
+      [
+        "CCCCN",
+        "CCc"
+      ],
+      [
+        "S",
+        "CCCO"
+      ],
+      [
+        "CCCCO",
+        "CCOCCNC"
+      ],
+      [
+        "NCCCN",
+        "CCCO"
+      ],
+      [
+        "OCCCS",
+        "CCn"
+      ],
+      [
+        "S",
+        "CCCCCCNC"
+      ],
+      [
+        "cccc",
+        "cc"
+      ],
+      [
+        "OCCO",
+        "CCN"
+      ],
+      [
+        "COCCC",
+        "Nc"
+      ],
+      [
+        "O",
+        "CCCCCF"
+      ],
+      [
+        "S",
+        "CCCOC"
+      ],
+      [
+        "OCCC",
+        "OCCn"
+      ],
+      [
+        "CCCCN",
+        "CCF"
+      ],
+      [
+        "CCCO",
+        "CCN"
+      ],
+      [
+        "N",
+        "NCCc"
+      ],
+      [
+        "CCCCN",
+        "CCCO"
+      ],
+      [
+        "NCCCC",
+        "CCNCCC"
+      ],
+      [
+        "COCCCN",
+        "S"
+      ],
+      [
+        "CN",
+        "CCSCc"
+      ],
+      [
+        "OCCC",
+        "SC"
+      ],
+      [
+        "+]",
+        "=["
+      ],
+      [
+        "COCCN",
+        "CCCC"
+      ],
+      [
+        "CCCC",
+        "CCNS"
+      ],
+      [
+        "CCCC",
+        "CCCCCCN"
+      ],
+      [
+        "COCCN",
+        "CCN"
+      ],
+      [
+        "NCCN",
+        "CCCOc"
+      ],
+      [
+        "CO",
+        "n"
+      ],
+      [
+        "CCCC",
+        "CCSC"
+      ],
+      [
+        "N",
+        "NCCC"
+      ],
+      [
+        "CS",
+        "CCNc"
+      ],
+      [
+        "CCOCCOCCN",
+        "c"
+      ],
+      [
+        "S",
+        "CCNS"
+      ],
+      [
+        "CS",
+        "CCOCC"
+      ],
+      [
+        "OCCN",
+        "CCN"
+      ],
+      [
+        "CS",
+        "CCCNc"
+      ],
+      [
+        "CCCCCCN",
+        "CCCNC"
+      ],
+      [
+        "F",
+        "Cc"
+      ],
+      [
+        "COCCCCC",
+        "OC"
+      ],
+      [
+        "CS",
+        "CCCc"
+      ],
+      [
+        "F",
+        "CCN"
+      ],
+      [
+        "CS",
+        "CCCCCCC"
+      ],
+      [
+        "CCN",
+        "CCNS"
+      ],
+      [
+        "NCCCN",
+        "CCNC"
+      ],
+      [
+        "CCCC",
+        "CCCOc"
+      ],
+      [
+        "CS",
+        "CCCCc"
+      ],
+      [
+        "COCCO",
+        "CCOCCS"
+      ],
+      [
+        "-]",
+        ")("
+      ],
+      [
+        "CN",
+        "CCCCOC"
+      ],
+      [
+        "OCCO",
+        "CCOCCOCCO"
+      ],
+      [
+        "CCN",
+        "CCOCCO"
+      ],
+      [
+        "OCC",
+        "CCCN"
+      ],
+      [
+        "CS",
+        "CNC"
+      ],
+      [
+        "OCCCO",
+        "Cc"
+      ],
+      [
+        "OCCCC",
+        "CCN"
+      ],
+      [
+        "NCCOCCO",
+        "CCOCc"
+      ],
+      [
+        "OCCCS",
+        "Cc"
+      ],
+      [
+        "CCCC",
+        "CCS"
+      ],
+      [
+        "CCCN",
+        "CCCO"
+      ],
+      [
+        "CCCC",
+        "CCCCCO"
+      ],
+      [
+        "CCCCN",
+        "CCCF"
+      ],
+      [
+        "NCCCC",
+        "P"
+      ],
+      [
+        "NC",
+        "S"
+      ],
+      [
+        "COCCC",
+        "NCc"
+      ],
+      [
+        "OCCCN",
+        "CCNC"
+      ],
+      [
+        "CCCCN",
+        "CCOCC"
+      ],
+      [
+        "S",
+        "CCSc"
+      ],
+      [
+        "CNCCC",
+        "Nc"
+      ],
+      [
+        "CCCC",
+        "CCCCCOC"
+      ],
+      [
+        "CCCCCCCC",
+        "CCS"
+      ],
+      [
+        "CCN",
+        "NCC"
+      ],
+      [
+        "NCCN",
+        "CCCNC"
+      ],
+      [
+        "NCCN",
+        "CCCN"
+      ],
+      [
+        "COCCOC",
+        "NC"
+      ],
+      [
+        "(",
+        "#"
+      ],
+      [
+        "CCCCN",
+        "CCn"
+      ],
+      [
+        "NCCN",
+        "CCF"
+      ],
+      [
+        "CCCCCN",
+        "CCNC"
+      ],
+      [
+        "CCCCC",
+        "OCc"
+      ],
+      [
+        "NCCCN",
+        "CCOCCO"
+      ],
+      [
+        "S",
+        "CCCn"
+      ],
+      [
+        "CCCO",
+        "CCNc"
+      ],
+      [
+        "ncn",
+        "s"
+      ],
+      [
+        "COCCO",
+        "CCOCCOCCNC"
+      ],
+      [
+        "N",
+        "P"
+      ],
+      [
+        "NCCCCCCN",
+        "CCO"
+      ],
+      [
+        "]",
+        "/"
+      ],
+      [
+        "S",
+        "CN"
+      ],
+      [
+        "CCCC",
+        "CCCCn"
+      ],
+      [
+        "NCCCN",
+        "CCCF"
+      ],
+      [
+        "NCCN",
+        "CCCF"
+      ],
+      [
+        "CCOCC",
+        "Sc"
+      ],
+      [
+        "F",
+        "CCC"
+      ],
+      [
+        "CCCCN",
+        "CCOC"
+      ],
+      [
+        "CCCCO",
+        "CCOCC"
+      ],
+      [
+        "4",
+        "1"
+      ],
+      [
+        "CS",
+        "CCNCc"
+      ],
+      [
+        "NCCN",
+        "CCCCC"
+      ],
+      [
+        "CCN",
+        "CCCS"
+      ],
+      [
+        "Br",
+        "C"
+      ],
+      [
+        "CCCCCC",
+        "CCOc"
+      ],
+      [
+        "C",
+        "Br"
+      ],
+      [
+        "NCCN",
+        "CCCS"
+      ],
+      [
+        "COCCN",
+        "CCC"
+      ],
+      [
+        "CCCCO",
+        "CCc"
+      ],
+      [
+        "NCCCN",
+        "CCF"
+      ],
+      [
+        "CCOCCO",
+        "CCOCCO"
+      ],
+      [
+        "NC",
+        "SC"
+      ],
+      [
+        "CCCN",
+        "CCCF"
+      ],
+      [
+        "S",
+        "CCSC"
+      ],
+      [
+        "NCCN",
+        "CCOCCO"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCOCCOC"
+      ],
+      [
+        "COCCOCCN",
+        "CCNC"
+      ],
+      [
+        "NCCCCCCN",
+        "CCCO"
+      ],
+      [
+        "CS",
+        "CCCS"
+      ],
+      [
+        "CCOCCN",
+        "CCCCCCNC"
+      ],
+      [
+        "CCOCCO",
+        "N"
+      ],
+      [
+        "CCS",
+        "CCCOC"
+      ],
+      [
+        "CCCCOCCN",
+        "CCNC"
+      ],
+      [
+        "CCNCCN",
+        "CCNCC"
+      ],
+      [
+        "CCCC",
+        "CCCc"
+      ],
+      [
+        "CCOCCCN",
+        "CCNC"
+      ],
+      [
+        "OCCO",
+        "CCNC"
+      ],
+      [
+        "NCCCN",
+        "CCCN"
+      ],
+      [
+        "CCOCCN",
+        "CCN"
+      ],
+      [
+        "O",
+        "n"
+      ],
+      [
+        "CCCCCN",
+        "CCCNC"
+      ],
+      [
+        "O",
+        "CCCCCc"
+      ],
+      [
+        "COCCCN",
+        "CCCC"
+      ],
+      [
+        "COCCCCCN",
+        "CCNC"
+      ],
+      [
+        "CCS",
+        "CCNS"
+      ],
+      [
+        "CCCCN",
+        "CCCCCCNC"
+      ],
+      [
+        "NCCN",
+        "CCCCCF"
+      ],
+      [
+        "3",
+        "5"
+      ],
+      [
+        "NC",
+        "OC"
+      ],
+      [
+        "NCCN",
+        "CCS"
+      ],
+      [
+        "(=",
+        "["
+      ],
+      [
+        "CCN",
+        "CCCCCF"
+      ],
+      [
+        "CCOCCCN",
+        "CCCNC"
+      ],
+      [
+        "S",
+        "Cn"
+      ],
+      [
+        "S",
+        "CCCNC"
+      ],
+      [
+        "CN",
+        "OCCNC"
+      ],
+      [
+        "CCO",
+        "CCCc"
+      ],
+      [
+        "NCCCN",
+        "CCCCCF"
+      ],
+      [
+        "CCCCOCCN",
+        "CCCNC"
+      ],
+      [
+        "OC",
+        "Sc"
+      ],
+      [
+        "OCCO",
+        "CCOC"
+      ],
+      [
+        "CN",
+        "CCSC"
+      ],
+      [
+        "CCS",
+        "CCOc"
+      ],
+      [
+        "NCCCC",
+        "CCNCCF"
+      ],
+      [
+        "COCCCCN",
+        "CCNC"
+      ],
+      [
+        "COCCO",
+        "N"
+      ],
+      [
+        "O",
+        "CCCCS"
+      ],
+      [
+        "NCCC",
+        "SCc"
+      ],
+      [
+        "COCCO",
+        "CCOCCOCCNc"
+      ],
+      [
+        "CSCC",
+        "F"
+      ],
+      [
+        "COCCS",
+        "CCCOC"
+      ],
+      [
+        "OCCO",
+        "N"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCNC"
+      ],
+      [
+        "NCC",
+        "P"
+      ],
+      [
+        "COCCCN",
+        "CCNC"
+      ],
+      [
+        "CCOC",
+        "O"
+      ],
+      [
+        "CCCCCCCN",
+        "CCNC"
+      ],
+      [
+        "CN",
+        "CCCNS"
+      ],
+      [
+        "CCN",
+        "CCCOCCNC"
+      ],
+      [
+        "COCCN",
+        "CCCCCCNC"
+      ],
+      [
+        "NCCCO",
+        "CCOC"
+      ],
+      [
+        "COCCCCN",
+        "CCCNC"
+      ],
+      [
+        "CCCCN",
+        "CCCN"
+      ],
+      [
+        "COCCO",
+        "CCCN"
+      ],
+      [
+        "NCCO",
+        "B"
+      ],
+      [
+        "OCCCN",
+        "CCCNC"
+      ],
+      [
+        "CNC",
+        "N"
+      ],
+      [
+        "CCCC",
+        "CCCNS"
+      ],
+      [
+        "NCCO",
+        "CCOCCN"
+      ],
+      [
+        "CN",
+        "CCCCn"
+      ],
+      [
+        "CCO",
+        "CCCCOC"
+      ],
+      [
+        "CCOCC",
+        "CCN"
+      ],
+      [
+        "NCCCCCCN",
+        "CCn"
+      ],
+      [
+        "CNCC",
+        "CCOc"
+      ],
+      [
+        "COCCCN",
+        "CCCNC"
+      ],
+      [
+        "O",
+        "CCOCCn"
+      ],
+      [
+        "S",
+        "CCNc"
+      ],
+      [
+        "COCCOCCN",
+        "CCCNC"
+      ],
+      [
+        "COCCCCCN",
+        "CCCNC"
+      ],
+      [
+        "NO",
+        "CCCOC"
+      ],
+      [
+        "CCCC",
+        "CCNCc"
+      ],
+      [
+        "CCCCN",
+        "CCOCCO"
+      ],
+      [
+        "COCCO",
+        "CCNCC"
+      ],
+      [
+        "NCCCCCCN",
+        "CCOCC"
+      ],
+      [
+        "CCOC",
+        "Sc"
+      ],
+      [
+        "CCS",
+        "CCc"
+      ],
+      [
+        "NCCCN",
+        "CCCOc"
+      ],
+      [
+        "CCOCCCN",
+        "S"
+      ],
+      [
+        "CN",
+        "CCCCCC"
+      ],
+      [
+        "N",
+        "NCCS"
+      ],
+      [
+        "CCCC",
+        "SCc"
+      ],
+      [
+        "NC",
+        "n"
+      ],
+      [
+        "CN",
+        "CCOCCC"
+      ],
+      [
+        "CCN",
+        "CCCCC"
+      ],
+      [
+        "CCS",
+        "CCNc"
+      ],
+      [
+        "N",
+        "NCCCN"
+      ],
+      [
+        "NCCN",
+        "CCNS"
+      ],
+      [
+        "CCOCCC",
+        "Nc"
+      ],
+      [
+        "CCCN",
+        "CCS"
+      ],
+      [
+        "@",
+        "+]"
+      ],
+      [
+        "NCC",
+        "CCCOc"
+      ],
+      [
+        "OCCCO",
+        "CCc"
+      ],
+      [
+        "B",
+        "c"
+      ],
+      [
+        "CN",
+        "CCSc"
+      ],
+      [
+        "CCCCCCCC",
+        "CCOC"
+      ],
+      [
+        "CCCCO",
+        "CCNCC"
+      ],
+      [
+        "NCCCN",
+        "CCCCC"
+      ],
+      [
+        "CNCC",
+        "CCCN"
+      ],
+      [
+        "S",
+        "CCCNc"
+      ],
+      [
+        "CN",
+        "CCSCC"
+      ],
+      [
+        "CN",
+        "CCCSc"
+      ],
+      [
+        "CCOCCN",
+        "CCC"
+      ],
+      [
+        "COCCCO",
+        "N"
+      ],
+      [
+        "ccc",
+        "oc"
+      ],
+      [
+        "COCCN",
+        "CCCN"
+      ],
+      [
+        "NCCO",
+        "N"
+      ],
+      [
+        "CCS",
+        "CCNCc"
+      ],
+      [
+        "COCC",
+        "CCCNCC"
+      ],
+      [
+        "OCCCO",
+        "N"
+      ],
+      [
+        "N",
+        "NCCN"
+      ],
+      [
+        "CCO",
+        "CCOCCn"
+      ],
+      [
+        "CO",
+        "CCCCCC"
+      ],
+      [
+        "NCC",
+        "CCNS"
+      ],
+      [
+        "+]",
+        "="
+      ],
+      [
+        "CCCC",
+        "CCCCO"
+      ],
+      [
+        "CCCN",
+        "N"
+      ],
+      [
+        "NCCCN",
+        "CCCS"
+      ],
+      [
+        "CCCCCN",
+        "CCCC"
+      ],
+      [
+        "OCCO",
+        "CCOCCOC"
+      ],
+      [
+        "-]",
+        "=["
+      ],
+      [
+        "CCOCCO",
+        "CCOCCNC"
+      ],
+      [
+        "COCCN",
+        "CCc"
+      ],
+      [
+        "CCN",
+        "CCCCCCN"
+      ],
+      [
+        "CO",
+        "CCSCc"
+      ],
+      [
+        "NCCN",
+        "CCCOC"
+      ],
+      [
+        "NCCN",
+        "CCOCc"
+      ],
+      [
+        "CCOCCC",
+        "NCc"
+      ],
+      [
+        "NCCCCCCN",
+        "CCc"
+      ],
+      [
+        "NCCCCCCN",
+        "CCCF"
+      ],
+      [
+        "CS",
+        "CCON"
+      ],
+      [
+        "NCCN",
+        "CCCCCn"
+      ],
+      [
+        "CCCCO",
+        "CCCN"
+      ],
+      [
+        "COCCCN",
+        "CCCCCCNC"
+      ],
+      [
+        "COCCCCN",
+        "c"
+      ],
+      [
+        "NCCCCCCN",
+        "CCOC"
+      ],
+      [
+        "nn",
+        "oc"
+      ],
+      [
+        "CCCN",
+        "CCCOC"
+      ],
+      [
+        "CS",
+        "CCCO"
+      ],
+      [
+        "CCCS",
+        "CCN"
+      ],
+      [
+        "O",
+        "CCCCCCC"
+      ],
+      [
+        "cnn",
+        "nc"
+      ],
+      [
+        "@@",
+        "+]"
+      ],
+      [
+        "NN",
+        "CCOCC"
+      ],
+      [
+        "S",
+        "CO"
+      ],
+      [
+        "NCCCC",
+        "SC"
+      ],
+      [
+        "OCCO",
+        "CCOCCOc"
+      ],
+      [
+        "OCCN",
+        "N"
+      ],
+      [
+        "S",
+        "CCNCc"
+      ],
+      [
+        "COCCCCN",
+        "CCCC"
+      ],
+      [
+        "CN",
+        "n"
+      ],
+      [
+        "CCCCCN",
+        "CCN"
+      ],
+      [
+        "NCCOCCO",
+        "CCOCCC"
+      ],
+      [
+        "NCCCN",
+        "CCS"
+      ],
+      [
+        "OCCN",
+        "CCCN"
+      ],
+      [
+        "CCS",
+        "S"
+      ],
+      [
+        "NCCCC",
+        "CCNS"
+      ],
+      [
+        "CCCCCCCN",
+        "CCCNC"
+      ],
+      [
+        "CCCN",
+        "CCOc"
+      ],
+      [
+        "OCC",
+        "CCNc"
+      ],
+      [
+        "-])",
+        "/"
+      ],
+      [
+        "OCCO",
+        "CCOc"
+      ],
+      [
+        "CCCCCCC",
+        "NCc"
+      ],
+      [
+        "CCOCCCN",
+        "CCCC"
+      ],
+      [
+        "OCCCC",
+        "NCc"
+      ],
+      [
+        "F",
+        "CCCN"
+      ],
+      [
+        "CN",
+        "CCCCCn"
+      ],
+      [
+        "CCCCN",
+        "N"
+      ],
+      [
+        "CS",
+        "CCCNS"
+      ],
+      [
+        "CCOCCO",
+        "CCNS"
+      ],
+      [
+        "NCCCCN",
+        "OCc"
+      ],
+      [
+        "OCC",
+        "CCNS"
+      ],
+      [
+        "CCCO",
+        "CCNS"
+      ],
+      [
+        "NCCN",
+        "CCCOCC"
+      ],
+      [
+        "NCCCN",
+        "CCNS"
+      ],
+      [
+        "F",
+        "CCCCN"
+      ],
+      [
+        "NCCOCCN",
+        "CCNC"
+      ],
+      [
+        "NN",
+        "CCCc"
+      ],
+      [
+        "CCOC",
+        "P"
+      ],
+      [
+        "CCCCC",
+        "SCc"
+      ],
+      [
+        "NCCCN",
+        "CCCOC"
+      ],
+      [
+        "CCCC",
+        "CCCn"
+      ],
+      [
+        "CCCC",
+        "CCCCNS"
+      ],
+      [
+        "CCCN",
+        "CCOCCN"
+      ],
+      [
+        "NO",
+        "CCOCC"
+      ],
+      [
+        "NCCO",
+        "CCCC"
+      ],
+      [
+        "NCCCO",
+        "CCOCCO"
+      ],
+      [
+        "CCCC",
+        "CCSc"
+      ],
+      [
+        "CCS",
+        "CCS"
+      ],
+      [
+        "COCCCN",
+        "CCN"
+      ],
+      [
+        "OC",
+        "P"
+      ],
+      [
+        "CCCN",
+        "CCOC"
+      ],
+      [
+        "CCCN",
+        "CCNS"
+      ],
+      [
+        "COCCO",
+        "CCNS"
+      ],
+      [
+        "CCCCCCC",
+        "Nc"
+      ],
+      [
+        "CNCCO",
+        "CCOC"
+      ],
+      [
+        "NC",
+        "OCC"
+      ],
+      [
+        "CCCC",
+        "CCCNCC"
+      ],
+      [
+        "OCCCC",
+        "Sc"
+      ],
+      [
+        "O",
+        "CCCCCOC"
+      ],
+      [
+        "CO",
+        "CCSCC"
+      ],
+      [
+        "OCCN",
+        "CCCC"
+      ],
+      [
+        "NN",
+        "CCO"
+      ],
+      [
+        "CCOCC",
+        "F"
+      ],
+      [
+        "CCCCN",
+        "CCS"
+      ],
+      [
+        "NO",
+        "CCNC"
+      ],
+      [
+        "F",
+        "CCCCCN"
+      ],
+      [
+        "CCO",
+        "CCCSc"
+      ],
+      [
+        "CCCCN",
+        "CCCCCF"
+      ],
+      [
+        "NCCCN",
+        "CCOCc"
+      ],
+      [
+        "NCCO",
+        "CCOCCNc"
+      ],
+      [
+        "OCCCC",
+        "CCCN"
+      ],
+      [
+        "COCCOCC",
+        "CCN"
+      ],
+      [
+        "CN",
+        "CCCCNC"
+      ],
+      [
+        "CCCCC",
+        "SCC"
+      ],
+      [
+        "CS",
+        "CCCCCCN"
+      ],
+      [
+        "CCCS",
+        "CCNS"
+      ],
+      [
+        "CCCCCCN",
+        "CCCC"
+      ],
+      [
+        "CCN",
+        "CCCOc"
+      ],
+      [
+        "CCCN",
+        "CCCc"
+      ],
+      [
+        "CCCCO",
+        "CCNS"
+      ],
+      [
+        "N",
+        "NCCCOc"
+      ],
+      [
+        "CS",
+        "CCCSc"
+      ],
+      [
+        "NCCN",
+        "CCCCc"
+      ],
+      [
+        "COCCCCN",
+        "S"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCO"
+      ],
+      [
+        "CCCCN",
+        "CCCOC"
+      ],
+      [
+        "NCCCN",
+        "CCCCN"
+      ],
+      [
+        "NO",
+        "CCCCCCCCCCCC"
+      ],
+      [
+        "S",
+        "n"
+      ],
+      [
+        "CCS",
+        "CCSc"
+      ],
+      [
+        "COCCO",
+        "CCNCc"
+      ],
+      [
+        "COCCCC",
+        "NCc"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCCCCC"
+      ],
+      [
+        "NN",
+        "CCOC"
+      ],
+      [
+        "COCCS",
+        "CCOC"
+      ],
+      [
+        "S",
+        "CCCOCC"
+      ],
+      [
+        "CN",
+        "CCCCCOC"
+      ],
+      [
+        "NC",
+        "OCCOC"
+      ],
+      [
+        "CCO",
+        "CCCOc"
+      ],
+      [
+        "CCCO",
+        "CCOCC"
+      ],
+      [
+        "CCC",
+        "l"
+      ],
+      [
+        "COC",
+        "Sc"
+      ],
+      [
+        "COCC",
+        "CCCNS"
+      ],
+      [
+        "CCCCO",
+        "CCCNS"
+      ],
+      [
+        "COCCO",
+        "CCCNS"
+      ],
+      [
+        "CNCCCO",
+        "Cc"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCS"
+      ],
+      [
+        "CCOCC",
+        "SCc"
+      ],
+      [
+        "F",
+        "CCCCc"
+      ],
+      [
+        "O",
+        "CCCCCOc"
+      ],
+      [
+        "S",
+        "COCC"
+      ],
+      [
+        "sc",
+        "nn"
+      ],
+      [
+        "OCC",
+        "SCCC"
+      ],
+      [
+        "NCCOCCN",
+        "CCCNC"
+      ],
+      [
+        "CO",
+        "Nc"
+      ],
+      [
+        "CCO",
+        "CCCS"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCON"
+      ],
+      [
+        "CCCCOCCN",
+        "CCCC"
+      ],
+      [
+        "S",
+        "CSC"
+      ],
+      [
+        "S",
+        "CCCF"
+      ],
+      [
+        "S",
+        "CCCCc"
+      ],
+      [
+        "CS",
+        "CCCNCc"
+      ],
+      [
+        "CCOCCN",
+        "CCCN"
+      ],
+      [
+        "CN",
+        "CCCCO"
+      ],
+      [
+        "NCCCN",
+        "CCCCCn"
+      ],
+      [
+        "NO",
+        "CCc"
+      ],
+      [
+        "S",
+        "CCOCCN"
+      ],
+      [
+        "-]",
+        ")(["
+      ],
+      [
+        "CSCC",
+        "CCCN"
+      ],
+      [
+        "NCCCCCCN",
+        "CCOCCO"
+      ],
+      [
+        "CCS",
+        "CCCNS"
+      ],
+      [
+        "NCCN",
+        "CCCCOc"
+      ],
+      [
+        "OCCO",
+        "CCOCCOCCOCCO"
+      ],
+      [
+        "NCCO",
+        "CCOc"
+      ],
+      [
+        "COCCCN",
+        "CCCN"
+      ],
+      [
+        "OCCCC",
+        "CCc"
+      ],
+      [
+        "NCCCC",
+        "CCS"
+      ],
+      [
+        "NO",
+        "CCCN"
+      ],
+      [
+        "NCCO",
+        "Nc"
+      ],
+      [
+        "NCCO",
+        "CCOCCC"
+      ],
+      [
+        "COCCCCC",
+        "S"
+      ],
+      [
+        "@](",
+        "["
+      ],
+      [
+        "NCCCN",
+        "CCCNC"
+      ],
+      [
+        "CSCC",
+        "CCCNS"
+      ],
+      [
+        "CCCCS",
+        "CCc"
+      ],
+      [
+        "F",
+        "CCOc"
+      ],
+      [
+        "S",
+        "CCOCc"
+      ],
+      [
+        "OC",
+        "S"
+      ],
+      [
+        "CO",
+        "CCCSc"
+      ],
+      [
+        "CCS",
+        "CCSCC"
+      ],
+      [
+        "OCCO",
+        "CCOCCC"
+      ],
+      [
+        "1",
+        "4"
+      ],
+      [
+        "nc",
+        "s"
+      ],
+      [
+        "OCC",
+        "P"
+      ],
+      [
+        "CCS",
+        "CCO"
+      ],
+      [
+        "COCCO",
+        "CCOCCCN"
+      ],
+      [
+        "NN",
+        "N"
+      ],
+      [
+        "COCCCCC",
+        "NCc"
+      ],
+      [
+        "S",
+        "CCCCCn"
+      ],
+      [
+        "s",
+        "s"
+      ],
+      [
+        "CCS",
+        "CCCNc"
+      ],
+      [
+        "NCCCC",
+        "CCNCCN"
+      ],
+      [
+        "COCCCCN",
+        "CCCCCCNC"
+      ],
+      [
+        "]",
+        ")("
+      ],
+      [
+        "CCOCC",
+        "CCNS"
+      ],
+      [
+        "CCOCCCN",
+        "CCCCCCNC"
+      ],
+      [
+        "S",
+        "CCCCOC"
+      ],
+      [
+        "CN",
+        "CCCCCc"
+      ],
+      [
+        "NCC",
+        "CCOCC"
+      ],
+      [
+        "OCC",
+        "CCOCc"
+      ],
+      [
+        "CCCS",
+        "CCn"
+      ],
+      [
+        "COCCO",
+        "CCNc"
+      ],
+      [
+        "nc",
+        "no"
+      ],
+      [
+        "CCN",
+        "CCCNS"
+      ],
+      [
+        "CO",
+        "CCCOCc"
+      ],
+      [
+        "CS",
+        "CCCSC"
+      ],
+      [
+        "NCCN",
+        "CCCOCc"
+      ],
+      [
+        "CCCCCN",
+        "CCCCCCNC"
+      ],
+      [
+        "NCCCOC",
+        "OC"
+      ],
+      [
+        "COCCOCC",
+        "CCNS"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOC"
+      ],
+      [
+        "CS",
+        "CCCSCC"
+      ],
+      [
+        "CCCS",
+        "CCOC"
+      ],
+      [
+        "COCCCN",
+        "CCC"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCCC"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOCc"
+      ],
+      [
+        "CN",
+        "CCCCCOc"
+      ],
+      [
+        "co",
+        "ccc"
+      ],
+      [
+        "SCCCC",
+        "F"
+      ],
+      [
+        "-",
+        "]("
+      ],
+      [
+        "CCCC",
+        "CCCCCS"
+      ],
+      [
+        "NCCN",
+        "CCOCCC"
+      ],
+      [
+        "OCCCN",
+        "CCN"
+      ],
+      [
+        "CCO",
+        "CCCSCc"
+      ],
+      [
+        "COCCN",
+        "CCNS"
+      ],
+      [
+        "OCCCC",
+        "P"
+      ],
+      [
+        "CCCCOCC",
+        "S"
+      ],
+      [
+        "S",
+        "CCCCN"
+      ],
+      [
+        "COC",
+        "OCCCNS"
+      ],
+      [
+        "+]",
+        "#"
+      ],
+      [
+        "COCCO",
+        "CCCNc"
+      ],
+      [
+        "NO",
+        "CCCOc"
+      ],
+      [
+        "COCCOCC",
+        "Sc"
+      ],
+      [
+        "CN",
+        "CCCCCO"
+      ],
+      [
+        "COCCO",
+        "CCCNCc"
+      ],
+      [
+        "SCC",
+        "F"
+      ],
+      [
+        "CCOCCO",
+        "CCOCCN"
+      ],
+      [
+        "COCCOCCN",
+        "CCCC"
+      ],
+      [
+        "CCCCCCCC",
+        "CCO"
+      ],
+      [
+        "NCCCCCCN",
+        "CCCC"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOCCN"
+      ],
+      [
+        "S",
+        "CCCSCC"
+      ],
+      [
+        "S",
+        "CCCCCO"
+      ],
+      [
+        "CCOCC",
+        "CCNc"
+      ],
+      [
+        "COCCS",
+        "CCCn"
+      ],
+      [
+        "NOCCC",
+        "NCc"
+      ],
+      [
+        "CCN",
+        "CCCCc"
+      ],
+      [
+        "CCCC",
+        "CCCSc"
+      ],
+      [
+        "CS",
+        "CCCF"
+      ],
+      [
+        "COCCO",
+        "CCCOC"
+      ],
+      [
+        "OCCN",
+        "CCC"
+      ],
+      [
+        "COCCCN",
+        "N"
+      ],
+      [
+        "S",
+        "CSc"
+      ],
+      [
+        "S",
+        "CCOCCC"
+      ],
+      [
+        "CN",
+        "CCCCS"
+      ],
+      [
+        "CCCCN",
+        "CCCS"
+      ],
+      [
+        "CCCS",
+        "CCNCc"
+      ],
+      [
+        "CCOCCCN",
+        "CCN"
+      ],
+      [
+        "S",
+        "CCSCc"
+      ],
+      [
+        "COCCO",
+        "CCCO"
+      ],
+      [
+        "OCCN",
+        "CCCCCCNC"
+      ],
+      [
+        "CNCCCO",
+        "CCO"
+      ],
+      [
+        "OCCCS",
+        "CCN"
+      ],
+      [
+        "CSCCCC",
+        "CCNS"
+      ],
+      [
+        "S",
+        "CCSCC"
+      ],
+      [
+        "CCCCO",
+        "CCNCc"
+      ],
+      [
+        "OCCCC",
+        "CCOc"
+      ],
+      [
+        "CCCCCCN",
+        "CCN"
+      ],
+      [
+        "S",
+        "CCOCCO"
+      ],
+      [
+        "s",
+        "sc"
+      ],
+      [
+        "OC",
+        "OCc"
+      ],
+      [
+        "CCS",
+        "CCCNCc"
+      ],
+      [
+        "CCCCN",
+        "CCCc"
+      ],
+      [
+        "COCC",
+        "CCO"
+      ],
+      [
+        "CCCOC",
+        "Sc"
+      ],
+      [
+        "CCCCO",
+        "CCCNc"
+      ],
+      [
+        "COCCO",
+        "CCCOc"
+      ],
+      [
+        "NCCCN",
+        "CCCCc"
+      ],
+      [
+        "CNCCCO",
+        "NC"
+      ],
+      [
+        "COCCCO",
+        "CCc"
+      ],
+      [
+        "COCCCO",
+        "CCOC"
+      ],
+      [
+        "COCC",
+        "CCOc"
+      ],
+      [
+        "CCCOC",
+        "OC"
+      ],
+      [
+        "NCCCN",
+        "CCCOCC"
+      ],
+      [
+        "NCCCC",
+        "CCCCO"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCN"
+      ],
+      [
+        "S",
+        "CCCSC"
+      ],
+      [
+        "OC",
+        "F"
+      ],
+      [
+        "CS",
+        "CCCOCC"
+      ],
+      [
+        "CS",
+        "CCOCCN"
+      ],
+      [
+        "CS",
+        "CCCCCF"
+      ],
+      [
+        "CS",
+        "CCCSCc"
+      ],
+      [
+        "OCCO",
+        "CCOCCNC"
+      ],
+      [
+        "NCCCC",
+        "CCCO"
+      ],
+      [
+        "NO",
+        "CCCO"
+      ],
+      [
+        "CCCCCCN",
+        "CCCCCCNC"
+      ],
+      [
+        "COCCCCCN",
+        "CCCC"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOCCOCCO"
+      ],
+      [
+        "CN",
+        "CCCCNc"
+      ],
+      [
+        "CS",
+        "CCCCN"
+      ],
+      [
+        "CCCCN",
+        "CCOc"
+      ],
+      [
+        "CCCS",
+        "CCOc"
+      ],
+      [
+        "NCCCN",
+        "CCCOCc"
+      ],
+      [
+        "CCOCCN",
+        "CCO"
+      ],
+      [
+        "OCCOC",
+        "n"
+      ],
+      [
+        "CCOCCO",
+        "CCCc"
+      ],
+      [
+        "NCCCO",
+        "CCOCCOC"
+      ],
+      [
+        "OCCCC",
+        "CCCCCO"
+      ],
+      [
+        "COCCCCC",
+        "Nc"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOCCOCCN"
+      ],
+      [
+        "S",
+        "COc"
+      ],
+      [
+        "NS",
+        "C"
+      ],
+      [
+        "NCCN",
+        "CCOCCOC"
+      ],
+      [
+        "NCCN",
+        "CCOCCOc"
+      ],
+      [
+        "CCCS",
+        "CCC"
+      ],
+      [
+        "NCCCC",
+        "NCc"
+      ],
+      [
+        "NCCO",
+        "CCOCCOCCNC"
+      ],
+      [
+        "CNCCC",
+        "NCc"
+      ],
+      [
+        "OCCCC",
+        "CCCC"
+      ],
+      [
+        "CNCCOCC",
+        "F"
+      ],
+      [
+        "S",
+        "CCCCO"
+      ],
+      [
+        "S",
+        "CCCCCF"
+      ],
+      [
+        "CCS",
+        "CCCC"
+      ],
+      [
+        "CCS",
+        "CCOCC"
+      ],
+      [
+        "NCCN",
+        "CCCOCCc"
+      ],
+      [
+        "NCCCC",
+        "CCCCCCO"
+      ],
+      [
+        "NN",
+        "CCCOCc"
+      ],
+      [
+        "OCCCN",
+        "CCO"
+      ],
+      [
+        "OCCCN",
+        "CCF"
+      ],
+      [
+        "COCCCCC",
+        "Sc"
+      ],
+      [
+        "CSCCCCC",
+        "NCc"
+      ],
+      [
+        "o",
+        "cccc"
+      ],
+      [
+        "CN",
+        "CCNCc"
+      ],
+      [
+        "CN",
+        "CCCCCS"
+      ],
+      [
+        "NCC",
+        "CCOCCOC"
+      ],
+      [
+        "CCS",
+        "CCSCc"
+      ],
+      [
+        "COCCO",
+        "CCOCCNC"
+      ],
+      [
+        "CNCCCC",
+        "CCO"
+      ],
+      [
+        "CCCCOCCN",
+        "CCCCCCNC"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOCCNC"
+      ],
+      [
+        "NCCCOCCOCCO",
+        "CCCNC"
+      ],
+      [
+        "O",
+        "CCCCCNC"
+      ],
+      [
+        "S",
+        "CCCCCCO"
+      ],
+      [
+        "CCCC",
+        "CCCCCc"
+      ],
+      [
+        "CCOCC",
+        "SCC"
+      ],
+      [
+        "CS",
+        "CCSc"
+      ],
+      [
+        "NCCCC",
+        "CCCCNC"
+      ],
+      [
+        "OCCCC",
+        "CCNC"
+      ],
+      [
+        "OCCCCC",
+        "Nc"
+      ],
+      [
+        "NC",
+        "SCCC"
+      ],
+      [
+        "NCCS",
+        "CCN"
+      ],
+      [
+        "COCCCC",
+        "Sc"
+      ],
+      [
+        "CNCCCO",
+        "N"
+      ],
+      [
+        "NCCCCCCN",
+        "CCCOC"
+      ],
+      [
+        "NCCCCCCN",
+        "CCCCCF"
+      ],
+      [
+        "OC",
+        "Oc"
+      ],
+      [
+        "CCN",
+        "CCCOCC"
+      ],
+      [
+        "COC",
+        "OCCO"
+      ],
+      [
+        "COCCO",
+        "CCO"
+      ],
+      [
+        "NCCCN",
+        "CCOCCC"
+      ],
+      [
+        "NCCCC",
+        "CCCCN"
+      ],
+      [
+        "NCCO",
+        "CCCNCC"
+      ],
+      [
+        "CCOCCO",
+        "CCNCc"
+      ],
+      [
+        "OCCCC",
+        "CCNc"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCCCCCCC"
+      ],
+      [
+        "NCCCOCCOCCO",
+        "CCCN"
+      ],
+      [
+        "CCN",
+        "CCOCc"
+      ],
+      [
+        "CS",
+        "CSc"
+      ],
+      [
+        "CCCO",
+        "CCNCc"
+      ],
+      [
+        "CCCO",
+        "CCCCc"
+      ],
+      [
+        "SCC",
+        "CCOc"
+      ],
+      [
+        "NCCCCCCN",
+        "CCS"
+      ],
+      [
+        "OCCCCC",
+        "OCc"
+      ],
+      [
+        "CNCCS",
+        "CCCO"
+      ],
+      [
+        "CO",
+        "CCSC"
+      ],
+      [
+        "CS",
+        "CCCCCOC"
+      ],
+      [
+        "CCCCO",
+        "CCOCCN"
+      ],
+      [
+        "OCCO",
+        "CCCN"
+      ],
+      [
+        "NCCCC",
+        "CCNCCNC"
+      ],
+      [
+        "NO",
+        "CCCNS"
+      ],
+      [
+        "COCCOC",
+        "O"
+      ],
+      [
+        "CCOCCCC",
+        "NCc"
+      ],
+      [
+        "COCCCCN",
+        "CCN"
+      ],
+      [
+        "CCCCOCC",
+        "Sc"
+      ],
+      [
+        "COCCOCC",
+        "CCNc"
+      ],
+      [
+        "S",
+        "CCCCCCN"
+      ],
+      [
+        "S",
+        "CCCOCc"
+      ],
+      [
+        "CCCN",
+        "CCNCc"
+      ],
+      [
+        "CS",
+        "CCCCF"
+      ],
+      [
+        "CCS",
+        "CCCOc"
+      ],
+      [
+        "CCCCO",
+        "CCNc"
+      ],
+      [
+        "CCCCO",
+        "CCCNCc"
+      ],
+      [
+        "CCCCO",
+        "CCOCCn"
+      ],
+      [
+        "OCCO",
+        "CCOCCOCCNC"
+      ],
+      [
+        "NCCCN",
+        "CCOCCOC"
+      ],
+      [
+        "OCCCC",
+        "CCOC"
+      ],
+      [
+        "COCCCCC",
+        "Oc"
+      ],
+      [
+        "CNCCCO",
+        "CCc"
+      ],
+      [
+        "COCCOCCN",
+        "CCCCCCNC"
+      ],
+      [
+        "COCCS",
+        "CCCSc"
+      ],
+      [
+        "F",
+        "CCCCn"
+      ],
+      [
+        "CN",
+        "CCOCCS"
+      ],
+      [
+        ")=",
+        "["
+      ],
+      [
+        "NCC",
+        "CCCNS"
+      ],
+      [
+        "CS",
+        "CCCCOC"
+      ],
+      [
+        "NCCN",
+        "CCCCCOC"
+      ],
+      [
+        "COCCO",
+        "CCOCCNS"
+      ],
+      [
+        "NCCCN",
+        "CCCCOC"
+      ],
+      [
+        "COCCS",
+        "CCCOc"
+      ],
+      [
+        "CCOCCOCC",
+        "Sc"
+      ],
+      [
+        "COCCCS",
+        "Cc"
+      ],
+      [
+        "NCCCCCCCC",
+        "CCCCO"
+      ],
+      [
+        "F",
+        "CCCc"
+      ],
+      [
+        "CN",
+        "CCSCCC"
+      ],
+      [
+        "CCO",
+        "CCCSCC"
+      ],
+      [
+        "CCCC",
+        "CCCCCn"
+      ],
+      [
+        "CS",
+        "Cn"
+      ],
+      [
+        "OCC",
+        "SCCc"
+      ],
+      [
+        "CCCO",
+        "CCCNC"
+      ],
+      [
+        "CCCCN",
+        "CCNS"
+      ],
+      [
+        "OCCO",
+        "CCOCCO"
+      ],
+      [
+        "OCCCN",
+        "CCCC"
+      ],
+      [
+        "OCCCCCC",
+        "F"
+      ],
+      [
+        "CN",
+        "Nc"
+      ],
+      [
+        "CCCO",
+        "CCCN"
+      ],
+      [
+        "NCCCN",
+        "CCCCCOC"
+      ],
+      [
+        "CCCCCN",
+        "CCC"
+      ],
+      [
+        "CCCCCN",
+        "CCCN"
+      ],
+      [
+        "NCCCO",
+        "CCOCCCN"
+      ],
+      [
+        "OCCCN",
+        "CCC"
+      ],
+      [
+        "COCCOCC",
+        "SCc"
+      ],
+      [
+        "CCOCCNCC",
+        "F"
+      ],
+      [
+        "F",
+        "CCOCCN"
+      ],
+      [
+        "]",
+        ")"
+      ],
+      [
+        "CO",
+        "NCCC"
+      ],
+      [
+        "CCCN",
+        "CCOCC"
+      ],
+      [
+        "CCS",
+        "CCCSc"
+      ],
+      [
+        "CCCOC",
+        "n"
+      ],
+      [
+        "COCCN",
+        "CCNCc"
+      ],
+      [
+        "NO",
+        "CCCc"
+      ],
+      [
+        "NO",
+        "CCCS"
+      ],
+      [
+        "COCCCC",
+        "SCc"
+      ],
+      [
+        "CNCCO",
+        "CCCC"
+      ],
+      [
+        "cc",
+        "s"
+      ],
+      [
+        "NCCCC",
+        "CCCc"
+      ],
+      [
+        "OCCCC",
+        "CCCNC"
+      ],
+      [
+        "NCCCCN",
+        "CCCNc"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCN"
+      ],
+      [
+        "NCCCCCCN",
+        "CCOc"
+      ],
+      [
+        "#",
+        "["
+      ],
+      [
+        "CN",
+        "CCCCCCC"
+      ],
+      [
+        "CS",
+        "COC"
+      ],
+      [
+        "CCCO",
+        "CCOCCOC"
+      ],
+      [
+        "COCCO",
+        "CCOCCOCCN"
+      ],
+      [
+        "OCCCC",
+        "CCCc"
+      ],
+      [
+        "CCCCCCCC",
+        "CCOc"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCCCCCN"
+      ],
+      [
+        "SCCCC",
+        "CCCO"
+      ],
+      [
+        "CSCCCC",
+        "CCNCc"
+      ],
+      [
+        "S",
+        "CCCCS"
+      ],
+      [
+        "S",
+        "CCCSc"
+      ],
+      [
+        "CO",
+        "CCCSCC"
+      ],
+      [
+        "CCO",
+        "CCOCCS"
+      ],
+      [
+        "CCCCN",
+        "CCCCOC"
+      ],
+      [
+        "CCCCO",
+        "CCOc"
+      ],
+      [
+        "CCCCCC",
+        "CCCNS"
+      ],
+      [
+        "NCCCN",
+        "CCOCCNC"
+      ],
+      [
+        "NCCCN",
+        "CCCOCCc"
+      ],
+      [
+        "CSCCCCC",
+        "Nc"
+      ],
+      [
+        "S",
+        "N"
+      ],
+      [
+        "S",
+        "CCCNCc"
+      ],
+      [
+        "CN",
+        "CCCCCCN"
+      ],
+      [
+        "CCO",
+        "S"
+      ],
+      [
+        "CS",
+        "CCOCc"
+      ],
+      [
+        "CS",
+        "CCCCCCNc"
+      ],
+      [
+        "NCCC",
+        "SCCc"
+      ],
+      [
+        "CCCCO",
+        "CCC"
+      ],
+      [
+        "OCCO",
+        "CCCNCc"
+      ],
+      [
+        "CCCS",
+        "CCNc"
+      ],
+      [
+        "COCCO",
+        "CCOCCCC"
+      ],
+      [
+        "NCCCC",
+        "CCn"
+      ],
+      [
+        "NCCCC",
+        "CCCNC"
+      ],
+      [
+        "NN",
+        "CCCO"
+      ],
+      [
+        "CCCCCCCC",
+        "NCc"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCC"
+      ],
+      [
+        "OCCS",
+        "CCOc"
+      ],
+      [
+        "OCCCS",
+        "CCNCc"
+      ],
+      [
+        "F",
+        "CCOCCNCc"
+      ],
+      [
+        "CCN",
+        "CCNc"
+      ],
+      [
+        "CCCO",
+        "CCOCc"
+      ],
+      [
+        "OCCO",
+        "CCCNc"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCOC"
+      ],
+      [
+        "CCCCCCCN",
+        "CCCC"
+      ],
+      [
+        "S",
+        "CCCON"
+      ],
+      [
+        "CCCC",
+        "CCCCOCc"
+      ],
+      [
+        "CCCO",
+        "CCCC"
+      ],
+      [
+        "NCCN",
+        "CCOCCNC"
+      ],
+      [
+        "CCCCO",
+        "CCOCCNS"
+      ],
+      [
+        "OCCO",
+        "CCNCc"
+      ],
+      [
+        "NCCCN",
+        "CCCCOc"
+      ],
+      [
+        "CCOCCO",
+        "CCOCC"
+      ],
+      [
+        "COCCCCC",
+        "SCC"
+      ],
+      [
+        "COCCOCCOCCO",
+        "CCNS"
+      ],
+      [
+        "F",
+        "CCOCCn"
+      ],
+      [
+        "(-",
+        "["
+      ],
+      [
+        "CCCN",
+        "CCCS"
+      ],
+      [
+        "CCCO",
+        "CCOc"
+      ],
+      [
+        "CCCS",
+        "CCc"
+      ],
+      [
+        "NCCCC",
+        "CCCCCCCO"
+      ],
+      [
+        "CNCCC",
+        "SC"
+      ],
+      [
+        "CCOCCO",
+        "CCOCCOCCN"
+      ],
+      [
+        "COCCCC",
+        "SCC"
+      ],
+      [
+        "COCCOCC",
+        "SCC"
+      ],
+      [
+        "CNCCCO",
+        "CCNC"
+      ],
+      [
+        "OCCS",
+        "CCOC"
+      ],
+      [
+        "COCCCCCN",
+        "CCCCCCNC"
+      ],
+      [
+        "CC",
+        "l"
+      ],
+      [
+        "OC",
+        "NC"
+      ],
+      [
+        "OC",
+        "OCC"
+      ],
+      [
+        "OC",
+        "SC"
+      ],
+      [
+        "CCN",
+        "CCCCOC"
+      ],
+      [
+        "CCS",
+        "CSc"
+      ],
+      [
+        "COCCN",
+        "N"
+      ],
+      [
+        "CCCS",
+        "CCCNC"
+      ],
+      [
+        "CNCCO",
+        "CCCO"
+      ],
+      [
+        "COCCCCC",
+        "SCc"
+      ],
+      [
+        "OCCCS",
+        "CCNc"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOCCC"
+      ],
+      [
+        "S",
+        "COCCC"
+      ],
+      [
+        "S",
+        "CCCOCCc"
+      ],
+      [
+        "NC",
+        "SCCc"
+      ],
+      [
+        "CCN",
+        "CCCn"
+      ],
+      [
+        "CCO",
+        "n"
+      ],
+      [
+        "CCCC",
+        "CCSCC"
+      ],
+      [
+        "OCC",
+        "SCCN"
+      ],
+      [
+        "CCS",
+        "CNC"
+      ],
+      [
+        "NCCN",
+        "CCCNS"
+      ],
+      [
+        "NCCO",
+        "CCNCC"
+      ],
+      [
+        "OCCCC",
+        "CCOCc"
+      ],
+      [
+        "OCCCC",
+        "SCc"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCCCC"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCCCOC"
+      ],
+      [
+        "+](",
+        "-"
+      ],
+      [
+        "F",
+        "CCNCc"
+      ],
+      [
+        "CCO",
+        "CCOCCC"
+      ],
+      [
+        "CCCC",
+        "CCSCc"
+      ],
+      [
+        "CCCN",
+        "CCCCC"
+      ],
+      [
+        "(/",
+        "["
+      ],
+      [
+        "COCCO",
+        "CCOCc"
+      ],
+      [
+        "COCCO",
+        "CCOCCOC"
+      ],
+      [
+        "COCCO",
+        "CCOCCCNS"
+      ],
+      [
+        "NO",
+        "CCCCC"
+      ],
+      [
+        "OCCCO",
+        "NC"
+      ],
+      [
+        "NCCO",
+        "CCOCc"
+      ],
+      [
+        "NCCO",
+        "CCNS"
+      ],
+      [
+        "NCCO",
+        "CCOCCOC"
+      ],
+      [
+        "NCCCO",
+        "CCNS"
+      ],
+      [
+        "OCCCC",
+        "CCNCc"
+      ],
+      [
+        "CNCCCC",
+        "CCCN"
+      ],
+      [
+        "OCCCS",
+        "CCC"
+      ],
+      [
+        "OCCCCC",
+        "NCc"
+      ],
+      [
+        "CCOCCOCCOCCO",
+        "CCOCCOCCOCCO"
+      ],
+      [
+        "6",
+        "4"
+      ],
+      [
+        "S",
+        "CSCc"
+      ],
+      [
+        "nc",
+        "o"
+      ],
+      [
+        "CCN",
+        "CCSCc"
+      ],
+      [
+        "CCS",
+        "Cn"
+      ],
+      [
+        "NCCN",
+        "CCCCCCNC"
+      ],
+      [
+        "COCCO",
+        "CCOCC"
+      ],
+      [
+        "COCCO",
+        "CCOCCn"
+      ],
+      [
+        "OCCCO",
+        "CCOC"
+      ],
+      [
+        "OCCCC",
+        "CCCCCCCO"
+      ],
+      [
+        "OCCCN",
+        "CCCF"
+      ],
+      [
+        "NCCCCN",
+        "CCCNS"
+      ],
+      [
+        "CCOCCCN",
+        "CCC"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCc"
+      ],
+      [
+        "NCCCCCCN",
+        "CCCc"
+      ],
+      [
+        "NOCCC",
+        "Nc"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOCCOCCOCCN"
+      ],
+      [
+        "F",
+        "CCCn"
+      ],
+      [
+        "F",
+        "CCCCNc"
+      ],
+      [
+        "S",
+        "CCCCn"
+      ],
+      [
+        "CN",
+        "CCCCOCCc"
+      ],
+      [
+        "CCN",
+        "CCNCc"
+      ],
+      [
+        "COC",
+        "OCCCNc"
+      ],
+      [
+        "NCCN",
+        "CCCCOC"
+      ],
+      [
+        "OCCO",
+        "n"
+      ],
+      [
+        "OCCO",
+        "Nc"
+      ],
+      [
+        "OCCO",
+        "CCNc"
+      ],
+      [
+        "CCCS",
+        "CCOCC"
+      ],
+      [
+        "COCCO",
+        "CCCCNCc"
+      ],
+      [
+        "NCCCN",
+        "CCCNS"
+      ],
+      [
+        "OCO",
+        "CCOC"
+      ],
+      [
+        "NCCCC",
+        "CCCCCCCN"
+      ],
+      [
+        "OCCOC",
+        "OC"
+      ],
+      [
+        "CCOCCO",
+        "CCOc"
+      ],
+      [
+        "OCCCN",
+        "N"
+      ],
+      [
+        "COCCS",
+        "CCCSCc"
+      ],
+      [
+        "COCCOCCOCCO",
+        "CCOCCOCCNC"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOCCOCCNC"
+      ],
+      [
+        "3",
+        "12"
+      ],
+      [
+        "4",
+        "6"
+      ],
+      [
+        "F",
+        "CCCCSc"
+      ],
+      [
+        "S",
+        "CCNCC"
+      ],
+      [
+        "CCCCC",
+        "l"
+      ],
+      [
+        "CCS",
+        "COc"
+      ],
+      [
+        "COCCN",
+        "CCCOC"
+      ],
+      [
+        "CCCCO",
+        "NC"
+      ],
+      [
+        "OCCO",
+        "CCCc"
+      ],
+      [
+        "NCCCC",
+        "CCCn"
+      ],
+      [
+        "OCCCC",
+        "CCCO"
+      ],
+      [
+        "COCCCCN",
+        "CCC"
+      ],
+      [
+        "CCCCCCCC",
+        "CCn"
+      ],
+      [
+        "NCCOCCC",
+        "NCc"
+      ],
+      [
+        "COCCOCCOCCO",
+        "CCOCCOCCN"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCNS"
+      ],
+      [
+        "F",
+        "CCCCCSc"
+      ],
+      [
+        "@@",
+        "+]("
+      ],
+      [
+        "CO",
+        "NCCc"
+      ],
+      [
+        "CCO",
+        "CCCCCc"
+      ],
+      [
+        "CCOCC",
+        "SC"
+      ],
+      [
+        "CS",
+        "CCCCNS"
+      ],
+      [
+        "CS",
+        "CCCON"
+      ],
+      [
+        "CCS",
+        "CCSC"
+      ],
+      [
+        "CCCO",
+        "CCCNS"
+      ],
+      [
+        "CCCOC",
+        "Oc"
+      ],
+      [
+        "COCCO",
+        "CCCC"
+      ],
+      [
+        "NCCCN",
+        "CCOCCOc"
+      ],
+      [
+        "NCCCC",
+        "CCSc"
+      ],
+      [
+        "CCOCCO",
+        "CCOCCOCCNC"
+      ],
+      [
+        "OCCCN",
+        "CCCCCCNC"
+      ],
+      [
+        "SCCCS",
+        "Cc"
+      ],
+      [
+        "F",
+        "CCc"
+      ],
+      [
+        "CN",
+        "CCCCOCc"
+      ],
+      [
+        "CS",
+        "COc"
+      ],
+      [
+        "CS",
+        "CCCCNc"
+      ],
+      [
+        "CCCCN",
+        "CCOCCOC"
+      ],
+      [
+        "CCCOCC",
+        "Sc"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCONC"
+      ],
+      [
+        "OCCS",
+        "CCCc"
+      ],
+      [
+        "+](",
+        "\\["
+      ],
+      [
+        "COCCOCCOCCO",
+        "CCOC"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOCCNS"
+      ],
+      [
+        "F",
+        "CCSc"
+      ],
+      [
+        "S",
+        "CCCNS"
+      ],
+      [
+        "CCN",
+        "CCOCCOC"
+      ],
+      [
+        "CS",
+        "CCCOCc"
+      ],
+      [
+        "CCS",
+        "CCCS"
+      ],
+      [
+        "CCCCN",
+        "CCCCC"
+      ],
+      [
+        "CCCOC",
+        "N"
+      ],
+      [
+        "CCCCO",
+        "N"
+      ],
+      [
+        "CCCCO",
+        "P"
+      ],
+      [
+        "COCCO",
+        "CCOCCCNCc"
+      ],
+      [
+        "NCCCC",
+        "CCCCC"
+      ],
+      [
+        "OCCCO",
+        "CCNc"
+      ],
+      [
+        "CCOCCO",
+        "CCOCCNS"
+      ],
+      [
+        "COCCCC",
+        "CCCC"
+      ],
+      [
+        "OCCCN",
+        "CCCO"
+      ],
+      [
+        "CNCCO",
+        "CCOCC"
+      ],
+      [
+        "CNCCO",
+        "CCCNC"
+      ],
+      [
+        "CNCCCC",
+        "CCc"
+      ],
+      [
+        "NCCOCCN",
+        "CCCC"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCCCCCC"
+      ],
+      [
+        "CCCCCCCN",
+        "CCCCCCNC"
+      ],
+      [
+        "NCCOCCO",
+        "CCNS"
+      ],
+      [
+        "OCCOCC",
+        "Sc"
+      ],
+      [
+        "NCCCOCCOCCO",
+        "CCCNS"
+      ],
+      [
+        "5",
+        "1"
+      ],
+      [
+        "F",
+        "CCNC"
+      ],
+      [
+        "S",
+        "CCOCCOC"
+      ],
+      [
+        "CCC",
+        "B"
+      ],
+      [
+        "OC",
+        "Nc"
+      ],
+      [
+        "CN",
+        "OCC"
+      ],
+      [
+        "CCN",
+        "CCOCCC"
+      ],
+      [
+        "CCCC",
+        "CCCCNc"
+      ],
+      [
+        "OCCO",
+        "CCOCC"
+      ],
+      [
+        "OCCO",
+        "CCCNC"
+      ],
+      [
+        "OCCO",
+        "CCOCCOCc"
+      ],
+      [
+        "NCCCC",
+        "CCCCNS"
+      ],
+      [
+        "OCCCO",
+        "CCN"
+      ],
+      [
+        "NCCO",
+        "NC"
+      ],
+      [
+        "NCCO",
+        "CCc"
+      ],
+      [
+        "NCCCO",
+        "CCNCc"
+      ],
+      [
+        "CNCCCC",
+        "CCCC"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCOC"
+      ],
+      [
+        "OCCCS",
+        "CCOC"
+      ],
+      [
+        "OCCCCC",
+        "Sc"
+      ],
+      [
+        "CNCCS",
+        "CCOc"
+      ],
+      [
+        "CNCCCCC",
+        "SC"
+      ],
+      [
+        "CCOCCOCCOCCO",
+        "CCOCC"
+      ],
+      [
+        ")",
+        "\\["
+      ],
+      [
+        "F",
+        "CCCSc"
+      ],
+      [
+        "F",
+        "CCOCCNc"
+      ],
+      [
+        "F",
+        "CCCSCc"
+      ],
+      [
+        "O",
+        "CCCCCS"
+      ],
+      [
+        "S",
+        "CCCCCC"
+      ],
+      [
+        "CN",
+        "OCCC"
+      ],
+      [
+        "CCN",
+        "OC"
+      ],
+      [
+        "CCCC",
+        "CCCCCOc"
+      ],
+      [
+        "COC",
+        "OCCc"
+      ],
+      [
+        "CCCCO",
+        "CCOCCNc"
+      ],
+      [
+        "OCCO",
+        "CCOCCOCCOC"
+      ],
+      [
+        "CCOCCO",
+        "CCOCc"
+      ],
+      [
+        "CCOCCO",
+        "CCOCCOCC"
+      ],
+      [
+        "NCCCO",
+        "CCCC"
+      ],
+      [
+        "OCCCC",
+        "SCC"
+      ],
+      [
+        "OCCCC",
+        "CCCCCCCOc"
+      ],
+      [
+        "CCCCCCN",
+        "CCC"
+      ],
+      [
+        "CNCCO",
+        "CCNS"
+      ],
+      [
+        "NCCCCN",
+        "CCCN"
+      ],
+      [
+        "NCCCCN",
+        "CCCNC"
+      ],
+      [
+        "CCCCCO",
+        "NC"
+      ],
+      [
+        "NCCOCCO",
+        "CCOCCN"
+      ],
+      [
+        "COCCOCCOCCO",
+        "CCOCCOCCOCCN"
+      ],
+      [
+        "CCCCCCCCCCCC",
+        "CCCCCCNC"
+      ],
+      [
+        "F",
+        "CCCNC"
+      ],
+      [
+        "F",
+        "CCCNCc"
+      ],
+      [
+        "N",
+        "OCCn"
+      ],
+      [
+        "]",
+        "(="
+      ],
+      [
+        "c",
+        "H"
+      ],
+      [
+        "CC",
+        "P"
+      ],
+      [
+        "OC",
+        "SCc"
+      ],
+      [
+        "CN",
+        "CCCSCC"
+      ],
+      [
+        "CCN",
+        "CCCCCn"
+      ],
+      [
+        "CCCC",
+        "l"
+      ],
+      [
+        "CCCN",
+        "CCNc"
+      ],
+      [
+        "COC",
+        "OCCOC"
+      ],
+      [
+        "CS",
+        "CSC"
+      ],
+      [
+        "CS",
+        "CCCCS"
+      ],
+      [
+        "CCS",
+        "CCCCC"
+      ],
+      [
+        "CCCS",
+        "CCCc"
+      ],
+      [
+        "COCCO",
+        "CCOCCCNc"
+      ],
+      [
+        "NCCCC",
+        "CCCOc"
+      ],
+      [
+        "CCOCCO",
+        "CCOCCC"
+      ],
+      [
+        "OCCCC",
+        "CCCCc"
+      ],
+      [
+        "CCOCCOCC",
+        "SCc"
+      ],
+      [
+        "CSCCCC",
+        "SCc"
+      ],
+      [
+        "CCN",
+        "CCCCCOc"
+      ],
+      [
+        "CCCN",
+        "CCOCCO"
+      ],
+      [
+        "CCOC",
+        "S"
+      ],
+      [
+        "CS",
+        "CCOCCO"
+      ],
+      [
+        "CS",
+        "CCCOCCc"
+      ],
+      [
+        "OCC",
+        "SCCS"
+      ],
+      [
+        "CCCCN",
+        "CCOCc"
+      ],
+      [
+        "CCCCN",
+        "CCCOCC"
+      ],
+      [
+        "CCCCN",
+        "CCCCCn"
+      ],
+      [
+        "OCCO",
+        "CCOCCN"
+      ],
+      [
+        "NCCCC",
+        "CCSCC"
+      ],
+      [
+        "CCOCCO",
+        "CCOCCOCCO"
+      ],
+      [
+        "OCCCC",
+        "CCCSc"
+      ],
+      [
+        "NOCC",
+        "F"
+      ],
+      [
+        "NCCCS",
+        "CCOC"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCO"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCc"
+      ],
+      [
+        "NCCOCCO",
+        "CCc"
+      ],
+      [
+        "NCCOCCO",
+        "CCOCCn"
+      ],
+      [
+        "CCOCCCO",
+        "NC"
+      ],
+      [
+        "SCCCC",
+        "Sc"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOCCOCCOCCOCCN"
+      ],
+      [
+        "B",
+        "B"
+      ],
+      [
+        "F",
+        "n"
+      ],
+      [
+        "F",
+        "CCO"
+      ],
+      [
+        "F",
+        "CCNc"
+      ],
+      [
+        "S",
+        "CS"
+      ],
+      [
+        "CCC",
+        "P"
+      ],
+      [
+        "CN",
+        "OCc"
+      ],
+      [
+        "CCN",
+        "CCCCN"
+      ],
+      [
+        "CO",
+        "CCCCCCC"
+      ],
+      [
+        "CCCN",
+        "CCCCc"
+      ],
+      [
+        "NCC",
+        "CCCSc"
+      ],
+      [
+        "CS",
+        "CCSCC"
+      ],
+      [
+        "CS",
+        "CCSCc"
+      ],
+      [
+        "CS",
+        "CCCCNCc"
+      ],
+      [
+        "CCS",
+        "CN"
+      ],
+      [
+        "CCS",
+        "CCOCCN"
+      ],
+      [
+        "CCS",
+        "CCCCc"
+      ],
+      [
+        "CCCO",
+        "S"
+      ],
+      [
+        "-]",
+        "/["
+      ],
+      [
+        "CCCCN",
+        "CCCOc"
+      ],
+      [
+        "NCCN",
+        "CCOCCCC"
+      ],
+      [
+        "CNCC",
+        "P"
+      ],
+      [
+        "COCCC",
+        "SC"
+      ],
+      [
+        "NCCCC",
+        "CCCCc"
+      ],
+      [
+        "CCOCCC",
+        "SC"
+      ],
+      [
+        "CCCCS",
+        "CCCNC"
+      ],
+      [
+        "CCOCCO",
+        "CCOCCOC"
+      ],
+      [
+        "NCCCO",
+        "CCN"
+      ],
+      [
+        "OCCCC",
+        "CCCCCC"
+      ],
+      [
+        "OCCCC",
+        "CCSc"
+      ],
+      [
+        "CNCCCC",
+        "Sc"
+      ],
+      [
+        "COCCS",
+        "CCC"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCn"
+      ],
+      [
+        "OCCS",
+        "CCCC"
+      ],
+      [
+        "OCCS",
+        "CCn"
+      ],
+      [
+        "OCCS",
+        "CCCOc"
+      ],
+      [
+        "NCCCCCCN",
+        "CCCN"
+      ],
+      [
+        "NCCCCCCN",
+        "CCCCC"
+      ],
+      [
+        "NCCCCCCN",
+        "CCCCOC"
+      ],
+      [
+        "SCCCS",
+        "CCOC"
+      ],
+      [
+        "OCCCS",
+        "CCc"
+      ],
+      [
+        "CNCCOCCO",
+        "CCOCCOCc"
+      ],
+      [
+        "CCCCCCCCCC",
+        "CCOc"
+      ],
+      [
+        "COCCOCCOCCO",
+        "CCOCCOCCNS"
+      ],
+      [
+        "CCOCCOCCOCCO",
+        "CCOCCn"
+      ],
+      [
+        "OCCOCCOCCO",
+        "CCOCCOCCNC"
+      ],
+      [
+        "F",
+        "COc"
+      ],
+      [
+        "F",
+        "CCCCO"
+      ],
+      [
+        "F",
+        "CCCCCn"
+      ],
+      [
+        "N",
+        "NCCCn"
+      ],
+      [
+        "N",
+        "OCCOCc"
+      ],
+      [
+        "S",
+        "CCCCCOC"
+      ],
+      [
+        "cc",
+        "occ"
+      ],
+      [
+        "CN",
+        "NC"
+      ],
+      [
+        "CCN",
+        "CCCCCOC"
+      ],
+      [
+        "Br",
+        "n"
+      ],
+      [
+        "NCC",
+        "CCCNc"
+      ],
+      [
+        "CCCCC",
+        "SCCC"
+      ],
+      [
+        "CS",
+        "CCNCC"
+      ],
+      [
+        "CCS",
+        "CCOCc"
+      ],
+      [
+        "CCCCN",
+        "CCOCCC"
+      ],
+      [
+        "OCCO",
+        "CCOCCn"
+      ],
+      [
+        "CCCS",
+        "CCCN"
+      ],
+      [
+        "CCNCC",
+        "CCOc"
+      ],
+      [
+        "OCCC",
+        "P"
+      ],
+      [
+        "OCCN",
+        "CCS"
+      ],
+      [
+        "NCCCC",
+        "CCOC"
+      ],
+      [
+        "NCCCC",
+        "CCCOC"
+      ],
+      [
+        "NCCCC",
+        "CCSCc"
+      ],
+      [
+        "OCCCO",
+        "CCNCc"
+      ],
+      [
+        "NCCCO",
+        "CCNc"
+      ],
+      [
+        "OCCCC",
+        "CCCOc"
+      ],
+      [
+        "OCCCC",
+        "CCCCNC"
+      ],
+      [
+        "NCCOCC",
+        "n"
+      ],
+      [
+        "CCCCCO",
+        "N"
+      ],
+      [
+        "CNCCCC",
+        "CCS"
+      ],
+      [
+        "CNCCCC",
+        "CCOc"
+      ],
+      [
+        "NOCC",
+        "Sc"
+      ],
+      [
+        "CCCCCCCC",
+        "Sc"
+      ],
+      [
+        "OCCS",
+        "CCOCC"
+      ],
+      [
+        "NCCCCCCN",
+        "CCCS"
+      ],
+      [
+        "NCCCCCCN",
+        "CCNS"
+      ],
+      [
+        "NCCCCCCN",
+        "CCCCCOC"
+      ],
+      [
+        "CNCCOCCO",
+        "CCNC"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOCCOCCOC"
+      ],
+      [
+        "OCCOCCO",
+        "CCOCCn"
+      ],
+      [
+        "CCOCCOCCO",
+        "CCOCCC"
+      ],
+      [
+        "5",
+        "2"
+      ],
+      [
+        "6",
+        "7"
+      ],
+      [
+        "7",
+        "6"
+      ],
+      [
+        "F",
+        "CCCO"
+      ],
+      [
+        "F",
+        "CCCCOc"
+      ],
+      [
+        "O",
+        "Nc"
+      ],
+      [
+        "P",
+        "H"
+      ],
+      [
+        "S",
+        "CCCCCNC"
+      ],
+      [
+        "S",
+        "CCOCCOc"
+      ],
+      [
+        "S",
+        "CCCCCS"
+      ],
+      [
+        "CNC",
+        "S"
+      ],
+      [
+        "CNC",
+        "Oc"
+      ],
+      [
+        "CS",
+        "CCCONC"
+      ],
+      [
+        "CCCO",
+        "n"
+      ],
+      [
+        "-]",
+        "#["
+      ],
+      [
+        "CCCCN",
+        "CCCCc"
+      ],
+      [
+        "@](",
+        "/"
+      ],
+      [
+        "NCCN",
+        "CCCCCS"
+      ],
+      [
+        "OCCO",
+        "CCOCCOCCN"
+      ],
+      [
+        "CCCS",
+        "CCCCC"
+      ],
+      [
+        "NCCCN",
+        "CCCCn"
+      ],
+      [
+        "CSCC",
+        "CCOc"
+      ],
+      [
+        "NCCCC",
+        "CCCCCCc"
+      ],
+      [
+        "NO",
+        "N"
+      ],
+      [
+        "NO",
+        "CCCCCCCCCCCc"
+      ],
+      [
+        "31",
+        "4"
+      ],
+      [
+        "CCOCCO",
+        "CCOCCn"
+      ],
+      [
+        "CCOCCO",
+        "CCOCCCO"
+      ],
+      [
+        "OCCCC",
+        "CCCCCc"
+      ],
+      [
+        "OCCCC",
+        "CCCCCOC"
+      ],
+      [
+        "OCCCN",
+        "CCc"
+      ],
+      [
+        "COCCCCN",
+        "CCCN"
+      ],
+      [
+        "CNCCCC",
+        "F"
+      ],
+      [
+        "CNCCCC",
+        "CCCCCCO"
+      ],
+      [
+        "CCCCCCCC",
+        "CCc"
+      ],
+      [
+        "OCCS",
+        "CCO"
+      ],
+      [
+        "OCCCS",
+        "CCOc"
+      ],
+      [
+        "OCCCCC",
+        "SC"
+      ],
+      [
+        "+](",
+        "/["
+      ],
+      [
+        "COCCOCCOCCO",
+        "CCOCCOCCOCCNC"
+      ],
+      [
+        "NCCCCCS",
+        "Cc"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOCCn"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOCCOCCn"
+      ],
+      [
+        "CCCCCCCCCCCCCCCC",
+        "CCn"
+      ],
+      [
+        "CCOCCCS",
+        "CCC"
+      ],
+      [
+        "2",
+        "5"
+      ],
+      [
+        "@",
+        "+]("
+      ],
+      [
+        "F",
+        "CCOCCNC"
+      ],
+      [
+        "F",
+        "CCCCCOc"
+      ],
+      [
+        "F",
+        "CCCCCNc"
+      ],
+      [
+        "F",
+        "CCCCSCc"
+      ],
+      [
+        "S",
+        "CCONC"
+      ],
+      [
+        "]",
+        ")="
+      ],
+      [
+        "OC",
+        "SCC"
+      ],
+      [
+        "CN",
+        "CCCCCNC"
+      ],
+      [
+        "CCN",
+        "CCSC"
+      ],
+      [
+        "CCN",
+        "CCSc"
+      ],
+      [
+        "CCN",
+        "CCCNc"
+      ],
+      [
+        "CCN",
+        "CCCCCO"
+      ],
+      [
+        "CO",
+        "NS"
+      ],
+      [
+        "CCCC",
+        "CCCSCc"
+      ],
+      [
+        "CCOCC",
+        "SCCC"
+      ],
+      [
+        "CCS",
+        "CCNCC"
+      ],
+      [
+        "CCS",
+        "CCNCCC"
+      ],
+      [
+        "CCCO",
+        "CCOCCOCCn"
+      ],
+      [
+        "+]",
+        "["
+      ],
+      [
+        "NS",
+        "c"
+      ],
+      [
+        "CCCCN",
+        "CCCCOc"
+      ],
+      [
+        "NCCN",
+        "CCCCCC"
+      ],
+      [
+        "NCCN",
+        "CCCCCCC"
+      ],
+      [
+        "CCCOC",
+        "S"
+      ],
+      [
+        "CCCCO",
+        "CCCCOC"
+      ],
+      [
+        "CCCS",
+        "CCCOc"
+      ],
+      [
+        "CCNCC",
+        "CCCN"
+      ],
+      [
+        "NCCCN",
+        "CCOCCCC"
+      ],
+      [
+        "OCCN",
+        "CCc"
+      ],
+      [
+        "NCCCC",
+        "CCCCCCCC"
+      ],
+      [
+        "NO",
+        "CCCCCF"
+      ],
+      [
+        "CCCCCN",
+        "CCc"
+      ],
+      [
+        "CCOCCN",
+        "CCc"
+      ],
+      [
+        "OCCCO",
+        "CCCN"
+      ],
+      [
+        "CCCCCCC",
+        "SC"
+      ],
+      [
+        "CCCCS",
+        "CCCOc"
+      ],
+      [
+        "COCCOC",
+        "OC"
+      ],
+      [
+        "CCOCCO",
+        "CCNCC"
+      ],
+      [
+        "OCCCC",
+        "CCCCC"
+      ],
+      [
+        "OCCCN",
+        "CCS"
+      ],
+      [
+        "CNCCO",
+        "CCOc"
+      ],
+      [
+        "SCCN",
+        "CCC"
+      ],
+      [
+        "SCCS",
+        "CCO"
+      ],
+      [
+        "CNCCCC",
+        "P"
+      ],
+      [
+        "NCCCS",
+        "CCOc"
+      ],
+      [
+        "COCCS",
+        "CCc"
+      ],
+      [
+        "COCCS",
+        "CCCS"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCNC"
+      ],
+      [
+        "CCCCCCCC",
+        "SCc"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCCCCCNC"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCCCCCOc"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCCCCCCCOC"
+      ],
+      [
+        "OCCS",
+        "CCNC"
+      ],
+      [
+        "OCCS",
+        "CCNS"
+      ],
+      [
+        "CCOCCS",
+        "CCOc"
+      ],
+      [
+        "NCCCCCCN",
+        "CCOCCC"
+      ],
+      [
+        "NOCCC",
+        "OCC"
+      ],
+      [
+        "NOCCO",
+        "CCO"
+      ],
+      [
+        "SCCOCC",
+        "Sc"
+      ],
+      [
+        "CCOCCOCCOCCO",
+        "CCOCCO"
+      ],
+      [
+        "OCCOCCOCCO",
+        "CCOCCn"
+      ],
+      [
+        "O",
+        "CCOCCS"
+      ],
+      [
+        "S",
+        "CCON"
+      ],
+      [
+        "S",
+        "CCCCCCCNC"
+      ],
+      [
+        "CN",
+        "NS"
+      ],
+      [
+        "CCN",
+        "CCCCO"
+      ],
+      [
+        "CCN",
+        "CCCCn"
+      ],
+      [
+        "CCN",
+        "CCOCCNC"
+      ],
+      [
+        "CCN",
+        "CCCSc"
+      ],
+      [
+        "CO",
+        "CCCCCO"
+      ],
+      [
+        "CCO",
+        "B"
+      ],
+      [
+        "CCCC",
+        "CCOCCOC"
+      ],
+      [
+        "CCCC",
+        "CCSCCC"
+      ],
+      [
+        "CCCN",
+        "CCSCc"
+      ],
+      [
+        "CCCN",
+        "CCCCCF"
+      ],
+      [
+        "CCCCC",
+        "SCCN"
+      ],
+      [
+        "CCCCC",
+        "SCCc"
+      ],
+      [
+        "CS",
+        "CO"
+      ],
+      [
+        "CS",
+        "CS"
+      ],
+      [
+        "CS",
+        "CCCCO"
+      ],
+      [
+        "CCS",
+        "CCCF"
+      ],
+      [
+        "CCS",
+        "CCCCOC"
+      ],
+      [
+        "CCS",
+        "CCCCF"
+      ],
+      [
+        "CCCO",
+        "P"
+      ],
+      [
+        "-])",
+        "-"
+      ],
+      [
+        "CCCCN",
+        "CCOCCNC"
+      ],
+      [
+        "@@](",
+        "/"
+      ],
+      [
+        "COCCN",
+        "CCOc"
+      ],
+      [
+        "COCCN",
+        "CCNc"
+      ],
+      [
+        "CCCCO",
+        "n"
+      ],
+      [
+        "CCCS",
+        "CCCS"
+      ],
+      [
+        "COCCO",
+        "CCON"
+      ],
+      [
+        "COCCO",
+        "CCOCCOc"
+      ],
+      [
+        "NCCCN",
+        "CCCCCC"
+      ],
+      [
+        "(\\",
+        "["
+      ],
+      [
+        "NCCCC",
+        "CCCCCCCCN"
+      ],
+      [
+        "CCCOCC",
+        "S"
+      ],
+      [
+        "OCCCO",
+        "CCNC"
+      ],
+      [
+        "OCCCC",
+        "SC"
+      ],
+      [
+        "OCCCC",
+        "CCCCCCC"
+      ],
+      [
+        "OCCCC",
+        "CCCCCCN"
+      ],
+      [
+        "OCCCC",
+        "CCCCCCCC"
+      ],
+      [
+        "COCCCC",
+        "SC"
+      ],
+      [
+        "CSCCS",
+        "CCO"
+      ],
+      [
+        "CNCCCO",
+        "CCOCc"
+      ],
+      [
+        "CNCCCO",
+        "CCOCCO"
+      ],
+      [
+        "NOCC",
+        "SCc"
+      ],
+      [
+        "COCCS",
+        "CCN"
+      ],
+      [
+        "COCCS",
+        "CCCNC"
+      ],
+      [
+        "CCCCCCCC",
+        "CCNS"
+      ],
+      [
+        "CCCCCCCC",
+        "CCSc"
+      ],
+      [
+        "CCCCCCCC",
+        "CCNCc"
+      ],
+      [
+        "OCCS",
+        "CCCS"
+      ],
+      [
+        "CCCCCCCN",
+        "CCc"
+      ],
+      [
+        "OCCCS",
+        "CCNC"
+      ],
+      [
+        "OCCCS",
+        "CCOCC"
+      ],
+      [
+        "CCCCCCCCC",
+        "Sc"
+      ],
+      [
+        "-])=",
+        "["
+      ],
+      [
+        "CNCCOCCO",
+        "CCO"
+      ],
+      [
+        "CCCCCCCCCCCC",
+        "CCCCCCN"
+      ],
+      [
+        "CCCCCCS",
+        "CCc"
+      ],
+      [
+        "-",
+        "["
+      ],
+      [
+        "1",
+        "5"
+      ],
+      [
+        "5",
+        "13"
+      ],
+      [
+        "F",
+        "CCOC"
+      ],
+      [
+        "F",
+        "CCCCCSCc"
+      ],
+      [
+        "S",
+        "CCCCCCC"
+      ],
+      [
+        "S",
+        "CCCCNCc"
+      ],
+      [
+        "S",
+        "CCCCCSc"
+      ],
+      [
+        "NC",
+        "O"
+      ],
+      [
+        "CCN",
+        "OCC"
+      ],
+      [
+        "CCN",
+        "CCCCCC"
+      ],
+      [
+        "CCN",
+        "CCCCS"
+      ],
+      [
+        "CO",
+        "CCCCCONC"
+      ],
+      [
+        "CCCN",
+        "CCCCN"
+      ],
+      [
+        "CCCN",
+        "CCCn"
+      ],
+      [
+        "COC",
+        "S"
+      ],
+      [
+        "COC",
+        "OCc"
+      ],
+      [
+        "CCOC",
+        "OC"
+      ],
+      [
+        "CS",
+        "CCOCCC"
+      ],
+      [
+        "CS",
+        "CCCCSC"
+      ],
+      [
+        "OCC",
+        "CCON"
+      ],
+      [
+        "12",
+        "3"
+      ],
+      [
+        "CCS",
+        "COC"
+      ],
+      [
+        "CCS",
+        "CCCCCCN"
+      ],
+      [
+        "CCS",
+        "CCCCCF"
+      ],
+      [
+        "CCS",
+        "CCON"
+      ],
+      [
+        "CCS",
+        "CCSCCc"
+      ],
+      [
+        "CCCO",
+        "CCO"
+      ],
+      [
+        "CCCCN",
+        "CCOCCCC"
+      ],
+      [
+        "CCCCN",
+        "CCCCCOC"
+      ],
+      [
+        "@@](",
+        "["
+      ],
+      [
+        "COCC",
+        "CCOCc"
+      ],
+      [
+        "COCC",
+        "CCON"
+      ],
+      [
+        "CCCS",
+        "CCS"
+      ],
+      [
+        "CCCS",
+        "CCCNc"
+      ],
+      [
+        "COCCO",
+        "CCOCCOCCn"
+      ],
+      [
+        "OCCN",
+        "CCNc"
+      ],
+      [
+        "NO",
+        "CCCOCc"
+      ],
+      [
+        "NO",
+        "CCCCF"
+      ],
+      [
+        "OCCCO",
+        "n"
+      ],
+      [
+        "OCCCO",
+        "CCOCCOCCn"
+      ],
+      [
+        "NCCO",
+        "CCOCCn"
+      ],
+      [
+        "OCCCC",
+        "CCCCCCCCNC"
+      ],
+      [
+        "COCCCC",
+        "CCO"
+      ],
+      [
+        "COCCCC",
+        "CCCCCO"
+      ],
+      [
+        "CSCCN",
+        "CCC"
+      ],
+      [
+        "NNC",
+        "n"
+      ],
+      [
+        "CNCCO",
+        "B"
+      ],
+      [
+        "CNCCO",
+        "P"
+      ],
+      [
+        "CNCCO",
+        "CCNCc"
+      ],
+      [
+        "CCOCCCN",
+        "CCCN"
+      ],
+      [
+        "SCCN",
+        "CCc"
+      ],
+      [
+        "SCCS",
+        "CCCCC"
+      ],
+      [
+        "COCCCCC",
+        "OCc"
+      ],
+      [
+        "CNCCCC",
+        "CCCCCCCCO"
+      ],
+      [
+        "CNCCCO",
+        "CCOC"
+      ],
+      [
+        "CNCCCO",
+        "CCOCCOC"
+      ],
+      [
+        "NCCOCCN",
+        "CCCCCCNC"
+      ],
+      [
+        "COCCS",
+        "CCS"
+      ],
+      [
+        "CCCCCCCC",
+        "SC"
+      ],
+      [
+        "CCCCCCCC",
+        "CCNc"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCCCO"
+      ],
+      [
+        "OCCS",
+        "CCCN"
+      ],
+      [
+        "OCCS",
+        "CCCOC"
+      ],
+      [
+        "OCCS",
+        "CCNCc"
+      ],
+      [
+        "OCCS",
+        "CCSCc"
+      ],
+      [
+        "NCCCCCCN",
+        "CCOCCOC"
+      ],
+      [
+        "OCCCS",
+        "CCCC"
+      ],
+      [
+        "OCCCS",
+        "CCS"
+      ],
+      [
+        "COCCCS",
+        "CCC"
+      ],
+      [
+        "CCCCCCCCC",
+        "NCc"
+      ],
+      [
+        "CNCCOCCO",
+        "CCOCCO"
+      ],
+      [
+        "CNCCOCCO",
+        "CCOCCOCCOCCO"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOCCOCCOCCO"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOCCOCCNS"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOCCOCCOCCOC"
+      ],
+      [
+        "CCCCCCCCCCCC",
+        "CCCCOC"
+      ],
+      [
+        "CCOCCOCCOCCO",
+        "CCOCCC"
+      ],
+      [
+        "CCCCCCCCCCCCCCCC",
+        "CCCCCCC"
+      ],
+      [
+        "CCOCCCS",
+        "CCOc"
+      ],
+      [
+        "OCCOCCOCCO",
+        "CCOCCOCCN"
+      ],
+      [
+        "CCOCCOCCOCCOCCOCCOCCOCCO",
+        "CCOCCC"
+      ],
+      [
+        "51",
+        "6"
+      ],
+      [
+        "BB",
+        "BB"
+      ],
+      [
+        "CNCCCOCCOCCO",
+        "CCCN"
+      ],
+      [
+        "1",
+        "6"
+      ],
+      [
+        "7",
+        "8"
+      ],
+      [
+        "8",
+        "7"
+      ],
+      [
+        "F",
+        "CCCS"
+      ],
+      [
+        "F",
+        "CCCOc"
+      ],
+      [
+        "F",
+        "CCCCNC"
+      ],
+      [
+        "F",
+        "CCOCCNCC"
+      ],
+      [
+        "S",
+        "H"
+      ],
+      [
+        "S",
+        "CSCC"
+      ],
+      [
+        "S",
+        "CCCCCCCC"
+      ],
+      [
+        "S",
+        "CCOCCOCC"
+      ],
+      [
+        "s",
+        "snc"
+      ],
+      [
+        "CC",
+        "B"
+      ],
+      [
+        "CC",
+        "I"
+      ],
+      [
+        "NC",
+        "l"
+      ],
+      [
+        "CN",
+        "CCNCC"
+      ],
+      [
+        "CCN",
+        "P"
+      ],
+      [
+        "CCN",
+        "CCOCCCC"
+      ],
+      [
+        "CCCC",
+        "CCONC"
+      ],
+      [
+        "CCCC",
+        "CCCCOCCCNC"
+      ],
+      [
+        "nn",
+        "ncc"
+      ],
+      [
+        "COC",
+        "OCC"
+      ],
+      [
+        "CCOC",
+        "SC"
+      ],
+      [
+        "CCNC",
+        "N"
+      ],
+      [
+        "CCOCC",
+        "SCCN"
+      ],
+      [
+        "CS",
+        "COCC"
+      ],
+      [
+        "CS",
+        "CCOCCOC"
+      ],
+      [
+        "CS",
+        "CCOCCOc"
+      ],
+      [
+        "CS",
+        "CCCCSCC"
+      ],
+      [
+        "CS",
+        "CCCCCCc"
+      ],
+      [
+        "OCC",
+        "CCCNCC"
+      ],
+      [
+        "OCC",
+        "CCNCCN"
+      ],
+      [
+        "OCC",
+        "CCCNCCO"
+      ],
+      [
+        "CCS",
+        "CCCCN"
+      ],
+      [
+        "CCS",
+        "CCCOCC"
+      ],
+      [
+        "CCS",
+        "CCCNCC"
+      ],
+      [
+        "CCS",
+        "CCSCCC"
+      ],
+      [
+        "CCCO",
+        "CCNCC"
+      ],
+      [
+        "CCCO",
+        "CCNCCS"
+      ],
+      [
+        "CCCCN",
+        "CCOCCOc"
+      ],
+      [
+        "23",
+        "1"
+      ],
+      [
+        ")/",
+        "["
+      ],
+      [
+        "CCCCO",
+        "CCOCCOC"
+      ],
+      [
+        "OCCO",
+        "S"
+      ],
+      [
+        "CCCS",
+        "CCCC"
+      ],
+      [
+        "CCCS",
+        "CCCn"
+      ],
+      [
+        "CCCS",
+        "CCNCCC"
+      ],
+      [
+        "COCCO",
+        "CCOCCC"
+      ],
+      [
+        "COCCO",
+        "CCCOCc"
+      ],
+      [
+        "COCCO",
+        "CCONC"
+      ],
+      [
+        "NCCCN",
+        "CCCCCS"
+      ],
+      [
+        "OCCN",
+        "CCCc"
+      ],
+      [
+        "OCCN",
+        "CCNCc"
+      ],
+      [
+        "34",
+        "1"
+      ],
+      [
+        "NCCCC",
+        "CCCCCNC"
+      ],
+      [
+        "NCCCC",
+        "CCCNc"
+      ],
+      [
+        "NCCCC",
+        "CCCCCCNC"
+      ],
+      [
+        "NCCCC",
+        "CCCSc"
+      ],
+      [
+        "NO",
+        "CCCn"
+      ],
+      [
+        "NO",
+        "CCCCOC"
+      ],
+      [
+        "CCCCS",
+        "CCN"
+      ],
+      [
+        "CCCCS",
+        "CCOC"
+      ],
+      [
+        "CCCCS",
+        "CCn"
+      ],
+      [
+        "CCCCS",
+        "CCOc"
+      ],
+      [
+        "CCCCS",
+        "CCCc"
+      ],
+      [
+        "NCCO",
+        "CCOCCCC"
+      ],
+      [
+        "COCCCN",
+        "CCCOc"
+      ],
+      [
+        "NCCS",
+        "CCNC"
+      ],
+      [
+        "CNCCC",
+        "P"
+      ],
+      [
+        "CNCCN",
+        "CCO"
+      ],
+      [
+        "NCCCO",
+        "CCOCCCNC"
+      ],
+      [
+        "OCCCC",
+        "CCCCN"
+      ],
+      [
+        "OCCCC",
+        "CCCCCCNC"
+      ],
+      [
+        "OCCCC",
+        "CCCCCCCCCC"
+      ],
+      [
+        "OCCCC",
+        "CCCCCCCCN"
+      ],
+      [
+        "COCCCC",
+        "F"
+      ],
+      [
+        "COCCCC",
+        "P"
+      ],
+      [
+        "COCCCC",
+        "CCOc"
+      ],
+      [
+        "OCCCN",
+        "CCn"
+      ],
+      [
+        "CNCCO",
+        "N"
+      ],
+      [
+        "CCCCOCC",
+        "SC"
+      ],
+      [
+        "COCCCCC",
+        "SCCC"
+      ],
+      [
+        "CNCCCC",
+        "CCSC"
+      ],
+      [
+        "CNCCCC",
+        "CCCCCCC"
+      ],
+      [
+        "COCCOCCN",
+        "CCCN"
+      ],
+      [
+        "COCCS",
+        "CCOCC"
+      ],
+      [
+        "COCCS",
+        "CCCON"
+      ],
+      [
+        "CSCCCN",
+        "CCC"
+      ],
+      [
+        "CCCCCCCC",
+        "CCOCCO"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCCCN"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCSC"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCCCc"
+      ],
+      [
+        "OCCS",
+        "CCSC"
+      ],
+      [
+        "OCCS",
+        "CCCNc"
+      ],
+      [
+        "CCCCCS",
+        "CCOc"
+      ],
+      [
+        "CCCCCCCN",
+        "CCC"
+      ],
+      [
+        "CCCCCCCN",
+        "CCN"
+      ],
+      [
+        "CCOCCS",
+        "CCOC"
+      ],
+      [
+        "NCCCCCCN",
+        "CCCOCC"
+      ],
+      [
+        "NCCCCCCN",
+        "CCCCCn"
+      ],
+      [
+        "CCCCCCCCC",
+        "Nc"
+      ],
+      [
+        "CNCCOCCO",
+        "CCOC"
+      ],
+      [
+        "CNCCOCCO",
+        "CCOCCOCCNC"
+      ],
+      [
+        "SCCCC",
+        "CCS"
+      ],
+      [
+        "COCCOCCOCCO",
+        "CCOCC"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOCCOCCOCCNC"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOCCOCCOCCOCCNC"
+      ],
+      [
+        "COCCCCS",
+        "CCOc"
+      ],
+      [
+        "CCCCCCCCCCCC",
+        "CCCc"
+      ],
+      [
+        "CCCCCCCCCCCC",
+        "CCCCO"
+      ],
+      [
+        "NCCCCCCCC",
+        "CCCc"
+      ],
+      [
+        "CCOCCOCCOCCO",
+        "CCNS"
+      ],
+      [
+        "CCOCCOCCOCCO",
+        "CCOCCN"
+      ],
+      [
+        "CSCCCS",
+        "CCc"
+      ],
+      [
+        "CSCCCS",
+        "CCCCC"
+      ],
+      [
+        "CCCCCCCCO",
+        "P"
+      ],
+      [
+        "CCCCCCCCCCCCCCCC",
+        "CCc"
+      ],
+      [
+        "1",
+        "32"
+      ],
+      [
+        "1",
+        "43"
+      ],
+      [
+        "6",
+        "1"
+      ],
+      [
+        "6",
+        "2"
+      ],
+      [
+        "@",
+        "-]"
+      ],
+      [
+        "C",
+        "B"
+      ],
+      [
+        "C",
+        "I"
+      ],
+      [
+        "F",
+        "CCCOC"
+      ],
+      [
+        "F",
+        "CCCCCSC"
+      ],
+      [
+        "F",
+        "CCCCCSCC"
+      ],
+      [
+        "F",
+        "CCCSCCOc"
+      ],
+      [
+        "N",
+        "B"
+      ],
+      [
+        "N",
+        "NCCCC"
+      ],
+      [
+        "N",
+        "NCCCOC"
+      ],
+      [
+        "S",
+        "CCCCNC"
+      ],
+      [
+        "S",
+        "CCOCCS"
+      ],
+      [
+        "S",
+        "CCCCCCCCCCCC"
+      ],
+      [
+        "S",
+        "CCOCCOCCOCCOCCOCCOCCOCCO"
+      ],
+      [
+        "o",
+        "nnc"
+      ],
+      [
+        "CC",
+        "Br"
+      ],
+      [
+        "NC",
+        "NC"
+      ],
+      [
+        "NC",
+        "Nc"
+      ],
+      [
+        "NC",
+        "OCc"
+      ],
+      [
+        "OC",
+        "SCCN"
+      ],
+      [
+        "CCN",
+        "CCSCC"
+      ],
+      [
+        "CCN",
+        "CCCNCc"
+      ],
+      [
+        "CCN",
+        "CCCOCc"
+      ],
+      [
+        "CCN",
+        "CCOCCS"
+      ],
+      [
+        "CCN",
+        "CCSCCCO"
+      ],
+      [
+        "Cl",
+        "B"
+      ],
+      [
+        "Cl",
+        "Cc"
+      ],
+      [
+        "CCCC",
+        "CCOCCO"
+      ],
+      [
+        "CCCC",
+        "CCON"
+      ],
+      [
+        "CCCC",
+        "CCCCOCCNC"
+      ],
+      [
+        "CCCN",
+        "NC"
+      ],
+      [
+        "CCCN",
+        "CCCOCC"
+      ],
+      [
+        "CCCN",
+        "CCCCn"
+      ],
+      [
+        "CCCN",
+        "CCCCOc"
+      ],
+      [
+        "CCCN",
+        "CCCCCCN"
+      ],
+      [
+        "CCCN",
+        "CCCNc"
+      ],
+      [
+        "CCCN",
+        "CCOCCOC"
+      ],
+      [
+        "CCCN",
+        "CCCCCOc"
+      ],
+      [
+        "CCCN",
+        "CCCOCCNC"
+      ],
+      [
+        "COC",
+        "SC"
+      ],
+      [
+        "CCOC",
+        "OCC"
+      ],
+      [
+        "NCC",
+        "CCNCC"
+      ],
+      [
+        "21",
+        "3"
+      ],
+      [
+        "21",
+        "4"
+      ],
+      [
+        "CCOCC",
+        "CCO"
+      ],
+      [
+        "CCOCC",
+        "SCCc"
+      ],
+      [
+        "CS",
+        "N"
+      ],
+      [
+        "CS",
+        "CCCCCC"
+      ],
+      [
+        "CS",
+        "CSCC"
+      ],
+      [
+        "CS",
+        "CCCNCC"
+      ],
+      [
+        "CS",
+        "CCCCCO"
+      ],
+      [
+        "CS",
+        "CCCCCS"
+      ],
+      [
+        "OCC",
+        "CCOCC"
+      ],
+      [
+        "OCC",
+        "CCNCCC"
+      ],
+      [
+        "OCC",
+        "CCONC"
+      ],
+      [
+        "OCC",
+        "CCNCCO"
+      ],
+      [
+        "CCS",
+        "CS"
+      ],
+      [
+        "CCS",
+        "CSC"
+      ],
+      [
+        "CCS",
+        "CCCCS"
+      ],
+      [
+        "CCS",
+        "CCCSC"
+      ],
+      [
+        "CCS",
+        "CCCCCCNC"
+      ],
+      [
+        "CCS",
+        "CCSCCn"
+      ],
+      [
+        "CCS",
+        "CCONC"
+      ],
+      [
+        "CCS",
+        "CCSCCN"
+      ],
+      [
+        "CCS",
+        "CCCNCCC"
+      ],
+      [
+        "CCCO",
+        "CCCO"
+      ],
+      [
+        "CCCO",
+        "CCNCCC"
+      ],
+      [
+        "CCCO",
+        "CCOCCOCCOC"
+      ],
+      [
+        "NS",
+        "N"
+      ],
+      [
+        "CCCCN",
+        "CCCn"
+      ],
+      [
+        "CCCCN",
+        "CCNc"
+      ],
+      [
+        "COCC",
+        "P"
+      ],
+      [
+        "COCC",
+        "CCONC"
+      ],
+      [
+        "NCCC",
+        "SCCN"
+      ],
+      [
+        "COCCN",
+        "CCS"
+      ],
+      [
+        "COCCN",
+        "CCCc"
+      ],
+      [
+        "CCCCO",
+        "CCOCCOCCOC"
+      ],
+      [
+        "CCCCO",
+        "CCOCCOCCS"
+      ],
+      [
+        "OCCO",
+        "CCc"
+      ],
+      [
+        "OCCO",
+        "CCCOC"
+      ],
+      [
+        "OCCO",
+        "CCNCCN"
+      ],
+      [
+        "OCCO",
+        "CCOCCOCC"
+      ],
+      [
+        "OCCO",
+        "CCNCCO"
+      ],
+      [
+        "CCCS",
+        "CCO"
+      ],
+      [
+        "CCCS",
+        "COC"
+      ],
+      [
+        "CCCS",
+        "CCCCCF"
+      ],
+      [
+        "COCCO",
+        "NCCC"
+      ],
+      [
+        "COCCO",
+        "CCCNCC"
+      ],
+      [
+        "COCCO",
+        "CCOCCCn"
+      ],
+      [
+        "COCCO",
+        "CCOCCOCc"
+      ],
+      [
+        "COCCO",
+        "CCOCCSc"
+      ],
+      [
+        "OCCN",
+        "CCOc"
+      ],
+      [
+        "CSCC",
+        "CCCNCCC"
+      ],
+      [
+        "CCSCC",
+        "CCOc"
+      ],
+      [
+        "NCCCC",
+        "l"
+      ],
+      [
+        "NCCCC",
+        "CCCCCC"
+      ],
+      [
+        "NCCCC",
+        "CCSCCn"
+      ],
+      [
+        "NCCCC",
+        "CCCCCCCNC"
+      ],
+      [
+        "NO",
+        "S"
+      ],
+      [
+        "NO",
+        "CCCCc"
+      ],
+      [
+        "NO",
+        "CCCCS"
+      ],
+      [
+        "NO",
+        "CCCNCC"
+      ],
+      [
+        "NO",
+        "CCCOCCc"
+      ],
+      [
+        "NO",
+        "CCCON"
+      ],
+      [
+        "CCOCCN",
+        "CCS"
+      ],
+      [
+        "NCCO",
+        "CCCCCCCC"
+      ],
+      [
+        "NCCS",
+        "CCc"
+      ],
+      [
+        "NCCS",
+        "CCOCC"
+      ],
+      [
+        "NCCS",
+        "CCCc"
+      ],
+      [
+        "NCCS",
+        "CCCOc"
+      ],
+      [
+        "CNCCN",
+        "CCC"
+      ],
+      [
+        "CNCCN",
+        "CCN"
+      ],
+      [
+        "CCOCCO",
+        "CCc"
+      ],
+      [
+        "CCOCCO",
+        "CCCCCCCC"
+      ],
+      [
+        "CCOCCO",
+        "CCOCCOCCOC"
+      ],
+      [
+        "NCCCO",
+        "CCC"
+      ],
+      [
+        "OCCCC",
+        "CCS"
+      ],
+      [
+        "OCCCC",
+        "CCCCOC"
+      ],
+      [
+        "OCCCC",
+        "CCNCCO"
+      ],
+      [
+        "NCCOCC",
+        "Sc"
+      ],
+      [
+        "CSCCN",
+        "CCc"
+      ],
+      [
+        "CCCCOC",
+        "N"
+      ],
+      [
+        "CCCCCCN",
+        "CCCN"
+      ],
+      [
+        "NCCCCN",
+        "CCC"
+      ],
+      [
+        "SCCN",
+        "CCN"
+      ],
+      [
+        "SCCS",
+        "CCC"
+      ],
+      [
+        "SCCS",
+        "CCc"
+      ],
+      [
+        "COCCOCC",
+        "SCCC"
+      ],
+      [
+        "COCCOCC",
+        "SCCOc"
+      ],
+      [
+        "COCCCCC",
+        "SC"
+      ],
+      [
+        "COCCCCC",
+        "SCCn"
+      ],
+      [
+        "COCCCCC",
+        "SCCOc"
+      ],
+      [
+        "CNCCCC",
+        "SC"
+      ],
+      [
+        "NCCCS",
+        "CCOCC"
+      ],
+      [
+        "NCCCS",
+        "CCCOc"
+      ],
+      [
+        "NCCOCCN",
+        "c"
+      ],
+      [
+        "COCCS",
+        "CCOc"
+      ],
+      [
+        "COCCS",
+        "CCCO"
+      ],
+      [
+        "COCCS",
+        "CCCc"
+      ],
+      [
+        "COCCS",
+        "CCCONC"
+      ],
+      [
+        "CSCCCN",
+        "CCc"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCO"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCCc"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCNc"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCCOC"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCSc"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCCCCOC"
+      ],
+      [
+        "CCCCCCCC",
+        "CCCCOP"
+      ],
+      [
+        "OCCS",
+        "CCCCC"
+      ],
+      [
+        "OCCS",
+        "CCCO"
+      ],
+      [
+        "OCCS",
+        "CCCCN"
+      ],
+      [
+        "OCCS",
+        "CCOCc"
+      ],
+      [
+        "OCCS",
+        "CCSc"
+      ],
+      [
+        "OCCS",
+        "CCNc"
+      ],
+      [
+        "OCCS",
+        "CCCCc"
+      ],
+      [
+        "COCCCCCN",
+        "CCN"
+      ],
+      [
+        "CCCCCS",
+        "CCOC"
+      ],
+      [
+        "CCCCCS",
+        "CCCCC"
+      ],
+      [
+        "CCCCCS",
+        "CCCOc"
+      ],
+      [
+        "CCCCCCCN",
+        "CCO"
+      ],
+      [
+        "CCCCCCCN",
+        "CCCc"
+      ],
+      [
+        "CCNCCN",
+        "CCc"
+      ],
+      [
+        "CCOCCS",
+        "CCOCC"
+      ],
+      [
+        "CCOCCOCC",
+        "SC"
+      ],
+      [
+        "CCOCCOCC",
+        "SCCC"
+      ],
+      [
+        "NCCCCCCN",
+        "CCCCCC"
+      ],
+      [
+        "NCCCCCCN",
+        "CCOCc"
+      ],
+      [
+        "OCCCS",
+        "CCO"
+      ],
+      [
+        "OCCCS",
+        "CCCc"
+      ],
+      [
+        "OCCCS",
+        "CCCS"
+      ],
+      [
+        "COCCCS",
+        "CCc"
+      ],
+      [
+        "COCCCS",
+        "CCCc"
+      ],
+      [
+        "COCCCS",
+        "CCCOc"
+      ],
+      [
+        "CCOCCCO",
+        "N"
+      ],
+      [
+        "CCSCCN",
+        "CCS"
+      ],
+      [
+        "CCSCCN",
+        "CCCc"
+      ],
+      [
+        "+](",
+        "\\"
+      ],
+      [
+        "CCCCCCCCC",
+        "OCC"
+      ],
+      [
+        "CNCCOCCO",
+        "CCOCc"
+      ],
+      [
+        "CNCCOCCO",
+        "CCOCCN"
+      ],
+      [
+        "CNCCOCCO",
+        "CCOCCOCCN"
+      ],
+      [
+        "CNCCOCCO",
+        "CCOCCOCCOCCN"
+      ],
+      [
+        "CNCCOCCO",
+        "CCOCCOCCC"
+      ],
+      [
+        "SCCCC",
+        "CCCCCCC"
+      ],
+      [
+        "CCCCCCCCCC",
+        "P"
+      ],
+      [
+        "COCCOCCOCCO",
+        "CCOCCOCCOCCO"
+      ],
+      [
+        "COCCOCCOCCO",
+        "CCOCCOCCOCCOCCOCCOCCOCCO"
+      ],
+      [
+        "COCCOCCOCCO",
+        "CCOCCOCCOCCNS"
+      ],
+      [
+        "CNCCCS",
+        "Cc"
+      ],
+      [
+        "CSCCO",
+        "NCCC"
+      ],
+      [
+        "NOCCO",
+        "CCOC"
+      ],
+      [
+        "CCNCCOCC",
+        "F"
+      ],
+      [
+        "CSCCCC",
+        "CCCO"
+      ],
+      [
+        "NCCOCCOCCO",
+        "CCOCCOCCOCCOCCOCCOCCOCCOCCOCCC"
+      ],
+      [
+        "COCCCCS",
+        "CCCS"
+      ],
+      [
+        "COCCCCS",
+        "CCCOc"
+      ],
+      [
+        "CCCCCCCCCCCC",
+        "CCCCn"
+      ],
+      [
+        "CCCCCCCCCCCC",
+        "CCCCc"
+      ],
+      [
+        "CCCCCCCCCCCC",
+        "CCCCS"
+      ],
+      [
+        "CCCCCCCCCCCC",
+        "CCCCCO"
+      ],
+      [
+        "CCCCCCCCCCC",
+        "Nc"
+      ],
+      [
+        "CCOCCOCCO",
+        "CCOCCn"
+      ],
+      [
+        "CCOCCOCCO",
+        "CCOCCS"
+      ],
+      [
+        "CSCCCS",
+        "CCOC"
+      ],
+      [
+        "CSCCCS",
+        "CCOc"
+      ],
+      [
+        "CCCCCCCCO",
+        "NC"
+      ],
+      [
+        "CCSCCS",
+        "CCO"
+      ],
+      [
+        "CCCCCCCCCCCCCCCC",
+        "CCCCC"
+      ],
+      [
+        "CCCCCCCCCCCCCCCC",
+        "SC"
+      ],
+      [
+        "CCCCCCCCCCCCCCCC",
+        "Sc"
+      ],
+      [
+        "CCCCCCCCCCCCCCCC",
+        "CCNS"
+      ],
+      [
+        "CCCCCCCCCCCCCCCC",
+        "CCNc"
+      ],
+      [
+        "CCCCCCCCCCCCCCCC",
+        "CCCCCCCC"
+      ],
+      [
+        "CCCCCCCCCCCCCCCC",
+        "CCCCCCCCCCCCCCCC"
+      ],
+      [
+        "CCOCCCS",
+        "CCCn"
+      ],
+      [
+        "OCCOCCOCCO",
+        "CCOc"
+      ],
+      [
+        "OCCOCCOCCO",
+        "CCCCCC"
+      ],
+      [
+        "CCOCCOCCOCCOCCOCCOCCOCCO",
+        "CCOCCOCCOCCO"
+      ]
+    ]
+  }
+}

@@ -1,10 +1,12 @@
 {
-  "conformal_quantile_80": 1.4575691800841781,
-  "conformal_quantile_90": 2.7130513198941344,
-  "conformal_quantile_95": 5.966063120265503,
-  "domain_threshold": 0.43807017543859644,
-  "n_calibration_samples": 701,
-  "empirical_coverage_90": 0.9001426533523538,
-  "residual_mean": 1.4417348312942666,
-  "residual_std": 2.927600414962769
+  "cv_mae_mean": 1.6337140354944477,
+  "cv_mae_std": 0.15220770403366082,
+  "holdout_mae": 1.667512165935153,
+  "holdout_rmse": 3.624478262082266,
+  "holdout_r2": 0.9552143326215825,
+  "conformal_quantile_80": 2.2472367176184207,
+  "conformal_quantile_90": 3.5672745240992754,
+  "conformal_quantile_95": 5.445353116612452,
+  "empirical_coverage_90": 0.9000138102472034,
+  "n_calibration_samples": 7241
 }

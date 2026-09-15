@@ -1,0 +1,23 @@
+{
+  "target": "logKow",
+  "hyperparameters": {
+    "alpha": 0.014324102307975872,
+    "l1_ratio": 0.07930003146130517,
+    "tol": 3.428032442403547e-05
+  },
+  "confidence": {
+    "conformal_quantile_80": 0.3202805757777869,
+    "conformal_quantile_90": 0.4177936721734835,
+    "conformal_quantile_95": 0.5883104065510986,
+    "domain_threshold": 0.3757894736842105,
+    "domain_threshold_percentile": 10,
+    "domain_threshold_method": "leave-one-out mean top-5 Tanimoto similarity within training set"
+  },
+  "training_info": {
+    "n_dev_samples": 177,
+    "n_unique_groups": 177,
+    "cv_splits": 5,
+    "feature_type": "Parent Morgan fingerprint + categorical flags"
+  },
+  "date_trained": "2026-09-06"
+}

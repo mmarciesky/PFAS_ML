@@ -12,26 +12,18 @@
     "reg_lambda": 0.5146283627018824
   },
   "confidence": {
-    "conformal_quantile_80": 0.45871917975530785,
-    "conformal_quantile_90": 0.8233607538286603,
-    "conformal_quantile_95": 1.4015437318324349,
-    "domain_threshold": 0.37955490196078434,
+    "conformal_quantile_80": 0.6193227494454057,
+    "conformal_quantile_90": 1.0208484466514616,
+    "conformal_quantile_95": 1.450712603618087,
+    "domain_threshold": 0.5530916149790923,
     "domain_threshold_percentile": 10,
     "domain_threshold_method": "leave-one-out mean top-5 Tanimoto similarity within training set"
   },
   "training_info": {
-    "n_dev_samples": 32,
-    "n_unique_groups": 32,
+    "n_dev_samples": 506,
+    "n_unique_groups": 253,
     "cv_splits": 5,
     "feature_type": "Parent Morgan fingerprint + categorical flags"
   },
-  "date_trained": "2026-08-15",
-  "performance": {
-    "cv_mae": 0.30294340114136464,
-    "cv_mae_std": 0.1637335737479857,
-    "cv_rmse": 0.4661246830651325,
-    "cv_rmse_std": 0.2628861461552436,
-    "cv_r2": 0.012599693596461759,
-    "cv_r2_std": 1.0422467214473308
-  }
+  "date_trained": "2026-09-07"
 }

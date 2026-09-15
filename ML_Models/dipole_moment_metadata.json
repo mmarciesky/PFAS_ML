@@ -1,0 +1,29 @@
+{
+  "target": "dipole_moment_debye",
+  "hyperparameters": {
+    "n_estimators": 624,
+    "max_depth": 9,
+    "learning_rate": 0.10476479898789923,
+    "subsample": 0.8815627349783595,
+    "colsample_bytree": 0.9055712162746893,
+    "min_child_weight": 2,
+    "gamma": 0.051318258342892116,
+    "reg_alpha": 0.0353504691346666,
+    "reg_lambda": 13.344046086770804
+  },
+  "confidence": {
+    "conformal_quantile_80": 1.704288754682032,
+    "conformal_quantile_90": 2.9462658714915557,
+    "conformal_quantile_95": 4.352899724935374,
+    "domain_threshold": 0.6521463127515759,
+    "domain_threshold_percentile": 10,
+    "domain_threshold_method": "leave-one-out mean top-5 Tanimoto similarity within training set"
+  },
+  "training_info": {
+    "n_dev_samples": 8482,
+    "n_unique_groups": 3899,
+    "cv_splits": 5,
+    "feature_type": "Parent Morgan fingerprint + categorical flags"
+  },
+  "date_trained": "2026-09-07"
+}

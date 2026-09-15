@@ -1,0 +1,29 @@
+{
+  "target": "homo_lumo_gap_eV",
+  "hyperparameters": {
+    "n_estimators": 694,
+    "max_depth": 6,
+    "learning_rate": 0.11686817616333657,
+    "subsample": 0.9025756182273377,
+    "colsample_bytree": 0.8966386820017627,
+    "min_child_weight": 7,
+    "gamma": 0.0014455393516885004,
+    "reg_alpha": 0.07471642258930669,
+    "reg_lambda": 16.902504485488535
+  },
+  "confidence": {
+    "conformal_quantile_80": 0.40671836391340943,
+    "conformal_quantile_90": 0.6543170400031552,
+    "conformal_quantile_95": 1.0062893594080302,
+    "domain_threshold": 0.5525152337780335,
+    "domain_threshold_percentile": 10,
+    "domain_threshold_method": "leave-one-out mean top-5 Tanimoto similarity within training set"
+  },
+  "training_info": {
+    "n_dev_samples": 2064,
+    "n_unique_groups": 901,
+    "cv_splits": 5,
+    "feature_type": "Parent Morgan fingerprint + categorical flags"
+  },
+  "date_trained": "2026-09-07"
+}

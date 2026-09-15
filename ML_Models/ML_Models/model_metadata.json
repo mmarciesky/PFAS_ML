@@ -1,0 +1,55 @@
+{
+  "model": "XGBoost (Optuna-tuned)",
+  "hyperparameters": {
+    "n_estimators": 1059,
+    "max_depth": 10,
+    "learning_rate": 0.08068889439340855,
+    "subsample": 0.82491143119189,
+    "colsample_bytree": 0.713735002599002,
+    "min_child_weight": 4,
+    "gamma": 0.4223644809753748,
+    "reg_alpha": 1.3602172717677172,
+    "reg_lambda": 2.1365773939778987
+  },
+  "confidence": {
+    "conformal_quantile_80": 1.6950781327948223,
+    "conformal_quantile_90": 2.8813614646899612,
+    "conformal_quantile_95": 4.68600076944966,
+    "empirical_coverage_90": 0.8999214299744648,
+    "n_calibration_samples": 10182,
+    "domain_threshold": 0.7041959164902127,
+    "domain_threshold_method": "leave-one-out mean top-5 Tanimoto similarity within training set"
+  },
+  "performance": {
+    "cv_mae": 1.3303836161282043,
+    "cv_mae_std": 0.06619871846409016,
+    "cv_rmse": 2.8018505921610943,
+    "cv_rmse_std": 0.6234252301547669,
+    "cv_r2": 0.9691302150522654,
+    "cv_r2_std": 0.014185909377188598,
+    "holdout_mae": 1.13066427258099,
+    "holdout_rmse": 2.2275560302062414,
+    "holdout_r2": 0.9819285364702258,
+    "baseline_cv_mae": 1.64508886330905
+  },
+  "training_info": {
+    "n_dev_samples": 10182,
+    "n_holdout_samples": 1584,
+    "n_features": 6147,
+    "n_dev_parents": 522,
+    "feature_type": "Parent + fragment fingerprints + solvent one-hot",
+    "fp_radius": 2,
+    "fp_bits": 2048,
+    "solvent_options": [
+      "DMSO",
+      "Gas",
+      "Water"
+    ],
+    "target": "BDE_wB97X-V",
+    "units": "kcal/mol",
+    "cv_strategy": "5-fold GroupKFold grouped by Parent_SMILES",
+    "holdout_strategy": "Parent_SMILES-level holdout, 15%",
+    "n_optuna_trials": 60
+  },
+  "date_trained": "2026-09-07"
+}
